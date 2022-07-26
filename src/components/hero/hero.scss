@@ -32,13 +32,14 @@
     color: #fff;
     font-weight: 400;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0.5rem;
 
     &--summer {
       @extend .hero__heading;
+      font-size: u.rem(28);
 
       span {
-        font-size: u.rem(96);
+        font-size: u.rem(86);
         font-weight: 900;
         display: flex;
         justify-content: center;

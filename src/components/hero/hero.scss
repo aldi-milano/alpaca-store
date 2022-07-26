@@ -1,0 +1,100 @@
+@use '../../scss/utility' as u;
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__summer {
+    @extend .hero;
+    background: radial-gradient(#fffbcc, #fff9b6);
+  }
+
+  &__kids {
+    @extend .hero;
+    // background: radial-gradient(#f58787, #b22727);
+    background: radial-gradient(#c96868, #b22727);
+  }
+
+  &__casual {
+    @extend .hero;
+    background: radial-gradient(#e0e8e7, #d3dedc);
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: u.rem(32);
+    letter-spacing: 3px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    padding: 1rem 0;
+
+    &--summer {
+      @extend .hero__heading;
+
+      span {
+        font-size: u.rem(96);
+        font-weight: 900;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    &--kids {
+      @extend .hero__heading;
+      font-size: u.rem(32);
+    }
+
+    &--casual {
+      @extend .hero__heading;
+      font-size: u.rem(32);
+    }
+  }
+
+  &__img {
+    height: 100%;
+
+    &--summer {
+      @extend .hero__img;
+    }
+
+    &--kids {
+      @extend .hero__img;
+    }
+    &--casual {
+      @extend .hero__img;
+    }
+  }
+}
+
+.overlay {
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &--summer {
+    @extend .overlay;
+    background-color: rgba(255, 146, 146, 0.3);
+    z-index: 2;
+  }
+
+  &--kids {
+    @extend .overlay;
+    background-color: rgba(0, 110, 127, 0.3);
+  }
+
+  &--casual {
+    @extend .overlay;
+    background-color: rgba(124, 153, 172, 0.3);
+  }
+}

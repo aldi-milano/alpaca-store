@@ -14,7 +14,7 @@
     background: radial-gradient(#fffbcc, #fff9b6);
   }
 
-  &__kids {
+  &__best {
     @extend .hero;
     // background: radial-gradient(#f58787, #b22727);
     background: radial-gradient(#c96868, #b22727);
@@ -48,9 +48,15 @@
       }
     }
 
-    &--kids {
+    &--best {
       @extend .hero__heading;
-      font-size: u.rem(32);
+      font-size: u.rem(52);
+      font-weight: 900;
+
+      span {
+        font-size: u.rem(24);
+        font-weight: 400;
+      }
     }
 
     &--casual {
@@ -66,7 +72,7 @@
       @extend .hero__img;
     }
 
-    &--kids {
+    &--best {
       @extend .hero__img;
     }
     &--casual {
@@ -89,9 +95,12 @@
     z-index: 2;
   }
 
-  &--kids {
+  &--best {
     @extend .overlay;
-    background-color: rgba(0, 110, 127, 0.3);
+    background-color: rgba(240, 212, 212, 0.3);
+    top: 0;
+    left: 0;
+    transform: translate(0, 50%);
   }
 
   &--casual {

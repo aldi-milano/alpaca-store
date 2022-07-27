@@ -51,14 +51,16 @@
     &--best {
       @extend .hero__heading;
       font-size: u.rem(52);
-      font-weight: 400;
+      font-weight: 500;
       font-family: u.$heading-font;
       letter-spacing: -1px;
 
-      span {
+      p {
+        margin-top: u.rem(16);
         font-size: u.rem(24);
         font-weight: 400;
         letter-spacing: 5px;
+        line-height: 1;
       }
     }
 

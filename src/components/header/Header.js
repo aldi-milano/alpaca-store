@@ -1,19 +1,28 @@
 import React from 'react';
-import logo from '../../assets/logo/alpaca-logo.png';
-import { IoCartOutline, IoHeartOutline, IoMenuOutline } from 'react-icons/io5';
+import Menu from './icon/Menu';
+import Cart from './icon/Cart';
+import Wishlist from './icon/Wishlist';
+import Search from './icon/Search';
+import Profile from './icon/Profile';
+
+import logo from '../../assets/logo/alpaca-logo-white.png';
 import './header.scss';
+
+// className='header__icon'
 
 function Header() {
   return (
     <>
       <header className='header'>
-        <IoMenuOutline className='header__icon' />
-        <a href='#'>
-          <img src={logo} alt='logo alpaca' className='header__logo' />
-        </a>
         <div className='header__icon-container'>
-          <IoHeartOutline className='header__icon' />
-          <IoCartOutline className='header__icon' />
+          <Menu />
+          <Search />
+        </div>
+        <img src={logo} alt='logo alpaca' className='header__logo' />
+        <div className='header__icon-container'>
+          <Wishlist />
+          <Cart />
+          <Profile />
         </div>
       </header>
     </>

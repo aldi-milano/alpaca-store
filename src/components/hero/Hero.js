@@ -60,7 +60,8 @@ function Hero() {
               <section className='hero__best'>
                 <div className='overlay--best'>
                   <h1 className='hero__heading--best'>
-                    hot item <span>weekly collection</span>
+                    hot item
+                    <p>women's weekly collection</p>
                   </h1>
                 </div>
                 <img

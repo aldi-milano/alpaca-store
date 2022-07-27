@@ -15,11 +15,10 @@ function Hero() {
     <>
       <article>
         <Swiper
-          // slidesPerView={1}
-          // modules={[Autoplay, EffectFade]}
-          // autoplay={{ delay: 5000, disableOnInteraction: false }}
-          // effect={'fade'}
-          autoplay={false}
+          slidesPerView={1}
+          modules={[Autoplay, EffectFade]}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          effect={'fade'}
         >
           <SwiperSlide>
             <article>

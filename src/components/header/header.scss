@@ -1,0 +1,28 @@
+@use '../../scss/utility' as u;
+
+.header {
+  height: u.rem(50);
+  padding: 0.5rem 1rem;
+  border-bottom: solid 1px rgba(0, 0, 0);
+  position: relative;
+  @include u.flex(space-between);
+
+  &__logo {
+    width: u.rem(70);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    cursor: pointer;
+  }
+  &__icon {
+    font-size: u.rem(24);
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  &__icon-container {
+    @include u.flex;
+    gap: u.rem(10);
+  }
+}

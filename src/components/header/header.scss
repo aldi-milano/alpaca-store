@@ -20,13 +20,12 @@
 
   &__icon-container {
     @include u.flex;
-    gap: u.rem(10);
 
     input {
       background-color: #000;
       color: #fff;
       border: none;
-      font-size: u.rem(16);
+      font-size: u.rem(14);
       width: 0;
       transition: all 0.5s ease-in-out;
       // padding: 4px 0;
@@ -39,10 +38,12 @@
     &--search {
       @extend .header__icon-container;
       @include u.flex(flex-end, center);
-      padding-bottom: 4px;
+      gap: u.rem(10);
+
       input {
         display: block;
         width: 70%;
+        padding-bottom: 2px;
         border-bottom: 1px solid white;
         // padding: 0 4px;
       }

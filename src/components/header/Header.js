@@ -12,7 +12,7 @@ function Header() {
     <>
       <header>
         <nav className='header'>
-          <div className='header__icon-container'>
+          <div className='header__icon-container' style={{ gap: '1rem' }}>
             <Menu />
             <img src={logo} alt='logo alpaca' className='header__logo' />
           </div>

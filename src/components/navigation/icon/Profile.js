@@ -5,7 +5,7 @@ import { IoPersonOutline } from 'react-icons/io5';
 function Profile() {
   return (
     <div>
-      <IoPersonOutline className='header__icon' />
+      <IoPersonOutline className='nav__icon' />
     </div>
   );
 }

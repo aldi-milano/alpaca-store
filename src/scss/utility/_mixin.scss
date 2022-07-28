@@ -1,5 +1,13 @@
+@use './function' as f;
+
 @mixin flex($jus: center, $alg: center) {
   display: flex;
   justify-content: $jus;
   align-items: $alg;
+}
+
+@mixin icon() {
+  font-size: f.rem(22);
+  cursor: pointer;
+  color: #fff;
 }

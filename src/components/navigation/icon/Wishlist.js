@@ -4,7 +4,7 @@ import { IoHeartOutline } from 'react-icons/io5';
 function Wishlist() {
   return (
     <div>
-      <IoHeartOutline className='header__icon' />
+      <IoHeartOutline className='nav__icon' />
     </div>
   );
 }

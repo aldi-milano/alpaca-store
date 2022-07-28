@@ -5,7 +5,7 @@ import { IoCartOutline } from 'react-icons/io5';
 function Cart() {
   return (
     <div>
-      <IoCartOutline className='header__icon' />
+      <IoCartOutline className='nav__icon' />
     </div>
   );
 }

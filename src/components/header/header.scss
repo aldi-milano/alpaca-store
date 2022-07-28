@@ -12,10 +12,7 @@
     cursor: pointer;
   }
   &__icon {
-    font-size: u.rem(22);
-    font-weight: 400;
-    cursor: pointer;
-    color: #fff;
+    @include u.icon;
   }
 
   &__icon-container {

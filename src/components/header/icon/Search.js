@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
 
 function Search() {
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(true);
+
   function clickSearchIcon() {
     setActive(!isActive);
   }

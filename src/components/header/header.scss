@@ -2,21 +2,17 @@
 
 .header {
   height: u.rem(50);
-  padding: 0.5rem 1rem;
-  position: relative;
+  padding: 0 1rem;
   background-color: #000;
   @include u.flex(space-between);
+  gap: u.rem(16);
 
   &__logo {
-    width: u.rem(65);
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -5%);
+    width: u.rem(110);
     cursor: pointer;
   }
   &__icon {
-    font-size: u.rem(27.5);
+    font-size: u.rem(22);
     font-weight: 400;
     cursor: pointer;
     color: #fff;
@@ -25,5 +21,31 @@
   &__icon-container {
     @include u.flex;
     gap: u.rem(10);
+
+    input {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      font-size: u.rem(16);
+      width: 0;
+      transition: all 0.5s;
+      // padding: 4px 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--search {
+      @extend .header__icon-container;
+      @include u.flex(flex-end, center);
+      padding-bottom: 4px;
+      input {
+        display: block;
+        width: 70%;
+        border-bottom: 1px solid white;
+        // padding: 0 4px;
+      }
+    }
   }
 }

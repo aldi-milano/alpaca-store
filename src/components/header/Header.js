@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from './icon/Menu';
 import Search from './icon/Search';
 
-import logo from '../../assets/logo/alpaca-white.png';
+import logo from '../../assets/logo/alpaca-black.png';
 import './header.scss';
 
 // className='header__icon'

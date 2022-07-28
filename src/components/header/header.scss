@@ -3,9 +3,10 @@
 .header {
   height: u.rem(50);
   padding: 0 1rem;
-  background-color: #000;
+  background-color: #fff;
   @include u.flex(space-between);
   gap: u.rem(16);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px 0px;
 
   &__logo {
     width: u.rem(110);
@@ -19,30 +20,35 @@
     @include u.flex;
 
     input {
-      background-color: #000;
-      color: #fff;
       border: none;
-      font-size: u.rem(14);
       width: 0;
-      transition: all 0.5s ease-in-out;
-      // padding: 4px 0;
-
-      &:focus {
-        outline: none;
-      }
+      transition: all 0.5s linear;
     }
 
-    &--search {
+    &--active {
       @extend .header__icon-container;
       @include u.flex(flex-end, center);
       gap: u.rem(10);
+      // border-bottom: 1px solid black;
+      margin-left: 2rem;
 
       input {
         display: block;
-        width: 70%;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        font-size: u.rem(14);
+        width: 100%;
         padding-bottom: 2px;
-        border-bottom: 1px solid white;
-        // padding: 0 4px;
+        border-bottom: 1px solid #000;
+
+        &::placeholder {
+          color: rgba(51, 51, 51, 0.3);
+        }
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }

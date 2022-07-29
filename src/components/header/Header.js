@@ -7,7 +7,7 @@ import './header.scss';
 
 // className='header__icon'
 
-function Header() {
+function Header({ keyword }) {
   return (
     <>
       <header>
@@ -16,7 +16,7 @@ function Header() {
             <Menu />
             <img src={logo} alt='logo alpaca' className='header__logo' />
           </div>
-          <Search />
+          <Search keyword={keyword} />
         </nav>
       </header>
     </>

@@ -1,0 +1,11 @@
+@use '../../scss/utility' as u;
+
+.result {
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: u.rem(16);
+  align-items: start;
+  grid-auto-flow: row dense;
+}

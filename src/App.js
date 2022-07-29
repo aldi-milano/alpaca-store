@@ -17,7 +17,6 @@ function App() {
       const res = await fetch('https://fakestoreapi.com/products');
       const data = await res.json();
       setState({ ...state, products: data });
-      console.log(data);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

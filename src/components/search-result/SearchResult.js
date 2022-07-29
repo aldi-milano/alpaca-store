@@ -11,8 +11,8 @@ function SearchResult({ products, keyword }) {
           .filter(product =>
             product.title.toLowerCase().includes(keyword.toLowerCase())
           )
-          .map(({ title, image, price }) => (
-            <Card title={title} img={image} price={price} />
+          .map(({ title, image, price, id }) => (
+            <Card title={title} img={image} price={price} key={id} />
           ))}
       </div>
     );

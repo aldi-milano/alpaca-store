@@ -29,8 +29,8 @@ function App() {
   return (
     <main>
       <Header keyword={onHandleKeyword} />
-      {/* <Hero /> */}
-      {/* <Navigation /> */}
+      <Hero />
+      <Navigation />
       <SearchResult products={state.products} keyword={state.keyword} />
     </main>
   );

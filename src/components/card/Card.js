@@ -8,10 +8,17 @@ function SearchItem({ title, price, img }) {
   const heightRef = useRef();
 
   useEffect(() => {
-    const height = heightRef.current.clientHeight;
-    const span = Math.ceil(height / 10);
-    setSpans(span);
+    setTimeout(() => {
+      heightRef.current.addEventListener('load', getSpans());
+    }, 100);
   }, []);
+
+  function getSpans() {
+    const height = heightRef.current.clientHeight;
+    const spans = Math.ceil(height / 10);
+    console.log(height);
+    setSpans(spans);
+  }
 
   return (
     <div

@@ -10,7 +10,7 @@ function SearchItem({ title, price, img }) {
   useEffect(() => {
     setTimeout(() => {
       heightRef.current.addEventListener('load', getSpans());
-    }, 100);
+    }, 300);
   }, []);
 
   function getSpans() {

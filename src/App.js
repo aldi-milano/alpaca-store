@@ -9,8 +9,10 @@ import './scss/style.scss';
 function App() {
   const [state, setState] = useState({
     products: [],
+    cart: [],
     keyword: '',
   });
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -25,12 +27,29 @@ function App() {
     setState({ ...state, keyword: str.target.value });
   };
 
+  function onHandleAddtoCart(id) {
+    const products = state.products.filter(product => product.id === id);
+    setCart([...cart, ...products]);
+    console.log(...products);
+  }
+
+  useEffect(() => {
+    if (cart.length) {
+      const price = cart.map(item => item.price).reduce((a, b) => a + b, 0);
+      console.log(cart, Math.round(price * 14000).toLocaleString('id-ID'));
+    }
+  }, [cart]);
+
   return (
     <main>
       <Header keyword={onHandleKeyword} />
       <Hero />
       <Navigation />
-      <SearchResult products={state.products} keyword={state.keyword} />
+      <SearchResult
+        products={state.products}
+        keyword={state.keyword}
+        onHandleAddtoCart={onHandleAddtoCart}
+      />
     </main>
   );
 }

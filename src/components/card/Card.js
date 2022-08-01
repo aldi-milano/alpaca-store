@@ -3,7 +3,7 @@ import Wishlist from '../navigation/icon/Wishlist';
 import { IoCartOutline } from 'react-icons/io5';
 import './card.scss';
 
-function SearchItem({ title, price, img }) {
+function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
   const [spans, setSpans] = useState(0);
 
   const heightRef = useRef();
@@ -17,7 +17,6 @@ function SearchItem({ title, price, img }) {
   function getSpans() {
     const height = heightRef.current.clientHeight;
     const spans = Math.ceil(height / 10);
-    console.log(height);
     setSpans(spans);
   }
 
@@ -26,6 +25,7 @@ function SearchItem({ title, price, img }) {
       ref={heightRef}
       className='card'
       style={{ gridRowEnd: `span ${spans}` }}
+      id={id}
     >
       <div className='card__container-img'>
         <img src={img} alt='' className='img' />
@@ -42,10 +42,16 @@ function SearchItem({ title, price, img }) {
           <Wishlist />
         </div>
         <p className='card__desc-title'>{title}</p>
-        <button className='button--cart'>
+        <div
+          className='card__desc-button'
+          id={id}
+          onClick={() => onHandleAddtoCart(id)}
+        >
           <IoCartOutline className='icon--cart' />
-          <p>Add to cart</p>
-        </button>
+          <button className='button--cart'>
+            <p>Add to cart</p>
+          </button>
+        </div>
       </div>
     </div>
   );

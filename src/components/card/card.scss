@@ -23,15 +23,17 @@
   }
 
   &__desc {
+    display: block;
     padding: u.rem(16);
     flex: 1;
 
     &-title {
-      font-size: u.rem(12);
+      font-size: u.rem(10);
       overflow: hidden;
       -webkit-line-clamp: 2;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+      margin-bottom: u.rem(8);
     }
 
     &-price {
@@ -42,6 +44,18 @@
     .container {
       @include u.flex(space-between);
       margin-bottom: u.rem(10);
+    }
+
+    .icon--cart {
+      font-size: u.rem(16);
+    }
+
+    .button--cart {
+      background-color: #2f9e44;
+      width: 100%;
+      @include u.flex(space-between, center);
+      padding: 4px;
+      color: #fff;
     }
   }
 }

@@ -36,3 +36,10 @@ h2 {
 h3 {
   font-size: u.rem(20);
 }
+
+button {
+  display: block;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}

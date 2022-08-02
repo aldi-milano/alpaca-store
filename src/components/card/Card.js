@@ -33,7 +33,7 @@ function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
       <div className='card__desc'>
         <div className='container'>
           <p className='card__desc-price'>
-            {Math.round(price * 14871).toLocaleString('id-ID', {
+            {Math.round(price * 14000).toLocaleString('id-ID', {
               style: 'currency',
               currency: 'IDR',
               minimumFractionDigits: 0,

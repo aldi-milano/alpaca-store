@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import Navigation from './components/navigation/Navigation';
@@ -12,7 +13,7 @@ function App() {
     cart: [],
     keyword: '',
   });
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -27,18 +28,29 @@ function App() {
     setState({ ...state, keyword: str.target.value });
   };
 
-  function onHandleAddtoCart(id) {
+  const onHandleAddtoCart = id => {
     const products = state.products.filter(product => product.id === id);
-    setCart([...cart, ...products]);
+    setState({ ...state, cart: [...state.cart, ...products] });
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Item added to cart',
+      // footer: '<a href="">See the cart</a>',
+    });
     console.log(...products);
-  }
+  };
 
   useEffect(() => {
-    if (cart.length) {
-      const price = cart.map(item => item.price).reduce((a, b) => a + b, 0);
-      console.log(cart, Math.round(price * 14000).toLocaleString('id-ID'));
+    if (state.cart.length) {
+      const price = state.cart
+        .map(item => item.price)
+        .reduce((a, b) => a + b, 0);
+      console.log(
+        state.cart,
+        Math.round(price * 14000).toLocaleString('id-ID')
+      );
     }
-  }, [cart]);
+  }, [state.cart]);
 
   return (
     <main>

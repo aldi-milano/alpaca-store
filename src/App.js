@@ -51,14 +51,14 @@ function App() {
     setState({ ...state, cart: [...state.cart, ...products] });
     const Toast = Swal.mixin({
       toast: true,
-      position: 'bottom-left',
+      position: 'bottom',
       iconColor: 'white',
       customClass: {
         popup: 'colored-toast',
       },
       showConfirmButton: false,
       timer: 1500,
-      timerProgressBar: true,
+      // timerProgressBar: true,
     });
     Toast.fire({
       icon: 'success',
@@ -83,12 +83,12 @@ function App() {
     <main>
       <Header keyword={onHandleKeyword} />
       <Hero />
-      <Navigation />
       <SearchResult
         products={state.products}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}
       />
+      <Navigation items={state.cart} />
     </main>
   );
 }

@@ -16,9 +16,37 @@
     @include u.icon;
 
     &:hover {
-      border-bottom: 1px solid #000;
+      // border-bottom: 1px solid #000;
       padding-bottom: 2px;
       transform: scale(1.2);
+    }
+  }
+
+  .cart {
+    position: relative;
+
+    .nav__icon--cart {
+      @include u.icon;
+    }
+
+    .indicator {
+      display: none;
+    }
+
+    .indicator--active {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      position: absolute;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+      font-size: 10px;
+      @include u.flex();
+      color: #fff;
+      font-weight: 600;
     }
   }
 }

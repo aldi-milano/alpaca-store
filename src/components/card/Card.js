@@ -11,7 +11,7 @@ function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
   useEffect(() => {
     setTimeout(() => {
       heightRef.current.addEventListener('load', getSpans());
-    }, 500);
+    }, 1000);
   }, []);
 
   function getSpans() {

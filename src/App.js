@@ -10,17 +10,35 @@ import './scss/style.scss';
 function App() {
   const [state, setState] = useState({
     products: [],
+    users: [],
     cart: [],
     keyword: '',
   });
-  // const [cart, setCart] = useState([]);
+
+  function getJSON(url, errorMsg = 'Something went wrong') {
+    return fetch(url).then(response => {
+      if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+      return response.json();
+    });
+  }
 
   useEffect(() => {
-    (async () => {
-      const res = await fetch('https://fakestoreapi.com/products');
-      const data = await res.json();
-      setState({ ...state, products: data });
-    })();
+    try {
+      (async () => {
+        const data = Promise.all([
+          getJSON('https://fakestoreapi.com/products'),
+          getJSON('https://fakestoreapi.com/users'),
+        ]);
+        const response = await data;
+        const [products, users] = response;
+        setState({ ...state, products, users });
+        console.log('This is products state:  ', products);
+        console.log('This is users state: ', users);
+      })();
+    } catch (err) {
+      console.log(err);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -31,11 +49,20 @@ function App() {
   const onHandleAddtoCart = id => {
     const products = state.products.filter(product => product.id === id);
     setState({ ...state, cart: [...state.cart, ...products] });
-    Swal.fire({
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-left',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast',
+      },
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+    });
+    Toast.fire({
       icon: 'success',
-      title: 'Success',
-      text: 'Item added to cart',
-      // footer: '<a href="">See the cart</a>',
+      title: 'Item added to cart',
     });
     console.log(...products);
   };

@@ -79,11 +79,16 @@ function App() {
     }
   }, [state.cart]);
 
+  const searchItem = state.products.filter(product =>
+    product.title.toLowerCase().includes(state.keyword.toLowerCase())
+  );
+
   return (
     <main>
       <Header keyword={onHandleKeyword} />
       <Hero />
       <SearchResult
+        searchItem={searchItem}
         products={state.products}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}

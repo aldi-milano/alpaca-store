@@ -35,6 +35,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       margin-bottom: u.rem(8);
+      line-height: 1.5;
     }
 
     &-price {
@@ -66,7 +67,7 @@
       width: 100%;
 
       p {
-        font-size: u.rem(10);
+        font-size: u.rem(12);
       }
     }
   }

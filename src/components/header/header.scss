@@ -13,7 +13,13 @@
     cursor: pointer;
   }
   &__icon {
-    @include u.icon;
+    &--search {
+      @include u.icon;
+    }
+
+    &--close {
+      display: none;
+    }
   }
 
   &__icon-container {
@@ -28,7 +34,7 @@
     &--active {
       @extend .header__icon-container;
       @include u.flex(flex-end, center);
-      gap: u.rem(10);
+      // gap: u.rem(8);
       // border-bottom: 1px solid black;
       margin-left: 1rem;
 
@@ -49,6 +55,16 @@
         &:focus {
           outline: none;
         }
+      }
+
+      .header__icon--close {
+        @include u.icon;
+        display: block;
+        cursor: pointer;
+      }
+
+      .header__icon--search {
+        margin-right: 5px;
       }
     }
   }

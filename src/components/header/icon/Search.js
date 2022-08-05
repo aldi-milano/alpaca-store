@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
 // import SearchResult from '../search-result/SearchResult';
 
-function Search({ keyword }) {
+function Search({ keyword, clearValue }) {
   const [isActive, setActive] = useState(false);
   const inputSearch = document.querySelector('.input');
   const iconClose = document.querySelector('.header__icon--close');
@@ -40,7 +40,7 @@ function Search({ keyword }) {
         onChange={keyword}
         className='input'
       />
-      <IoCloseOutline className='header__icon--close' />
+      <IoCloseOutline className='header__icon--close' onClick={clearValue} />
     </div>
   );
 }

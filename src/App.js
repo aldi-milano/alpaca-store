@@ -13,6 +13,7 @@ function App() {
     users: [],
     cart: [],
     keyword: '',
+    item: [],
   });
 
   function getJSON(url, errorMsg = 'Something went wrong') {
@@ -30,17 +31,23 @@ function App() {
           getJSON('https://fakestoreapi.com/products'),
           getJSON('https://fakestoreapi.com/users'),
         ]);
-        const response = await data;
-        const [products, users] = response;
+        const result = await data;
+        const [products, users] = result;
         setState({ ...state, products, users });
-        console.log('This is products state:  ', products);
-        console.log('This is users state: ', users);
       })();
     } catch (err) {
       console.log(err);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const item = state.products.filter(prod =>
+      prod.title.toLowerCase().includes(state.keyword.toLowerCase())
+    );
+    setState({ ...state, item });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.keyword]);
 
   const onHandleKeyword = str => {
     setState({ ...state, keyword: str.target.value });
@@ -64,32 +71,16 @@ function App() {
       icon: 'success',
       title: 'Item added to cart',
     });
-    console.log(...products);
   };
 
-  useEffect(() => {
-    if (state.cart.length) {
-      const price = state.cart
-        .map(item => item.price)
-        .reduce((a, b) => a + b, 0);
-      console.log(
-        state.cart,
-        Math.round(price * 14000).toLocaleString('id-ID')
-      );
-    }
-  }, [state.cart]);
-
-  const searchItem = state.products.filter(product =>
-    product.title.toLowerCase().includes(state.keyword.toLowerCase())
-  );
+  const onHandleClearValue = () => setState({ ...state, keyword: '' });
 
   return (
     <main>
-      <Header keyword={onHandleKeyword} />
+      <Header keyword={onHandleKeyword} clearValue={onHandleClearValue} />
       <Hero />
       <SearchResult
-        searchItem={searchItem}
-        products={state.products}
+        item={state.item}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}
       />

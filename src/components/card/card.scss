@@ -1,5 +1,11 @@
 @use '../../scss/utility' as u;
 
+.colored-toast.swal2-icon-success {
+  background-color: #2f9e44 !important;
+  color: #fff;
+  margin-bottom: u.rem(50);
+}
+
 .card {
   display: block;
   width: 100%;
@@ -73,8 +79,11 @@
   }
 }
 
-.flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.icon__wishlist {
+  font-size: u.rem(22);
+  cursor: pointer;
+
+  &--active {
+    display: none;
+  }
 }

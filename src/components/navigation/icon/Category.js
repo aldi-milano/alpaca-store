@@ -3,8 +3,9 @@ import { IoListOutline } from 'react-icons/io5';
 
 function Category() {
   return (
-    <div>
+    <div className='flex'>
       <IoListOutline className='nav__icon' />
+      <p className='nav__title'>Category</p>
     </div>
   );
 }

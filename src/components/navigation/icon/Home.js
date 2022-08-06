@@ -3,8 +3,9 @@ import { IoHomeOutline } from 'react-icons/io5';
 
 function Home() {
   return (
-    <div>
+    <div className='flex'>
       <IoHomeOutline className='nav__icon' />
+      <p className='nav__title'>Home</p>
     </div>
   );
 }

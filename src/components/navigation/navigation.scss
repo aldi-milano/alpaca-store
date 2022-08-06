@@ -15,9 +15,11 @@
   &__icon {
     @include u.icon;
 
+    &--cart {
+      @extend .nav__icon;
+    }
+
     &:hover {
-      // border-bottom: 1px solid #000;
-      padding-bottom: 2px;
       transform: scale(1.2);
     }
   }
@@ -49,4 +51,17 @@
       font-weight: 600;
     }
   }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav__title {
+  font-size: u.rem(10);
+  letter-spacing: 1px;
 }

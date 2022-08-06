@@ -1,13 +1,17 @@
 @use '../../scss/utility' as u;
 
+.hero.active {
+  display: none;
+}
+
 .hero {
-  height: 100vh;
+  height: 85vh;
   width: 100%;
-  position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: u.rem(50) 0;
 
   &__summer {
     @extend .hero;

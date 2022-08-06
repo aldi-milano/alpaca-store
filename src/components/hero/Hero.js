@@ -10,10 +10,10 @@ import summer from '../../assets/images/summer.png';
 import best from '../../assets/images/best.png';
 import casual from '../../assets/images/casual.png';
 
-function Hero() {
+function Hero({ keyword }) {
   return (
     <>
-      <article>
+      <article className={keyword.length > 0 ? `hero active` : ''}>
         <Swiper
           slidesPerView={1}
           modules={[Autoplay, EffectFade]}

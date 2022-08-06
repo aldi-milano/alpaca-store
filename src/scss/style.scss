@@ -1,6 +1,24 @@
 @forward 'global';
+@use '../scss/utility' as u;
 
 .colored-toast.swal2-icon-success {
   background-color: #2f9e44 !important;
   color: #fff;
+}
+
+// .main {
+//   position: relative;
+// }
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
 }

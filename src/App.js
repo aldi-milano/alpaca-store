@@ -76,15 +76,19 @@ function App() {
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
 
   return (
-    <main>
-      <Header keyword={onHandleKeyword} clearValue={onHandleClearValue} />
-      <Hero />
+    <main className='main'>
+      <Header
+        keyword={onHandleKeyword}
+        clearValue={onHandleClearValue}
+        className='header'
+      />
+      <Hero keyword={state.keyword} />
       <SearchResult
         item={state.item}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}
       />
-      <Navigation items={state.cart} />
+      <Navigation items={state.cart} className='nav' />
     </main>
   );
 }

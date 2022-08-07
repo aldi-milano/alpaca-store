@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import Navigation from './components/navigation/Navigation';
 import SearchResult from './components/search-result/SearchResult';
-// import Wishlist from './components/wishlist/Wishlist';
+import Wishlist from './components/wishlist/Wishlist';
 import './scss/style.scss';
 
 function App() {
@@ -98,9 +98,7 @@ function App() {
     });
     Toast.fire({
       icon: 'success',
-      title: !wishlist
-        ? 'Item added to wishlist'
-        : 'Item removed from wishlist',
+      title: !wishlist ? 'Added to wishlist' : 'Removed from wishlist',
     });
   }
 
@@ -113,15 +111,15 @@ function App() {
         clearValue={onHandleClearValue}
         className='header'
       />
-      <Hero keyword={state.keyword} />
+      {/* <Hero keyword={state.keyword} /> */}
       <SearchResult
         item={state.item}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}
         onHandleAddToWishlist={onHandleAddToWishlist}
       />
-      <Navigation items={state.cart} products={state.products} />
       {/* <Wishlist products={state.products} /> */}
+      <Navigation items={state.cart} products={state.products} />
     </main>
   );
 }

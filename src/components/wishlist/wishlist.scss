@@ -1,9 +1,6 @@
 @use '../../scss/utility' as u;
 
 .wishlist {
-  margin: u.rem(50) 0;
-}
-
-h1 {
-  color: #000;
+  margin: u.rem(55) 0;
+  padding: 0 u.rem(24);
 }

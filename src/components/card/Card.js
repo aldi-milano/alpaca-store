@@ -64,10 +64,8 @@ function SearchItem({
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          <IoCartOutline className='icon--cart' />
-          <button className='button--cart'>
-            <p>Add to cart</p>
-          </button>
+          {/* <IoCartOutline className='icon--cart' /> */}
+          <button className='button--cart'>Add to cart</button>
         </div>
       </div>
     </div>

@@ -52,6 +52,7 @@
     }
   }
 }
+
 .indicator__wishlist--active {
   @extend .indicator--active;
   transform: translate(-20%, -50%) !important;

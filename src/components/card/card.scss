@@ -56,24 +56,21 @@
 
     &-button {
       @include u.flex();
-      background-color: #2f9e44;
-      padding: 4px 12px;
-      color: #fff;
       cursor: pointer;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      background-color: #fff;
+      color: #000;
+      width: 100%;
+      padding: 4px 12px;
+      // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border: solid 1px #000;
+
+      // &:hover {
+      //   background-color: #000;
+      //   color: #fff;
+      // }
 
       .icon--cart {
         font-size: u.rem(16);
-      }
-    }
-
-    .button--cart {
-      cursor: pointer;
-      color: #fff;
-      width: 100%;
-
-      p {
-        font-size: u.rem(12);
       }
     }
   }

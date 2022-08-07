@@ -1,10 +1,10 @@
 @use '../../scss/utility' as u;
 
 .result {
-  margin: u.rem(50) 0;
+  margin: u.rem(55) 0;
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: u.rem(12);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 10px;

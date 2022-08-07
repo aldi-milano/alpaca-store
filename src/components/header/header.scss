@@ -13,6 +13,7 @@
     cursor: pointer;
   }
   &__icon {
+    @include u.icon;
     &--search {
       @include u.icon;
     }

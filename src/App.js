@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import Navigation from './components/navigation/Navigation';
 import SearchResult from './components/search-result/SearchResult';
+// import Wishlist from './components/wishlist/Wishlist';
 import './scss/style.scss';
 
 function App() {
@@ -12,8 +13,10 @@ function App() {
     products: [],
     users: [],
     cart: [],
-    keyword: '',
+    wishlist: [],
     item: [],
+    isActive: false,
+    keyword: '',
   });
 
   function getJSON(url, errorMsg = 'Something went wrong') {
@@ -33,6 +36,7 @@ function App() {
         ]);
         const result = await data;
         const [products, users] = result;
+        products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
       })();
     } catch (err) {
@@ -53,7 +57,7 @@ function App() {
     setState({ ...state, keyword: str.target.value });
   };
 
-  const onHandleAddtoCart = id => {
+  function onHandleAddtoCart(id) {
     const products = state.products.filter(product => product.id === id);
     setState({ ...state, cart: [...state.cart, ...products] });
     const Toast = Swal.mixin({
@@ -71,7 +75,34 @@ function App() {
       icon: 'success',
       title: 'Item added to cart',
     });
-  };
+  }
+
+  function onHandleAddToWishlist(id) {
+    const idx = state.products.findIndex(prod => prod.id === id);
+    let wishlist = state.products[idx].wishlist;
+    console.log(wishlist);
+
+    if (idx !== -1)
+      state.products[idx].wishlist = !state.products[idx].wishlist;
+    setState({ ...state });
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast',
+      },
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    Toast.fire({
+      icon: 'success',
+      title: !wishlist
+        ? 'Item added to wishlist'
+        : 'Item removed from wishlist',
+    });
+  }
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
 
@@ -87,8 +118,10 @@ function App() {
         item={state.item}
         keyword={state.keyword}
         onHandleAddtoCart={onHandleAddtoCart}
+        onHandleAddToWishlist={onHandleAddToWishlist}
       />
-      <Navigation items={state.cart} className='nav' />
+      <Navigation items={state.cart} products={state.products} />
+      {/* <Wishlist products={state.products} /> */}
     </main>
   );
 }

@@ -7,13 +7,13 @@ import Wishlist from './icon/Wishlist';
 
 import './navigation.scss';
 
-function Navigation({ items }) {
+function Navigation({ items, products }) {
   return (
     <nav className='nav'>
       <Home />
       <Category />
       <Cart items={items} />
-      <Wishlist />
+      <Wishlist products={products} />
       <Profile />
     </nav>
   );

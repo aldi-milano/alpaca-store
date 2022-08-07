@@ -1,11 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import { IoCartOutline, IoHeartOutline, IoHeart } from 'react-icons/io5';
 import './card.scss';
 
-function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
+function SearchItem({
+  title,
+  price,
+  img,
+  onHandleAddtoCart,
+  id,
+  onHandleAddToWishlist,
+  wishlist,
+}) {
   const [spans, setSpans] = useState(0);
-  const [active, setActive] = useState(false);
 
   const heightRef = useRef();
 
@@ -19,25 +26,6 @@ function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
     const height = heightRef.current.clientHeight;
     const spans = Math.ceil(height / 10);
     setSpans(spans);
-  }
-
-  function onHandleWishlist() {
-    setActive(!active);
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'bottom',
-      iconColor: 'white',
-      customClass: {
-        popup: 'colored-toast',
-      },
-      showConfirmButton: false,
-      timer: 1500,
-      // timerProgressBar: true,
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'Item added to wishlist',
-    });
   }
 
   return (
@@ -60,12 +48,13 @@ function SearchItem({ title, price, img, onHandleAddtoCart, id }) {
             })}
           </p>
           <IoHeartOutline
-            className={`icon__wishlist${active ? '--active' : ''}`}
-            onClick={onHandleWishlist}
+            className={`icon__wishlist${wishlist ? '--active' : ''}`}
+            onClick={() => onHandleAddToWishlist(id)}
+            id={id}
           />
           <IoHeart
-            className={`icon__wishlist${active ? '' : '--active'}`}
-            onClick={onHandleWishlist}
+            className={`icon__wishlist${!wishlist ? '--active' : ''}`}
+            onClick={() => onHandleAddToWishlist(id)}
             style={{ color: 'red' }}
           />
         </div>

@@ -5,7 +5,13 @@ import notFound from '../../assets/illustration/not-found.png';
 
 import './searchResult.scss';
 
-function SearchResult({ item, keyword, onHandleAddtoCart }) {
+function SearchResult({
+  item,
+  keyword,
+  onHandleAddtoCart,
+  updateStateActive,
+  onHandleAddToWishlist,
+}) {
   if (keyword.length > 1 && item.length === 0) {
     return (
       <div className='result--error'>
@@ -20,14 +26,17 @@ function SearchResult({ item, keyword, onHandleAddtoCart }) {
   if (keyword.length > 0) {
     return (
       <div className='result'>
-        {item.map(({ title, image, price, id }) => (
+        {item.map(({ title, image, price, id, wishlist }) => (
           <Card
             title={title}
             img={image}
             price={price}
             key={id}
             onHandleAddtoCart={onHandleAddtoCart}
+            updateStateActive={updateStateActive}
             id={id}
+            onHandleAddToWishlist={onHandleAddToWishlist}
+            wishlist={wishlist}
           />
         ))}
       </div>

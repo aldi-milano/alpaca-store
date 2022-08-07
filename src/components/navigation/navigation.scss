@@ -3,12 +3,8 @@
 .nav {
   @include u.flex(space-around, center);
   background-color: #fff;
-  height: u.rem(50);
-  padding: 0 1rem;
-  // position: fixed;
-  // bottom: 0;
-  // left: 0;
-  // z-index: 99;
+  // height: u.rem(50);
+  padding: 1rem 1rem 0.5rem;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 5px 0px;
 
@@ -24,7 +20,7 @@
     }
   }
 
-  .cart {
+  .notification {
     position: relative;
 
     .nav__icon--cart {
@@ -33,6 +29,10 @@
 
     .indicator {
       display: none;
+
+      &__wishlist {
+        display: none;
+      }
     }
 
     .indicator--active {
@@ -51,6 +51,10 @@
       font-weight: 600;
     }
   }
+}
+.indicator__wishlist--active {
+  @extend .indicator--active;
+  transform: translate(-20%, -50%) !important;
 }
 
 .flex {

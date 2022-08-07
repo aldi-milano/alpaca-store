@@ -4,7 +4,7 @@ import { IoCartOutline } from 'react-icons/io5';
 
 function Cart({ items }) {
   return (
-    <div className='cart flex'>
+    <div className='notification flex'>
       <IoCartOutline className='nav__icon--cart' />
       <div className={`indicator${items.length > 0 ? '--active' : ''}`}>
         {items.length}

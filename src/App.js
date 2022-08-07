@@ -111,7 +111,7 @@ function App() {
         clearValue={onHandleClearValue}
         className='header'
       />
-      {/* <Hero keyword={state.keyword} /> */}
+      <Hero keyword={state.keyword} />
       <SearchResult
         item={state.item}
         keyword={state.keyword}

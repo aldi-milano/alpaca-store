@@ -19,6 +19,13 @@ function SearchResult({
         <p className='title'>
           Sorry, we couldn't find any matches for '<strong>{keyword}</strong>'.
         </p>
+        <p className='title__src'>
+          Illustration by{' '}
+          <a href='https://icons8.com/illustrations/author/ARh4OKrFtdfC'>
+            Pixeltrue
+          </a>{' '}
+          from <a href='https://icons8.com/illustrations'>Ouch!</a>
+        </p>
       </div>
     );
   }
@@ -29,7 +36,7 @@ function SearchResult({
         {item.map(({ title, image, price, id, wishlist }) => (
           <Card
             title={title}
-            img={image}
+            image={image}
             price={price}
             key={id}
             onHandleAddtoCart={onHandleAddtoCart}

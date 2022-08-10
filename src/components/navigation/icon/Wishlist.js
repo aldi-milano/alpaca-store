@@ -3,7 +3,6 @@ import { IoHeartOutline } from 'react-icons/io5';
 
 function Wishlist({ products }) {
   const wishlist = products.filter(prod => prod.wishlist === true);
-  console.log(wishlist);
   return (
     <div className='notification flex'>
       <IoHeartOutline className='nav__icon' />

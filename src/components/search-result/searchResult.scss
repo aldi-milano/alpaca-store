@@ -10,9 +10,6 @@
   grid-gap: 0 10px;
   grid-auto-rows: 10px;
   align-items: start;
-  top: 7%;
-  left: 0;
-  background-color: #fff;
 }
 
 .result--error {
@@ -36,5 +33,20 @@
   .title {
     text-align: center;
     line-height: 1.2;
+    // margin-bottom: u.rem(32);
+
+    &__src {
+      position: absolute;
+      font-size: u.rem(8);
+      bottom: 10%;
+      color: #333;
+
+      a {
+        &:link,
+        &:visited {
+          color: blue;
+        }
+      }
+    }
   }
 }

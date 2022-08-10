@@ -3,10 +3,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import { IoCartOutline, IoHeartOutline, IoHeart } from 'react-icons/io5';
 import './card.scss';
 
-function SearchItem({
+function Card({
   title,
   price,
-  img,
+  image,
   onHandleAddtoCart,
   id,
   onHandleAddToWishlist,
@@ -36,7 +36,7 @@ function SearchItem({
       id={id}
     >
       <div className='card__container-img'>
-        <img src={img} alt='' className='img' />
+        <img src={image} alt='' className='img' />
       </div>
       <div className='card__desc'>
         <div className='container'>
@@ -58,7 +58,9 @@ function SearchItem({
             style={{ color: 'red' }}
           />
         </div>
-        <p className='card__desc-title'>{title}</p>
+        <p className='card__desc-title' title={title}>
+          {title}
+        </p>
         <div
           className='card__desc-button'
           id={id}
@@ -72,4 +74,4 @@ function SearchItem({
   );
 }
 
-export default SearchItem;
+export default Card;

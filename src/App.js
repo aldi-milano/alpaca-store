@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import Navigation from './components/navigation/Navigation';
 import SearchResult from './components/search-result/SearchResult';
-import Wishlist from './components/wishlist/Wishlist';
+// import Wishlist from './components/wishlist/Wishlist';
 import './scss/style.scss';
 
 function App() {
@@ -15,6 +14,7 @@ function App() {
     cart: [],
     wishlist: [],
     item: [],
+    refHeight: undefined,
     isActive: false,
     keyword: '',
   });
@@ -38,6 +38,7 @@ function App() {
         const [products, users] = result;
         products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
+        console.log(state.products);
       })();
     } catch (err) {
       console.log(err);
@@ -80,7 +81,6 @@ function App() {
   function onHandleAddToWishlist(id) {
     const idx = state.products.findIndex(prod => prod.id === id);
     let wishlist = state.products[idx].wishlist;
-    console.log(wishlist);
 
     if (idx !== -1)
       state.products[idx].wishlist = !state.products[idx].wishlist;

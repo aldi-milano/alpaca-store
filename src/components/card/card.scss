@@ -7,7 +7,6 @@
 }
 
 .card {
-  display: block;
   width: 100%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   @include u.flex;
@@ -35,7 +34,7 @@
     width: 100%;
 
     &-title {
-      font-size: u.rem(10);
+      font-size: u.rem(12);
       overflow: hidden;
       -webkit-line-clamp: 2;
       display: -webkit-box;

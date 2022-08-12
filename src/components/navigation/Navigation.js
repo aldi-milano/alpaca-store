@@ -1,4 +1,5 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Cart from './icon/Cart';
 import Category from './icon/Category';
 import Home from './icon/Home';
@@ -10,11 +11,21 @@ import './navigation.scss';
 function Navigation({ items, products }) {
   return (
     <nav className='nav'>
-      <Home />
-      <Category />
-      <Cart items={items} />
-      <Wishlist products={products} />
-      <Profile />
+      <Link to='/'>
+        <Home />
+      </Link>
+      <Link to='/categories'>
+        <Category />
+      </Link>
+      <Link to='/cart'>
+        <Cart items={items} />
+      </Link>
+      <Link to='/wishlist'>
+        <Wishlist products={products} />
+      </Link>
+      <Link to='/profile'>
+        <Profile />
+      </Link>
     </nav>
   );
 }

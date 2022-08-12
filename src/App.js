@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import Header from './components/header/Header';
-import Hero from './components/hero/Hero';
+import Hero from './components/pages/homepage/hero/Hero';
 import Navigation from './components/navigation/Navigation';
-import SearchResult from './components/search-result/SearchResult';
+import SearchResult from './components/pages/search-result/SearchResult';
 // import Wishlist from './components/wishlist/Wishlist';
 import './scss/style.scss';
+import SharedLayout from './components/shared-layout/SharedLayout';
+import Homepage from './components/pages/homepage/Homepage';
+import Categories from './components/pages/categories/Categories';
+import Cart from './components/pages/carts/Cart';
+import Wishlist from './components/pages/wishlist/Wishlist';
+import Profile from './components/pages/profile/Profile';
 
 function App() {
   const [state, setState] = useState({
@@ -106,7 +113,30 @@ function App() {
 
   return (
     <main className='main'>
-      <Header
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <SharedLayout
+                keyword={onHandleKeyword}
+                clearValue={onHandleClearValue}
+                items={state.cart}
+                products={state.products}
+              />
+            }
+          >
+            <Route index element={<Homepage />} />
+            <Route path='categories' element={<Categories />} />
+            <Route path='cart' element={<Cart />} />
+            <Route path='wishlist' element={<Wishlist />} />
+            <Route path='profile' element={<Profile />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Wishlist products={state.products} /> */}
+      {/* <Navigation /> */}
+      {/* <Header
         keyword={onHandleKeyword}
         clearValue={onHandleClearValue}
         className='header'
@@ -118,8 +148,8 @@ function App() {
         onHandleAddtoCart={onHandleAddtoCart}
         onHandleAddToWishlist={onHandleAddToWishlist}
       />
-      {/* <Wishlist products={state.products} /> */}
-      <Navigation items={state.cart} products={state.products} />
+      <Wishlist products={state.products} />
+      <Navigation items={state.cart} products={state.products} /> */}
     </main>
   );
 }

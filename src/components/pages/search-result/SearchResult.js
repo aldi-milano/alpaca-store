@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../card/Card';
+import Card from '../../card/Card';
 
-import notFound from '../../assets/illustration/not-found.png';
+import notFound from '../../../assets/illustration/not-found.png';
 
 import './searchResult.scss';
 

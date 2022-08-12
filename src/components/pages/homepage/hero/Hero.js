@@ -6,14 +6,14 @@ import 'swiper/scss';
 import 'swiper/scss/autoplay';
 import 'swiper/scss/effect-fade';
 
-import summer from '../../assets/images/summer.png';
-import best from '../../assets/images/best.png';
-import casual from '../../assets/images/casual.png';
+import summer from '../../../../assets/images/summer.png';
+import best from '../../../../assets/images/best.png';
+import casual from '../../../../assets/images/casual.png';
 
 function Hero({ keyword }) {
   return (
     <>
-      <article className={keyword.length > 0 ? `hero active` : ''}>
+      <article className={keyword?.length > 0 ? `hero active` : ''}>
         <Swiper
           slidesPerView={1}
           modules={[Autoplay, EffectFade]}

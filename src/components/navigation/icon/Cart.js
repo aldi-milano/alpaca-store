@@ -6,8 +6,8 @@ function Cart({ items }) {
   return (
     <div className='notification flex'>
       <IoCartOutline className='nav__icon--cart' />
-      <div className={`indicator${items.length > 0 ? '--active' : ''}`}>
-        {items.length}
+      <div className={`indicator${items?.length > 0 ? '--active' : ''}`}>
+        {items?.length}
       </div>
       <p className='nav__title'>Cart</p>
     </div>

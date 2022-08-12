@@ -26,7 +26,7 @@ function Wishlist({ products }) {
   return (
     <div className='wishlist'>
       {products
-        .filter(prod => prod.wishlist === true)
+        ?.filter(prod => prod.wishlist === true)
         .map(({ title, image, id, price }) => (
           <div
             ref={heightRef}

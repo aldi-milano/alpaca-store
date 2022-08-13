@@ -13,6 +13,7 @@ function SearchResult({
   onHandleAddToWishlist,
 }) {
   if (keyword.length > 1 && item.length === 0) {
+    console.log(item);
     return (
       <div className='result--error'>
         <img src={notFound} alt='' className='img' />

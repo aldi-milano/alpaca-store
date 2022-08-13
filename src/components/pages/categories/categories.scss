@@ -1,0 +1,54 @@
+@use '../../../scss/utility' as u;
+// .category__flex {
+//   @include u.flex();
+//   flex-direction: column;
+// }
+
+.category {
+  // margin: u.rem(60) 0;
+  padding: u.rem(55) u.rem(16);
+  @include u.flex(center, center);
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+
+  &__container {
+    position: relative;
+    height: u.rem(130);
+    width: 100%;
+    // background-color: red;
+    @include u.flex();
+
+    .container {
+      height: 100%;
+
+      &__img {
+        height: 100%;
+        width: 100%;
+
+        .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+
+  .container__title {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    @include u.flex();
+
+    p {
+      font-weight: 400;
+      font-size: u.rem(24);
+      letter-spacing: 1px;
+      color: #fff;
+    }
+  }
+}

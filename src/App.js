@@ -1,18 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import Header from './components/header/Header';
-import Hero from './components/pages/homepage/hero/Hero';
-import Navigation from './components/navigation/Navigation';
 import SearchResult from './components/pages/search-result/SearchResult';
 // import Wishlist from './components/wishlist/Wishlist';
-import './scss/style.scss';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
 import Categories from './components/pages/categories/Categories';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
 import Profile from './components/pages/profile/Profile';
+import './scss/style.scss';
 
 function App() {
   const [state, setState] = useState({
@@ -45,7 +42,7 @@ function App() {
         const [products, users] = result;
         products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
-        console.log(state.products);
+        console.log(products);
       })();
     } catch (err) {
       console.log(err);

@@ -14,12 +14,12 @@
 .header {
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 99;
   width: 100%;
 }
 
 .nav {
   position: fixed;
   bottom: 0;
-  z-index: 2;
+  z-index: 99;
 }

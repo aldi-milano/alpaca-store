@@ -10,9 +10,9 @@
   @include u.flex(center, center);
   flex-direction: column;
   gap: 10px;
-  cursor: pointer;
 
   &__container {
+    cursor: pointer;
     position: relative;
     height: u.rem(130);
     width: 100%;

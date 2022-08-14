@@ -124,7 +124,10 @@ function App() {
           >
             <Route index element={<Homepage />} />
             <Route path='categories' element={<Categories />} />
-            <Route path='categories/:param' element={<Category />} />
+            <Route
+              path='categories/:category'
+              element={<Category products={state.products} />}
+            />
             <Route path='cart' element={<Cart />} />
             <Route path='wishlist' element={<Wishlist />} />
             <Route path='profile' element={<Profile />} />

@@ -11,38 +11,46 @@ function Categories() {
   return (
     <div className='category__flex'>
       <div className='category'>
-        <div className='div--1'>
-          <div className='container__img'>
-            <img src={men} alt='' className='category__img' />
+        <Link to={`men's%20clothing`} className='block'>
+          <div className='div--1'>
+            <div className='container__img'>
+              <img src={men} alt='' className='category__img' />
+            </div>
+            <div className='container__desc'>
+              <p>Men's</p>
+            </div>
           </div>
-          <div className='container__desc'>
-            <p>Men's</p>
+        </Link>
+        <Link to={`women's%20clothing`} className='block'>
+          <div className='div--1'>
+            <div className='container__img'>
+              <img src={women} alt='' className='category__img' />
+            </div>
+            <div className='container__desc'>
+              <p>Women's</p>
+            </div>
           </div>
-        </div>
-        <div className='div--1'>
-          <div className='container__img'>
-            <img src={women} alt='' className='category__img' />
+        </Link>
+        <Link to={`electronics`} className='block'>
+          <div className='div--1'>
+            <div className='container__img'>
+              <img src={electronics} alt='' className='category__img' />
+            </div>
+            <div className='container__desc'>
+              <p>Electronics</p>
+            </div>
           </div>
-          <div className='container__desc'>
-            <p>Women's</p>
+        </Link>
+        <Link to={`jewelery`} className='block'>
+          <div className='div--1'>
+            <div className='container__img'>
+              <img src={jewelry} alt='' className='category__img' />
+            </div>
+            <div className='container__desc'>
+              <p>Jewellery</p>
+            </div>
           </div>
-        </div>
-        <div className='div--1'>
-          <div className='container__img'>
-            <img src={electronics} alt='' className='category__img' />
-          </div>
-          <div className='container__desc'>
-            <p>Electronics</p>
-          </div>
-        </div>
-        <div className='div--1'>
-          <div className='container__img'>
-            <img src={jewelry} alt='' className='category__img' />
-          </div>
-          <div className='container__desc'>
-            <p>Jewellery</p>
-          </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

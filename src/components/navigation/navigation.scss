@@ -63,10 +63,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid #000;
+  }
 }
 
 .nav__title {
   font-size: u.rem(10);
   letter-spacing: 1px;
+  color: black;
 }

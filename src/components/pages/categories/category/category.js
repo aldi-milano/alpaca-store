@@ -4,28 +4,13 @@ import './category.scss';
 
 // https://fakestoreapi.com/products/category/men's%20clothing
 
-const params = {
-  'man-clothes': "men's clothing",
-  'woman-clothes': "women's clothing",
-  jewelry: 'jewelry',
-  electronics: 'electronics',
-};
-
-function Category() {
-  const { param } = useParams();
-  console.log(Object.keys(params));
+function Category({ products }) {
+  const { category } = useParams();
+  const items = products.filter(prod => prod.category === category);
+  console.log(items);
   return (
     <div className='items'>
-      <div className='container__a'>
-        <h2>
-          <a href='' className='anchor'>
-            This is anchor
-          </a>
-        </h2>
-        <h2>
-          <a href=''>This is anchor</a>
-        </h2>
-      </div>
+      <h2>{category}</h2>
     </div>
   );
 }

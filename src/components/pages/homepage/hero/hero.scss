@@ -29,18 +29,25 @@
     background: radial-gradient(#e0e8e7, #d3dedc);
   }
 
+  &__wools {
+    @extend .hero;
+    // background: radial-gradient(#2da093, #209882);
+  }
+
   &__heading {
     text-transform: uppercase;
     font-size: u.rem(32);
     letter-spacing: 3px;
+    line-height: 1.4;
     color: #fff;
     font-weight: 400;
     text-align: center;
-    padding: 1rem 0.5rem;
+    padding: u.rem(16) u.rem(8);
 
     &--summer {
       @extend .hero__heading;
       font-size: u.rem(28);
+      line-height: 1;
 
       span {
         font-size: u.rem(86);
@@ -64,13 +71,19 @@
         font-size: u.rem(24);
         font-weight: 400;
         letter-spacing: 5px;
-        line-height: 1;
+        line-height: 1.2;
       }
     }
 
     &--casual {
       @extend .hero__heading;
       font-size: u.rem(32);
+    }
+
+    &--wools {
+      @extend .hero__heading;
+      font-size: u.rem(32);
+      padding: u.rem(48) u.rem(8);
     }
   }
 
@@ -86,6 +99,12 @@
     }
     &--casual {
       @extend .hero__img;
+    }
+
+    &--wools {
+      @extend .hero__img;
+      object-fit: cover;
+      width: 100%;
     }
   }
 }
@@ -115,5 +134,10 @@
   &--casual {
     @extend .overlay;
     background-color: rgba(124, 153, 172, 0.3);
+  }
+
+  &--wools {
+    @extend .overlay;
+    background-color: rgba(43, 138, 62, 0.5);
   }
 }

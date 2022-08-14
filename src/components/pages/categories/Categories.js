@@ -1,5 +1,7 @@
-import man from '../../../assets/categories/man.jpg';
-import woman from '../../../assets/categories/woman.jpg';
+import { Link } from 'react-router-dom';
+
+import men from '../../../assets/categories/men.jpg';
+import women from '../../../assets/categories/women.jpg';
 import jewelry from '../../../assets/categories/jewelry.jpg';
 import electronics from '../../../assets/categories/electronics.jpg';
 
@@ -7,55 +9,41 @@ import './categories.scss';
 
 function Categories() {
   return (
-    <div className='category'>
-      <div className='category__container'>
-        <div className='container__img'>
-          <img src={man} alt='' className='img' />
+    <div className='category__flex'>
+      <div className='category'>
+        <div className='div--1'>
+          <div className='container__img'>
+            <img src={men} alt='' className='category__img' />
+          </div>
+          <div className='container__desc'>
+            <p>Men's</p>
+          </div>
         </div>
-        <div className='container__title'>
-          <p>Man Clothes</p>
+        <div className='div--1'>
+          <div className='container__img'>
+            <img src={women} alt='' className='category__img' />
+          </div>
+          <div className='container__desc'>
+            <p>Women's</p>
+          </div>
         </div>
-      </div>
-      <div className='category__container'>
-        <div className='container__img'>
-          <img src={woman} alt='' className='img' />
+        <div className='div--1'>
+          <div className='container__img'>
+            <img src={electronics} alt='' className='category__img' />
+          </div>
+          <div className='container__desc'>
+            <p>Electronics</p>
+          </div>
         </div>
-        <div className='container__title'>
-          <p>Woman Clothes</p>
-        </div>
-      </div>
-      <div className='category__container'>
-        <div className='container__img'>
-          <img src={jewelry} alt='' className='img' />
-        </div>
-        <div className='container__title'>
-          <p>Jewelry</p>
-        </div>
-      </div>
-      <div className='category__container'>
-        <div className='container__img'>
-          <img src={electronics} alt='' className='img' />
-        </div>
-        <div className='container__title'>
-          <p>Electronics</p>
-        </div>
-      </div>
-      {/* <div className='category__container'>
-        <div className='container__img'>
-          <img src={woman} alt='' className='img' />
-        </div>
-        <div className='container__title'>
-          <p>Woman Clothes</p>
+        <div className='div--1'>
+          <div className='container__img'>
+            <img src={jewelry} alt='' className='category__img' />
+          </div>
+          <div className='container__desc'>
+            <p>Jewellery</p>
+          </div>
         </div>
       </div>
-      <div className='category__container'>
-        <div className='container__img'>
-          <img src={jewelry} alt='' className='img' />
-        </div>
-        <div className='container__title'>
-          <p>Jewelry</p>
-        </div>
-      </div> */}
     </div>
   );
 }

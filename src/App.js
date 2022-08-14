@@ -6,6 +6,7 @@ import SearchResult from './components/pages/search-result/SearchResult';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
 import Categories from './components/pages/categories/Categories';
+import Category from './components/pages/categories/category/category';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
 import Profile from './components/pages/profile/Profile';
@@ -35,12 +36,11 @@ function App() {
     try {
       (async () => {
         const data = Promise.all([
-          getJSON('https://fakestoreapi.com/products'),
+          getJSON(`https://fakestoreapi.com/products`),
           getJSON('https://fakestoreapi.com/users'),
         ]);
         const result = await data;
         const [products, users] = result;
-        products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
         console.log(products);
       })();
@@ -58,9 +58,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.keyword]);
 
-  const onHandleKeyword = str => {
+  const onHandleKeyword = str =>
     setState({ ...state, keyword: str.target.value });
-  };
 
   function onHandleAddtoCart(id) {
     const products = state.products.filter(product => product.id === id);
@@ -125,6 +124,7 @@ function App() {
           >
             <Route index element={<Homepage />} />
             <Route path='categories' element={<Categories />} />
+            <Route path='categories/:param' element={<Category />} />
             <Route path='cart' element={<Cart />} />
             <Route path='wishlist' element={<Wishlist />} />
             <Route path='profile' element={<Profile />} />

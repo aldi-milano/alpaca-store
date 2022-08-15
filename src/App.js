@@ -126,7 +126,13 @@ function App() {
             <Route path='categories' element={<Categories />} />
             <Route
               path='categories/:category'
-              element={<Category products={state.products} />}
+              element={
+                <Category
+                  products={state.products}
+                  onHandleAddtoCart={onHandleAddtoCart}
+                  onHandleAddToWishlist={onHandleAddToWishlist}
+                />
+              }
             />
             <Route path='cart' element={<Cart />} />
             <Route path='wishlist' element={<Wishlist />} />

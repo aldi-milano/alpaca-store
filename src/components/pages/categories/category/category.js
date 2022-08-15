@@ -1,16 +1,26 @@
 import { useParams } from 'react-router-dom';
+import Card from '../../../card/Card';
 
-import './category.scss';
-
-// https://fakestoreapi.com/products/category/men's%20clothing
-
-function Category({ products }) {
+function Category({ products, onHandleAddtoCart, onHandleAddToWishlist }) {
   const { category } = useParams();
   const items = products.filter(prod => prod.category === category);
   console.log(items);
   return (
-    <div className='items'>
-      <h2>{category}</h2>
+    <div className='result'>
+      {items.map(({ image, title, price, id, wishlist }) => {
+        return (
+          <Card
+            image={image}
+            title={title}
+            price={price}
+            key={id}
+            wishlist={wishlist}
+            onHandleAddToWishlist={onHandleAddToWishlist}
+            onHandleAddtoCart={onHandleAddtoCart}
+            id={id}
+          />
+        );
+      })}
     </div>
   );
 }

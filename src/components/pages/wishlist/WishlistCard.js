@@ -24,6 +24,7 @@ function WishlistCard({
     const spans = Math.ceil(height / 10);
     setSpans(spans);
   }
+
   return (
     <div
       ref={heightRef}
@@ -46,7 +47,7 @@ function WishlistCard({
           <IoTrashOutline
             style={{ fontSize: '1.375rem', cursor: 'pointer' }}
             title='Discard from wishlist'
-            onClick={onHandleRemoveFromWishlist}
+            onClick={() => onHandleRemoveFromWishlist(id)}
           />
         </div>
         <p className='card__desc-title' title={title}>

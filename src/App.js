@@ -16,7 +16,6 @@ function App() {
     products: [],
     users: [],
     cart: [],
-    wishlist: [],
     item: [],
     refHeight: undefined,
     isActive: false,
@@ -40,6 +39,7 @@ function App() {
         ]);
         const result = await data;
         const [products, users] = result;
+        products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
         console.log(products);
       })();
@@ -97,13 +97,10 @@ function App() {
 
   function onHandleRemoveFromWishlist(id) {
     const idx = state.products.findIndex(prod => prod.id === id);
-    // let wishlist = state.products[idx].wishlist;
-
-    if (idx !== -1) state.products[idx].wishlist = false;
-    setState({ ...state });
 
     Swal.fire({
-      title: 'Discard Item?',
+      // title: 'Discard Item?',
+      text: 'Discard this item from wishlist?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Yes',
@@ -116,6 +113,8 @@ function App() {
       },
     }).then(result => {
       if (result.isConfirmed) {
+        if (idx !== -1) state.products[idx].wishlist = false;
+        setState({ ...state });
         Swal.fire('Item Discarded', '', 'success');
       }
     });

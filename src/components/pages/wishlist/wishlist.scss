@@ -11,3 +11,44 @@
   grid-auto-rows: 10px;
   align-items: start;
 }
+
+.announcement {
+  height: 100vh;
+  @include u.flex();
+
+  &__container {
+    width: 100%;
+    height: 60%;
+    @include u.flex();
+    flex-direction: column;
+    gap: u.rem(16);
+
+    .img__container {
+      width: 100%;
+
+      .img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  line-height: 1.2;
+  // margin-bottom: u.rem(32);
+
+  &__src {
+    position: absolute;
+    font-size: u.rem(8);
+    bottom: 10%;
+    color: #333;
+
+    a {
+      &:link,
+      &:visited {
+        color: blue;
+      }
+    }
+  }
+}

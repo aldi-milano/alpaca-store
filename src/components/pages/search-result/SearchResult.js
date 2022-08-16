@@ -30,7 +30,6 @@ function SearchResult({
   }
 
   if (keyword?.length > 0) {
-    console.log(item);
     return (
       <div className='result'>
         {item.map(({ title, image, price, id, wishlist }) => (

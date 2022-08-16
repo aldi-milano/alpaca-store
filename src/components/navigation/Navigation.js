@@ -8,11 +8,11 @@ import Wishlist from './icon/Wishlist';
 
 import './navigation.scss';
 
-function Navigation({ items, products }) {
+function Navigation({ items, products, clearValue }) {
   return (
     <nav className='nav'>
       <Link to='/'>
-        <Home />
+        <Home clearValue={clearValue} />
       </Link>
       <Link to='/categories'>
         <Category />

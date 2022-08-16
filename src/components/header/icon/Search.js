@@ -12,13 +12,16 @@ function Search({ keyword, clearValue }) {
   }
 
   if (iconClose)
-    iconClose.addEventListener('click', () => (inputSearch.value = ''));
+    iconClose.addEventListener('click', () => {
+      inputSearch.value = '';
+      return clearValue;
+    });
 
   const ref = useRef();
 
   useEffect(() => {
     document.body.addEventListener('click', e => {
-      if (ref.current.contains(e.target)) {
+      if (ref.current?.contains(e.target)) {
         return;
       }
       setActive(false);
@@ -40,7 +43,7 @@ function Search({ keyword, clearValue }) {
         onChange={keyword}
         className='input'
       />
-      <IoCloseOutline className='header__icon--close' onClick={clearValue} />
+      <IoCloseOutline className='header__icon--close' />
     </div>
   );
 }

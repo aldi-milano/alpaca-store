@@ -1,6 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
+import { IoTrashOutline } from 'react-icons/io5';
 
-function WishlistCard({ image, title, price, id }) {
+function WishlistCard({
+  image,
+  title,
+  price,
+  id,
+  onHandleAddtoCart,
+  onHandleRemoveFromWishlist,
+}) {
   const [spans, setSpans] = useState(0);
 
   const heightRef = useRef();
@@ -13,7 +21,6 @@ function WishlistCard({ image, title, price, id }) {
 
   function getSpans() {
     const height = heightRef.current.clientHeight;
-    console.log(height);
     const spans = Math.ceil(height / 10);
     setSpans(spans);
   }
@@ -36,28 +43,22 @@ function WishlistCard({ image, title, price, id }) {
               minimumFractionDigits: 0,
             })}
           </p>
-          {/* <IoHeartOutline
-            className={`icon__wishlist${wishlist ? '--active' : ''}`}
-            onClick={() => onHandleAddToWishlist(id)}
-            id={id}
+          <IoTrashOutline
+            style={{ fontSize: '1.375rem', cursor: 'pointer' }}
+            title='Discard from wishlist'
+            onClick={onHandleRemoveFromWishlist}
           />
-          <IoHeart
-            className={`icon__wishlist${!wishlist ? '--active' : ''}`}
-            onClick={() => onHandleAddToWishlist(id)}
-            style={{ color: 'red' }}
-          /> */}
         </div>
         <p className='card__desc-title' title={title}>
           {title}
         </p>
-        {/* <div
+        <div
           className='card__desc-button'
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          <IoCartOutline className='icon--cart' />
           <button className='button--cart'>Add to cart</button>
-        </div> */}
+        </div>
       </div>
     </div>
   );

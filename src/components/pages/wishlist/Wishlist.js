@@ -7,15 +7,21 @@ import WishlistCard from './WishlistCard';
 //   products.filter(prod => prod.wishlist).forEach(prod => <p>{prod.title}</p>);
 // }
 
-function Wishlist({ products }) {
+function Wishlist({ products, onHandleAddtoCart, onHandleRemoveFromWishlist }) {
   return (
     <div className='result'>
       {products
         ?.filter(prod => prod.wishlist)
         .map(({ image, title, price, id }) => {
-          console.log(title);
           return (
-            <WishlistCard image={image} title={title} price={price} id={id} />
+            <WishlistCard
+              image={image}
+              title={title}
+              price={price}
+              id={id}
+              onHandleAddtoCart={onHandleAddtoCart}
+              onHandleRemoveFromWishlist={onHandleRemoveFromWishlist}
+            />
           );
         })}
     </div>

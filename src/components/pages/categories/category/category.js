@@ -4,7 +4,6 @@ import Card from '../../../card/Card';
 function Category({ products, onHandleAddtoCart, onHandleAddToWishlist }) {
   const { category } = useParams();
   const items = products.filter(prod => prod.category === category);
-  console.log(items);
   return (
     <div className='result'>
       {items.map(({ image, title, price, id, wishlist }) => {

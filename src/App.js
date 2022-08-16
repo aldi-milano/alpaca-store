@@ -8,6 +8,7 @@ import Category from './components/pages/categories/category/category';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
 import Profile from './components/pages/profile/Profile';
+// import SearchResult from './components/pages/search-result/SearchResult';
 import './scss/style.scss';
 
 function App() {
@@ -59,9 +60,7 @@ function App() {
   const onHandleKeyword = str =>
     setState({ ...state, keyword: str.target.value });
 
-  function onHandleAddtoCart(id) {
-    const products = state.products.filter(product => product.id === id);
-    setState({ ...state, cart: [...state.cart, ...products] });
+  const toast = str => {
     const Toast = Swal.mixin({
       toast: true,
       position: 'bottom',
@@ -75,8 +74,14 @@ function App() {
     });
     Toast.fire({
       icon: 'success',
-      title: 'Item added to cart',
+      title: str,
     });
+  };
+
+  function onHandleAddtoCart(id) {
+    const products = state.products.filter(product => product.id === id);
+    setState({ ...state, cart: [...state.cart, ...products] });
+    toast('Item added to cart');
   }
 
   function onHandleAddToWishlist(id) {
@@ -87,20 +92,34 @@ function App() {
       state.products[idx].wishlist = !state.products[idx].wishlist;
     setState({ ...state });
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'bottom',
-      iconColor: 'white',
+    wishlist ? toast('Removed from wishlist') : toast('Added to wishlist');
+  }
+
+  function onHandleRemoveFromWishlist(id) {
+    const idx = state.products.findIndex(prod => prod.id === id);
+    // let wishlist = state.products[idx].wishlist;
+
+    if (idx !== -1) state.products[idx].wishlist = false;
+    setState({ ...state });
+
+    Swal.fire({
+      title: 'Discard Item?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      buttonsStyling: true,
       customClass: {
-        popup: 'colored-toast',
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
       },
-      showConfirmButton: false,
-      timer: 1500,
+    }).then(result => {
+      if (result.isConfirmed) {
+        Swal.fire('Item Discarded', '', 'success');
+      }
     });
-    Toast.fire({
-      icon: 'success',
-      title: !wishlist ? 'Added to wishlist' : 'Removed from wishlist',
-    });
+    console.log(state.products);
   }
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
@@ -145,7 +164,13 @@ function App() {
             <Route path='cart' element={<Cart />} />
             <Route
               path='wishlist'
-              element={<Wishlist products={state.products} />}
+              element={
+                <Wishlist
+                  products={state.products}
+                  onHandleAddtoCart={onHandleAddtoCart}
+                  onHandleRemoveFromWishlist={onHandleRemoveFromWishlist}
+                />
+              }
             />
             <Route path='profile' element={<Profile />} />
           </Route>

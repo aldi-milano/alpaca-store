@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import SearchResult from './components/pages/search-result/SearchResult';
-// import Wishlist from './components/wishlist/Wishlist';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
 import Categories from './components/pages/categories/Categories';
@@ -122,7 +120,17 @@ function App() {
               />
             }
           >
-            <Route index element={<Homepage />} />
+            <Route
+              index
+              element={
+                <Homepage
+                  item={state.item}
+                  keyword={state.keyword}
+                  onHandleAddtoCart={onHandleAddtoCart}
+                  onHandleAddToWishlist={onHandleAddToWishlist}
+                />
+              }
+            />
             <Route path='categories' element={<Categories />} />
             <Route
               path='categories/:category'
@@ -135,7 +143,10 @@ function App() {
               }
             />
             <Route path='cart' element={<Cart />} />
-            <Route path='wishlist' element={<Wishlist />} />
+            <Route
+              path='wishlist'
+              element={<Wishlist products={state.products} />}
+            />
             <Route path='profile' element={<Profile />} />
           </Route>
         </Routes>

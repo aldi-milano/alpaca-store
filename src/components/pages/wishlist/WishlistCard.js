@@ -1,33 +1,22 @@
-import React, { useRef, useEffect, useState } from 'react';
-// import Swal from 'sweetalert2';
-import { IoCartOutline, IoHeartOutline, IoHeart } from 'react-icons/io5';
-import './card.scss';
+import { useState, useRef, useEffect } from 'react';
 
-function Card({
-  title,
-  price,
-  image,
-  onHandleAddtoCart,
-  id,
-  onHandleAddToWishlist,
-  wishlist,
-}) {
+function WishlistCard({ image, title, price, id }) {
   const [spans, setSpans] = useState(0);
 
   const heightRef = useRef();
 
   useEffect(() => {
     setTimeout(() => {
-      heightRef.current?.addEventListener('load', getSpans());
+      heightRef.current.addEventListener('load', getSpans());
     }, 700);
   }, []);
 
   function getSpans() {
     const height = heightRef.current.clientHeight;
+    console.log(height);
     const spans = Math.ceil(height / 10);
     setSpans(spans);
   }
-
   return (
     <div
       ref={heightRef}
@@ -47,7 +36,7 @@ function Card({
               minimumFractionDigits: 0,
             })}
           </p>
-          <IoHeartOutline
+          {/* <IoHeartOutline
             className={`icon__wishlist${wishlist ? '--active' : ''}`}
             onClick={() => onHandleAddToWishlist(id)}
             id={id}
@@ -56,22 +45,22 @@ function Card({
             className={`icon__wishlist${!wishlist ? '--active' : ''}`}
             onClick={() => onHandleAddToWishlist(id)}
             style={{ color: 'red' }}
-          />
+          /> */}
         </div>
         <p className='card__desc-title' title={title}>
           {title}
         </p>
-        <div
+        {/* <div
           className='card__desc-button'
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          {/* <IoCartOutline className='icon--cart' /> */}
+          <IoCartOutline className='icon--cart' />
           <button className='button--cart'>Add to cart</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-export default Card;
+export default WishlistCard;

@@ -9,11 +9,9 @@ function SearchResult({
   item,
   keyword,
   onHandleAddtoCart,
-  updateStateActive,
   onHandleAddToWishlist,
 }) {
-  if (keyword.length > 1 && item.length === 0) {
-    console.log(item);
+  if (keyword?.length > 1 && item.length === 0) {
     return (
       <div className='result--error'>
         <img src={notFound} alt='' className='img' />
@@ -31,7 +29,8 @@ function SearchResult({
     );
   }
 
-  if (keyword.length > 0) {
+  if (keyword?.length > 0) {
+    console.log(item);
     return (
       <div className='result'>
         {item.map(({ title, image, price, id, wishlist }) => (
@@ -41,7 +40,6 @@ function SearchResult({
             price={price}
             key={id}
             onHandleAddtoCart={onHandleAddtoCart}
-            updateStateActive={updateStateActive}
             id={id}
             onHandleAddToWishlist={onHandleAddToWishlist}
             wishlist={wishlist}

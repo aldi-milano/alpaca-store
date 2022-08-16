@@ -9,7 +9,6 @@ import 'swiper/scss/effect-fade';
 import summer from '../../../../assets/images/summer.png';
 import best from '../../../../assets/images/best.png';
 import casual from '../../../../assets/images/casual.png';
-import fabric from '../../../../assets/images/fabric.png';
 import wools from '../../../../assets/images/wools.png';
 
 function Hero({ keyword }) {
@@ -78,7 +77,7 @@ function Hero({ keyword }) {
             <article>
               <section className='hero__wools'>
                 <div className='overlay--wools'>
-                  <h1 className='hero__heading--wools'>eco-friendly</h1>
+                  <h1 className='hero__heading--wools'>recycled cotton</h1>
                 </div>
                 <img src={wools} alt='wools' className='hero__img--wools' />
               </section>

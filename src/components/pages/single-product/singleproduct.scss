@@ -48,6 +48,11 @@
       @include u.flex(flex-start, center);
       margin-bottom: u.rem(30);
       color: #333;
+
+      .rating__detail {
+        font-size: u.rem(14);
+        margin-left: 4px;
+      }
     }
 
     .desc__detail__title {

@@ -79,7 +79,7 @@ function SingleProduct({ products, onHandleAddToWishlist, onHandleAddtoCart }) {
           <h3 className='desc__title'>{title}</h3>
           <div className='desc__rating'>
             <IoStarOutline />
-            <p>
+            <p className='rating__detail'>
               {rate} | {count}
             </p>
           </div>

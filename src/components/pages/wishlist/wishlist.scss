@@ -15,13 +15,14 @@
 .announcement {
   height: 100vh;
   @include u.flex();
+  position: relative;
 
   &__container {
     width: 100%;
     height: 60%;
     @include u.flex();
     flex-direction: column;
-    gap: u.rem(16);
+    gap: u.rem(12);
 
     .img__container {
       width: 100%;

@@ -8,7 +8,7 @@ import Category from './components/pages/categories/category/category';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
 import Profile from './components/pages/profile/Profile';
-// import SearchResult from './components/pages/search-result/SearchResult';
+import SingleProduct from './components/pages/single-product/SingleProduct';
 import './scss/style.scss';
 
 function App() {
@@ -146,6 +146,16 @@ function App() {
                   keyword={state.keyword}
                   onHandleAddtoCart={onHandleAddtoCart}
                   onHandleAddToWishlist={onHandleAddToWishlist}
+                />
+              }
+            />
+            <Route
+              path='/:prodId'
+              element={
+                <SingleProduct
+                  products={state.products}
+                  onHandleAddToWishlist={onHandleAddToWishlist}
+                  onHandleAddtoCart={onHandleAddtoCart}
                 />
               }
             />

@@ -1,5 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
-
 import './wishlist.scss';
 import WishlistCard from './WishlistCard';
 

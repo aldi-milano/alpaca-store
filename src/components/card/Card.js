@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 // import Swal from 'sweetalert2';
-import { IoCartOutline, IoHeartOutline, IoHeart } from 'react-icons/io5';
+import { IoHeartOutline, IoHeart } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import './card.scss';
 
 function Card({
@@ -35,9 +36,11 @@ function Card({
       style={{ gridRowEnd: `span ${spans}` }}
       id={id}
     >
-      <div className='card__container-img'>
-        <img src={image} alt='' className='img' />
-      </div>
+      <Link to={`/${id}`}>
+        <div className='card__container-img'>
+          <img src={image} alt='' className='img' />
+        </div>
+      </Link>
       <div className='card__desc'>
         <div className='container'>
           <p className='card__desc-price'>
@@ -66,7 +69,6 @@ function Card({
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          {/* <IoCartOutline className='icon--cart' /> */}
           <button className='button--cart'>Add to cart</button>
         </div>
       </div>

@@ -37,24 +37,34 @@
         }
       }
     }
+
     .desc__title {
       line-height: 1.2;
       font-weight: 500;
-      margin-bottom: u.rem(24);
+      margin-bottom: u.rem(8);
+    }
+
+    .desc__rating {
+      @include u.flex(flex-start, center);
+      margin-bottom: u.rem(30);
+      color: #333;
+    }
+
+    .desc__detail__title {
+      font-size: u.rem(14);
+      margin-bottom: u.rem(8);
     }
 
     .desc__detail {
       color: #555;
       line-height: 1.4;
       letter-spacing: 1px;
-      margin-top: u.rem(6);
       font-size: u.rem(14);
       &--active {
         color: #555;
         font-size: u.rem(14);
         line-height: 1.4;
         letter-spacing: 1px;
-        margin-top: u.rem(10);
         overflow: hidden;
         -webkit-line-clamp: 2;
         display: -webkit-box;

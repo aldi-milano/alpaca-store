@@ -15,7 +15,7 @@ function Wishlist({ products, onHandleAddtoCart, onHandleRemoveFromWishlist }) {
               className='img'
             />
           </div>
-          <p>Wishlist Is Empty</p>
+          <p>Wishlist Is Empty.</p>
           <p className='title__src'>
             Illustration by{' '}
             <a href='https://icons8.com/illustrations/author/ARh4OKrFtdfC'>

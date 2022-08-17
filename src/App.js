@@ -115,7 +115,7 @@ function App() {
       if (result.isConfirmed) {
         if (idx !== -1) state.products[idx].wishlist = false;
         setState({ ...state });
-        Swal.fire('Item Discarded', '', 'success');
+        Swal.fire('', 'Item Discarded', 'success');
       }
     });
     console.log(state.products);

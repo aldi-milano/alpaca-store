@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoHeartOutline, IoHeart } from 'react-icons/io5';
+import { IoHeartOutline, IoHeart, IoStarOutline } from 'react-icons/io5';
 import { useParams } from 'react-router-dom';
 
 import './singleproduct.scss';
@@ -39,7 +39,15 @@ function SingleProduct({ products, onHandleAddToWishlist, onHandleAddtoCart }) {
   const [item] = products
     .filter(prod => prod.id === Number(prodId))
     .map(prod => prod);
-  const { title, image, price, description, id, wishlist } = item;
+  const {
+    title,
+    image,
+    price,
+    description,
+    id,
+    wishlist,
+    rating: { rate, count },
+  } = item;
 
   return (
     <div className='singleproduct' id={id}>
@@ -69,7 +77,13 @@ function SingleProduct({ products, onHandleAddToWishlist, onHandleAddtoCart }) {
             />
           </div>
           <h3 className='desc__title'>{title}</h3>
-          <p>Description :</p>
+          <div className='desc__rating'>
+            <IoStarOutline />
+            <p>
+              {rate} | {count}
+            </p>
+          </div>
+          <p className='desc__detail__title'>Description :</p>
           <p className={`desc__detail${active ? '--active' : ''}`}>
             {description}
           </p>

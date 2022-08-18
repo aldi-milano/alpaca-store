@@ -18,7 +18,7 @@
   width: 100%;
   @include u.flex(center, center);
   flex-direction: column;
-  gap: u.rem(10);
+  gap: u.rem(4);
   padding: 0 u.rem(16);
 }
 

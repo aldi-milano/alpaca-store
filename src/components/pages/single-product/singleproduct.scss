@@ -65,7 +65,9 @@
       line-height: 1.4;
       letter-spacing: 1px;
       font-size: u.rem(14);
+      margin-bottom: 6px;
       &--active {
+        margin-bottom: 6px;
         color: #555;
         font-size: u.rem(14);
         line-height: 1.4;

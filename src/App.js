@@ -10,6 +10,7 @@ import Wishlist from './components/pages/wishlist/Wishlist';
 import Profile from './components/pages/profile/Profile';
 import SingleProduct from './components/pages/single-product/SingleProduct';
 import './scss/style.scss';
+import Visitor from './components/pages/profile/visitor/Visitor';
 
 function App() {
   const [state, setState] = useState({
@@ -181,7 +182,7 @@ function App() {
                 />
               }
             />
-            <Route path='profile' element={<Profile />} />
+            <Route path='profile' element={<Visitor />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -6,6 +6,7 @@ import facebook from '../../../../assets/icon/icons8-facebook-circled.svg';
 function Visitor() {
   return (
     <div className='visitor'>
+      <h2>LOGIN</h2>
       <div className='visitor__container'>
         <div className='visitor__form'>
           <form>
@@ -27,7 +28,7 @@ function Visitor() {
                 Remember me
               </label>
             </div>
-            <button className='visitor__btn'>LOG IN</button>
+            <button className='visitor__btn'>LOGIN</button>
           </form>
         </div>
         <div className='visitor__otherLogin'>

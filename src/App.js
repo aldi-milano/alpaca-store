@@ -43,6 +43,7 @@ function App() {
         products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users });
         console.log(products);
+        console.log(users);
       })();
     } catch (err) {
       console.log(err);

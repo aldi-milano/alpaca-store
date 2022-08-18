@@ -1,11 +1,20 @@
 @use '../../../../scss/utility' as u;
 
+html {
+  position: relative;
+}
+
 .visitor {
   margin: u.rem(60) 0 u.rem(65);
   height: 100vh - 30;
   @include u.flex();
   flex-direction: column;
   width: 100%;
+
+  h2 {
+    letter-spacing: 5px;
+    font-weight: 400;
+  }
 
   .visitor__container {
     @include u.flex();
@@ -90,6 +99,28 @@
             font-weight: 600;
           }
         }
+      }
+    }
+
+    .popup__data {
+      @include u.flex();
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 100%;
+
+      .popup__message {
+        font-size: u.rem(12);
+        color: #888;
+        cursor: pointer;
+        margin-bottom: u.rem(8);
+      }
+
+      .popup__btn {
+        font-size: u.rem(12);
+        color: blue;
       }
     }
   }

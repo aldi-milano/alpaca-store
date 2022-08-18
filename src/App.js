@@ -11,6 +11,7 @@ import Profile from './components/pages/profile/Profile';
 import SingleProduct from './components/pages/single-product/SingleProduct';
 import './scss/style.scss';
 import Visitor from './components/pages/profile/visitor/Visitor';
+import User from './components/pages/profile/user/User';
 
 function App() {
   const [state, setState] = useState({
@@ -20,6 +21,7 @@ function App() {
     item: [],
     refHeight: undefined,
     isActive: false,
+    isLogin: false,
     keyword: '',
   });
 
@@ -124,6 +126,7 @@ function App() {
   }
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
+  const isLoginHandler = () => setState({ ...state, isLogin: true });
 
   return (
     <main className='main'>
@@ -183,7 +186,17 @@ function App() {
                 />
               }
             />
-            <Route path='profile' element={<Visitor />} />
+            <Route
+              path='profile'
+              element={
+                <Visitor
+                  users={state.users}
+                  isLoginHandler={isLoginHandler}
+                  isLogin={state.isLogin}
+                />
+              }
+            />
+            <Route path='profile/:id' element={<User />} />
           </Route>
         </Routes>
       </BrowserRouter>

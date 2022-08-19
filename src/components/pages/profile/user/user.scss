@@ -2,4 +2,49 @@
 
 .user {
   margin: u.rem(65) 0;
+
+  &__container {
+    padding: 0 u.rem(16);
+
+    .container__img {
+      @include u.flex();
+      width: 40%;
+      margin: 0 auto;
+      margin-bottom: u.rem(40);
+      // padding: u.rem(32);
+      .profile__img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .container__info {
+      border: solid 1px #888;
+      padding: u.rem(16) u.rem(20);
+      @include u.flex(flex-start, flex-start);
+      flex-direction: column;
+      gap: u.rem(32);
+
+      .container__title {
+        @include u.flex(space-between, center);
+        width: 100%;
+
+        .icon {
+          font-size: u.rem(22);
+          cursor: pointer;
+        }
+      }
+
+      .container__detail {
+        letter-spacing: 1px;
+        @include u.flex(flex-start, flex-start);
+        flex-direction: column;
+        gap: u.rem(5);
+
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
 }

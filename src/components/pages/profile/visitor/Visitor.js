@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-// import { Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import './visitor.scss';
@@ -8,39 +8,40 @@ import google from '../../../../assets/icon/icons8-google.svg';
 import facebook from '../../../../assets/icon/icons8-facebook-circled.svg';
 
 function Visitor({ users, isLoginHandler, isLogin }) {
-  useEffect(() => {
-    const getData = () =>
-      users.map(({ username, password }) => console.log(username, password));
-    getData();
-  }, []);
+  const navigate = useNavigate();
 
   function onSubmit(e) {
     e.preventDefault();
     const user = e.target.username.value;
     const pass = e.target.password.value;
 
-    function getUsers() {
-      const data = users.find(
-        ({ username, password }) => user === username && pass === password
-      );
+    const data = users.find(
+      ({ username, password }) => user === username && pass === password
+    );
+
+    (function () {
       if (data) {
-        isLoginHandler();
-        console.log('Data match!');
+        isLoginHandler(true);
+        navigate(`/profile/${data.id}`);
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'Incorect Username or Password.',
-          footer: '<a href="">Try one of these Id\'s and Password\'s</a>',
         });
       }
-    }
-
-    getUsers();
+    })();
   }
 
-  function getUserData() {
-    console.log('Hiiii');
+  function getIdPass(e) {
+    e.preventDefault();
+    const user = document.querySelector('.visitor__input--username');
+    const pass = document.querySelector('.visitor__input--password');
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    const profile = users.map(user => user);
+    let { username, password } = profile[randomNumber];
+    user.value = username;
+    pass.value = password;
   }
 
   return (
@@ -51,14 +52,14 @@ function Visitor({ users, isLoginHandler, isLogin }) {
           <form id='form__login' onSubmit={onSubmit}>
             <input
               type='text'
-              className='visitor__input'
+              className='visitor__input--username'
               name='username'
               placeholder='Username'
               required='required'
             />
             <input
               type='password'
-              className='visitor__input'
+              className='visitor__input--password'
               name='password'
               placeholder='Password'
               required='required'
@@ -91,7 +92,7 @@ function Visitor({ users, isLoginHandler, isLogin }) {
           <p className='popup__message'>
             Try one of these Id's and Password's to login.
           </p>
-          <button className='popup__btn' onClick={getUserData}>
+          <button className='popup__btn' onClick={getIdPass}>
             Click Me
           </button>
         </div>

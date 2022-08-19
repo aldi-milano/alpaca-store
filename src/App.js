@@ -126,7 +126,7 @@ function App() {
   }
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
-  const isLoginHandler = () => setState({ ...state, isLogin: true });
+  const isLoginHandler = bool => setState({ ...state, isLogin: bool });
 
   return (
     <main className='main'>
@@ -196,7 +196,10 @@ function App() {
                 />
               }
             />
-            <Route path='profile/:id' element={<User />} />
+            <Route
+              path='profile/:userId'
+              element={<User users={state.users} />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

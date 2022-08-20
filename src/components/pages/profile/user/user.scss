@@ -29,9 +29,14 @@
         @include u.flex(space-between, center);
         width: 100%;
 
-        .icon {
+        .icon__caret {
           font-size: u.rem(22);
           cursor: pointer;
+          color: black;
+        }
+
+        h3 {
+          font-weight: 500;
         }
       }
 
@@ -47,4 +52,8 @@
       }
     }
   }
+}
+
+[hidden] {
+  display: none !important;
 }

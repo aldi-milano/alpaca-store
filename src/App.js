@@ -17,6 +17,7 @@ function App() {
   const [state, setState] = useState({
     products: [],
     users: [],
+    user: {},
     cart: [],
     item: [],
     refHeight: undefined,
@@ -32,6 +33,8 @@ function App() {
       return response.json();
     });
   }
+
+  // useState(() => console.log(state.user), []);
 
   useEffect(() => {
     try {
@@ -127,6 +130,7 @@ function App() {
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
   const isLoginHandler = bool => setState({ ...state, isLogin: bool });
+  // const userLoginProfile = data => setState({ ...state, user: data });
 
   return (
     <main className='main'>
@@ -140,6 +144,7 @@ function App() {
                 clearValue={onHandleClearValue}
                 items={state.cart}
                 products={state.products}
+                isLogin={state.isLogin}
               />
             }
           >

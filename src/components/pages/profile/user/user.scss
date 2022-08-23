@@ -1,59 +1,62 @@
 @use '../../../../scss/utility' as u;
 
 .user {
-  margin: u.rem(65) 0;
+  margin: u.rem(60) 0;
 
-  &__container {
-    padding: 0 u.rem(16);
+  .user__content {
+    @include u.flex(center, flex-start);
+    flex-direction: column;
+    gap: u.rem(20);
+    padding: u.rem(16);
 
-    .container__img {
-      @include u.flex();
-      width: 40%;
-      margin: 0 auto;
-      margin-bottom: u.rem(40);
-      // padding: u.rem(32);
-      .profile__img {
-        width: 100%;
+    h2 {
+      font-weight: 500;
+    }
+
+    .user__img {
+      width: 100%;
+
+      .img {
+        display: block;
+        width: 50%;
         border-radius: 50%;
+        margin: 0 auto;
       }
     }
 
-    .container__info {
-      border: solid 1px #888;
-      padding: u.rem(16) u.rem(20);
-      @include u.flex(flex-start, flex-start);
-      flex-direction: column;
-      gap: u.rem(32);
+    .user__container {
+      width: 100%;
 
-      .container__title {
+      .user__title {
         @include u.flex(space-between, center);
-        width: 100%;
-
-        .icon__caret {
-          font-size: u.rem(22);
-          cursor: pointer;
-          color: black;
-        }
+        cursor: pointer;
 
         h3 {
-          font-weight: 500;
+          font-weight: 600;
+          letter-spacing: 1.2px;
         }
       }
 
-      .container__detail {
-        letter-spacing: 1px;
-        @include u.flex(flex-start, flex-start);
-        flex-direction: column;
-        gap: u.rem(5);
-
-        span {
-          font-weight: 600;
-        }
+      .user__detail {
+        display: none;
+      }
+      .user__detail--active {
+        display: block;
       }
     }
   }
 }
 
-[hidden] {
-  display: none !important;
+table {
+  border-collapse: separate;
+  border-spacing: u.rem(10);
 }
+
+// useEffect(() => {
+//   (async () => {
+//     const data = await fetch('https://tinyfac.es/api/data?limit=1&quality=0');
+//     const [res] = await data.json();
+//     setState({ ...state, profileImg: res.url });
+//   })();
+//   console.log(state.profileImg);
+// }, []);

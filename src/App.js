@@ -21,9 +21,10 @@ function App() {
     cart: [],
     item: [],
     refHeight: undefined,
-    isActive: false,
+    isClicked: false,
     isLogin: false,
     keyword: '',
+    profileImg: '',
   });
 
   function getJSON(url, errorMsg = 'Something went wrong') {
@@ -42,13 +43,15 @@ function App() {
         const data = Promise.all([
           getJSON(`https://fakestoreapi.com/products`),
           getJSON('https://fakestoreapi.com/users'),
+          getJSON(`https://tinyfac.es/api/data?limit=1&quality=0`),
         ]);
         const result = await data;
-        const [products, users] = result;
+        const [products, users, profileImg] = result;
         products.forEach(prod => (prod.wishlist = false));
-        setState({ ...state, products, users });
+        setState({ ...state, products, users, profileImg });
         console.log(products);
         console.log(users);
+        console.log(profileImg);
       })();
     } catch (err) {
       console.log(err);
@@ -203,7 +206,9 @@ function App() {
             />
             <Route
               path='profile/:userId'
-              element={<User users={state.users} />}
+              element={
+                <User users={state.users} profileImg={state.profileImg} />
+              }
             />
           </Route>
         </Routes>

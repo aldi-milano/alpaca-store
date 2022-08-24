@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
@@ -45,8 +45,6 @@ function App() {
         const [products, users, profileImg] = result;
         products.forEach(prod => (prod.wishlist = false));
         setState({ ...state, products, users, profileImg });
-        console.log(products);
-        console.log(users);
       })();
     } catch (err) {
       console.log(err);
@@ -126,11 +124,13 @@ function App() {
     console.log(state.products);
   }
 
-  let getParams;
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
   const isLoginHandler = (bool, data) =>
     setState({ ...state, isLogin: bool, profile: data });
-  const logoutHandler = () => setState({ ...state, isLogin: false });
+
+  function logoutHandler() {
+    setState({ ...state, isLogin: false });
+  }
 
   return (
     <main className='main'>
@@ -195,11 +195,7 @@ function App() {
             <Route
               path='profile'
               element={
-                <Visitor
-                  users={state.users}
-                  isLoginHandler={isLoginHandler}
-                  isLogin={state.isLogin}
-                />
+                <Visitor users={state.users} isLoginHandler={isLoginHandler} />
               }
             />
             <Route
@@ -215,22 +211,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* <Wishlist products={state.products} /> */}
-      {/* <Navigation /> */}
-      {/* <Header
-        keyword={onHandleKeyword}
-        clearValue={onHandleClearValue}
-        className='header'
-      />
-      <Hero keyword={state.keyword} />
-      <SearchResult
-        item={state.item}
-        keyword={state.keyword}
-        onHandleAddtoCart={onHandleAddtoCart}
-        onHandleAddToWishlist={onHandleAddToWishlist}
-      />
-      <Wishlist products={state.products} />
-      <Navigation items={state.cart} products={state.products} /> */}
     </main>
   );
 }

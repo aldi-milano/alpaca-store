@@ -1,0 +1,79 @@
+@use '../../../scss/utility' as u;
+
+.cart {
+  margin: u.rem(60) 0;
+
+  .cart__container {
+    padding: 0 u.rem(16);
+    @include u.flex(center, flex-start);
+    height: u.rem(128);
+    position: relative;
+
+    .container__img {
+      flex: 1;
+
+      .img {
+        margin: 0 auto;
+        display: block;
+        height: u.rem(128);
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+
+    .container__detail {
+      flex: 3;
+      @include u.flex(center, flex-start);
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      padding-left: u.rem(16);
+
+      .detail {
+        flex: 1;
+        @include u.flex(flex-start, center);
+        .detail__title {
+          font-size: u.rem(14);
+          font-weight: 500;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          line-height: 1.2;
+        }
+      }
+
+      .container__order {
+        flex: 1;
+        @include u.flex(space-around, center);
+        width: 100%;
+
+        .qty {
+          @include u.flex();
+          gap: u.rem(10);
+
+          p {
+            font-weight: 500;
+          }
+
+          .icon--dec .icon--inc {
+            // --ionicon-stroke-width: 10px;
+            font-size: u.rem(22);
+            cursor: pointer;
+          }
+        }
+
+        .detail__price {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 5%;
+  top: 0;
+  font-size: u.rem(22);
+}

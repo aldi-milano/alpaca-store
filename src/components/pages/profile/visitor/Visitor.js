@@ -7,7 +7,7 @@ import './visitor.scss';
 import google from '../../../../assets/icon/icons8-google.svg';
 import facebook from '../../../../assets/icon/icons8-facebook-circled.svg';
 
-function Visitor({ users, isLoginHandler, isLogin, getParamsHandler }) {
+function Visitor({ users, isLoginHandler }) {
   const navigate = useNavigate();
 
   function onSubmit(e) {
@@ -22,7 +22,7 @@ function Visitor({ users, isLoginHandler, isLogin, getParamsHandler }) {
     (function () {
       if (data) {
         isLoginHandler(true, data);
-        navigate(`/profile/${data.id}`);
+        navigate(`/profile/${data.id}`, { replace: true });
       } else {
         Swal.fire({
           icon: 'error',

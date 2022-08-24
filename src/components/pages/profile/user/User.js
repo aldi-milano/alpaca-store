@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   IoCaretUpSharp,
   IoCaretDownSharp,
   IoLogOutOutline,
 } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 
 import './user.scss';
 
@@ -12,6 +13,7 @@ function User({ users, profileImg, logoutHandler }) {
   const [img] = profileImg;
   const { url } = img;
   const ref = useRef();
+  const navigate = useNavigate();
 
   const { userId } = useParams();
 
@@ -27,33 +29,12 @@ function User({ users, profileImg, logoutHandler }) {
     address: { city, number, street, zipcode },
   } = user;
 
-  const elContainer = document.querySelector('.user__container');
-
-  // useEffect(() => {
-  //   const showingAccordion = document.querySelector('.user__content');
-  //   function doSomething(e) {
-  //     console.log(e.target);
-  //     if (
-  //       e.target.classList.contains('user__title') ||
-  //       e.target.classList.contains('title') ||
-  //       e.target.classList.contains('icon__caret')
-  //     ) {
-  //       console.log('IT WORKS!');
-  //       setShowing();
-  //     }
-  //   }
-  //   showingAccordion.addEventListener('click', doSomething);
-  //   return () => showingAccordion.removeEventListener('click', doSomething);
-  // }, []);
-
   useEffect(() => {
     const icons = document.querySelectorAll('.icon__caret');
     const detail = document.querySelectorAll('.user__detail');
 
     function showingInfo(i) {
-      detail.forEach(d => {
-        d.classList.remove('active');
-      });
+      // detail.forEach(d => d.classList.remove('active'));
       detail[i].classList.toggle('active');
     }
 
@@ -66,16 +47,36 @@ function User({ users, profileImg, logoutHandler }) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  function logout() {
+    Swal.fire({
+      title: 'Logout',
+      text: 'Are you sure?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      buttonsStyling: true,
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      },
+    }).then(result => {
+      if (result.isConfirmed) {
+        logoutHandler();
+        navigate('/', { replace: true });
+        console.log(`It's logout.`);
+        // Swal.fire('', 'Item Discarded', 'success');
+      }
+    });
+  }
+
   return (
     <div className='user'>
       <div ref={ref} className='user__content'>
         <div className='user__greeting'>
-          <h3>Welcome Back, {uppercase(firstname)}</h3>
-          <IoLogOutOutline
-            className='icon'
-            onClick={logoutHandler}
-            title='Logout'
-          />
+          <h3>Hello, {uppercase(firstname)}</h3>
+          <IoLogOutOutline className='icon' onClick={logout} title='Logout' />
         </div>
         <div className='user__img'>
           <img src={url} alt='profile image' className='img' />

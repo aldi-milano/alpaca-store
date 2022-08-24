@@ -56,8 +56,8 @@
             font-weight: 500;
           }
 
-          .icon--dec .icon--inc {
-            // --ionicon-stroke-width: 10px;
+          .icon--dec,
+          .icon--inc {
             font-size: u.rem(22);
             cursor: pointer;
           }
@@ -76,4 +76,5 @@
   right: 5%;
   top: 0;
   font-size: u.rem(22);
+  color: #555;
 }

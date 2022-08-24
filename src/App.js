@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import SharedLayout from './components/shared-layout/SharedLayout';
@@ -7,7 +7,6 @@ import Categories from './components/pages/categories/Categories';
 import Category from './components/pages/categories/category/category';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
-import Profile from './components/pages/profile/Profile';
 import SingleProduct from './components/pages/single-product/SingleProduct';
 import './scss/style.scss';
 import Visitor from './components/pages/profile/visitor/Visitor';
@@ -20,8 +19,7 @@ function App() {
     user: {},
     cart: [],
     item: [],
-    refHeight: undefined,
-    isClicked: false,
+    profile: {},
     isLogin: false,
     keyword: '',
     profileImg: '',
@@ -34,8 +32,6 @@ function App() {
       return response.json();
     });
   }
-
-  // useState(() => console.log(state.user), []);
 
   useEffect(() => {
     try {
@@ -51,7 +47,6 @@ function App() {
         setState({ ...state, products, users, profileImg });
         console.log(products);
         console.log(users);
-        console.log(profileImg);
       })();
     } catch (err) {
       console.log(err);
@@ -131,9 +126,11 @@ function App() {
     console.log(state.products);
   }
 
+  let getParams;
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
-  const isLoginHandler = bool => setState({ ...state, isLogin: bool });
-  // const userLoginProfile = data => setState({ ...state, user: data });
+  const isLoginHandler = (bool, data) =>
+    setState({ ...state, isLogin: bool, profile: data });
+  const logoutHandler = () => setState({ ...state, isLogin: false });
 
   return (
     <main className='main'>
@@ -148,6 +145,7 @@ function App() {
                 items={state.cart}
                 products={state.products}
                 isLogin={state.isLogin}
+                profile={state.profile}
               />
             }
           >
@@ -207,7 +205,11 @@ function App() {
             <Route
               path='profile/:userId'
               element={
-                <User users={state.users} profileImg={state.profileImg} />
+                <User
+                  users={state.users}
+                  profileImg={state.profileImg}
+                  logoutHandler={logoutHandler}
+                />
               }
             />
           </Route>

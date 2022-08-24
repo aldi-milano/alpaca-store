@@ -1,7 +1,14 @@
 import Navigation from '../navigation/Navigation';
 import Header from '../header/Header';
 import { Outlet } from 'react-router-dom';
-function SharedLayout({ keyword, clearValue, items, products, isLogin }) {
+function SharedLayout({
+  keyword,
+  clearValue,
+  items,
+  products,
+  isLogin,
+  profile,
+}) {
   return (
     <>
       <Navigation
@@ -9,6 +16,7 @@ function SharedLayout({ keyword, clearValue, items, products, isLogin }) {
         products={products}
         clearValue={clearValue}
         isLogin={isLogin}
+        profile={profile}
       />
       <Header keyword={keyword} clearValue={clearValue} />
       <Outlet />

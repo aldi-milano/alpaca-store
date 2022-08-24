@@ -7,7 +7,7 @@ import './visitor.scss';
 import google from '../../../../assets/icon/icons8-google.svg';
 import facebook from '../../../../assets/icon/icons8-facebook-circled.svg';
 
-function Visitor({ users, isLoginHandler, isLogin }) {
+function Visitor({ users, isLoginHandler, isLogin, getParamsHandler }) {
   const navigate = useNavigate();
 
   function onSubmit(e) {
@@ -21,7 +21,7 @@ function Visitor({ users, isLoginHandler, isLogin }) {
 
     (function () {
       if (data) {
-        isLoginHandler(true);
+        isLoginHandler(true, data);
         navigate(`/profile/${data.id}`);
       } else {
         Swal.fire({
@@ -90,11 +90,12 @@ function Visitor({ users, isLoginHandler, isLogin }) {
         </div>
         <div className='popup__data'>
           <p className='popup__message'>
-            Try one of these Id's and Password's to login.
+            Try one of these{' '}
+            <span className='span' onClick={getIdPass}>
+              Id's and Password's
+            </span>{' '}
+            to login.
           </p>
-          <button className='popup__btn' onClick={getIdPass}>
-            Click Me
-          </button>
         </div>
       </div>
     </div>

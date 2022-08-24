@@ -1,17 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { IoCaretUpSharp, IoCaretDownSharp } from 'react-icons/io5';
+import {
+  IoCaretUpSharp,
+  IoCaretDownSharp,
+  IoLogOutOutline,
+} from 'react-icons/io5';
 
 import './user.scss';
 
-function User({ users, profileImg }) {
+function User({ users, profileImg, logoutHandler }) {
   const [img] = profileImg;
   const { url } = img;
   const ref = useRef();
-  let [state, setState] = useState({
-    // profileImg: '',
-    isShowing: false,
-  });
 
   const { userId } = useParams();
 
@@ -27,24 +27,7 @@ function User({ users, profileImg }) {
     address: { city, number, street, zipcode },
   } = user;
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await fetch('https://tinyfac.es/api/data?limit=1&quality=0');
-  //     const [res] = await data.json();
-  //     setState({ ...state, profileImg: res.url });
-  //   })();
-  // }, []);
-
   const elContainer = document.querySelector('.user__container');
-
-  // function showingEl(e) {
-  //   console.log(e.target);
-  //   setState({ ...state, isShowing: !state.isShowing });
-  // }
-
-  // function setShowing() {
-  //   setState({ ...state, isShowing: !state.isShowing });
-  // }
 
   // useEffect(() => {
   //   const showingAccordion = document.querySelector('.user__content');
@@ -68,8 +51,10 @@ function User({ users, profileImg }) {
     const detail = document.querySelectorAll('.user__detail');
 
     function showingInfo(i) {
-      // detail.className = 'user__detail';
-      detail[i].classList.toggle('user__detail--active');
+      detail.forEach(d => {
+        d.classList.remove('active');
+      });
+      detail[i].classList.toggle('active');
     }
 
     icons.forEach((_, i) => {
@@ -77,31 +62,28 @@ function User({ users, profileImg }) {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(state.isShowing);
-  }, [state.isShowing]);
-
   function uppercase(str = '') {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  console.log(uppercase(firstname));
-
   return (
     <div className='user'>
       <div ref={ref} className='user__content'>
-        <h2>Welcome Back, {uppercase(firstname)}</h2>
+        <div className='user__greeting'>
+          <h3>Welcome Back, {uppercase(firstname)}</h3>
+          <IoLogOutOutline
+            className='icon'
+            onClick={logoutHandler}
+            title='Logout'
+          />
+        </div>
         <div className='user__img'>
           <img src={url} alt='profile image' className='img' />
         </div>
         <div className='user__container' id='1'>
           <div className='user__title'>
             <h3 className='title'>PERSONAL INFORMATION</h3>
-            {!state.isShowing ? (
-              <IoCaretDownSharp className='icon__caret' />
-            ) : (
-              <IoCaretUpSharp className='icon__caret' />
-            )}
+            <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>
             <table>
@@ -126,11 +108,7 @@ function User({ users, profileImg }) {
         <div className='user__container' id='2'>
           <div className='user__title'>
             <h3 className='title'>USER ADDRESS</h3>
-            {!state.isShowing ? (
-              <IoCaretDownSharp className='icon__caret' />
-            ) : (
-              <IoCaretUpSharp className='icon__caret' />
-            )}
+            <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>
             <table>
@@ -160,11 +138,7 @@ function User({ users, profileImg }) {
         <div className='user__container' id='3'>
           <div className='user__title'>
             <h3 className='title'>ACCOUNT DETAIL</h3>
-            {!state.isShowing ? (
-              <IoCaretDownSharp className='icon__caret' />
-            ) : (
-              <IoCaretUpSharp className='icon__caret' />
-            )}
+            <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>
             <table>

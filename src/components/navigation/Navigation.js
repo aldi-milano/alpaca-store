@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Cart from './icon/Cart';
@@ -8,7 +9,7 @@ import Wishlist from './icon/Wishlist';
 
 import './navigation.scss';
 
-function Navigation({ items, products, clearValue }) {
+function Navigation({ items, products, clearValue, isLogin, profile }) {
   return (
     <nav className='nav'>
       <Link to='/'>
@@ -23,7 +24,7 @@ function Navigation({ items, products, clearValue }) {
       <Link to='/wishlist'>
         <Wishlist products={products} />
       </Link>
-      <Link to='/profile'>
+      <Link to={!isLogin ? `/profile` : `/profile/${profile.id}`}>
         <Profile />
       </Link>
     </nav>

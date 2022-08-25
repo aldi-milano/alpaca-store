@@ -88,21 +88,23 @@ function User({ users, profileImg, logoutHandler }) {
           </div>
           <div className='user__detail'>
             <table>
-              <tr>
-                <td>First Name</td>
-                <td>:</td>
-                <td>{firstname}</td>
-              </tr>
-              <tr>
-                <td>Last Name</td>
-                <td>:</td>
-                <td>{lastname}</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>:</td>
-                <td>{phone}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>First Name</td>
+                  <td>:</td>
+                  <td>{firstname}</td>
+                </tr>
+                <tr>
+                  <td>Last Name</td>
+                  <td>:</td>
+                  <td>{lastname}</td>
+                </tr>
+                <tr>
+                  <td>Phone Number</td>
+                  <td>:</td>
+                  <td>{phone}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -113,26 +115,28 @@ function User({ users, profileImg, logoutHandler }) {
           </div>
           <div className='user__detail'>
             <table>
-              <tr>
-                <td>City</td>
-                <td>:</td>
-                <td>{city}</td>
-              </tr>
-              <tr>
-                <td>Street</td>
-                <td>:</td>
-                <td>{street}</td>
-              </tr>
-              <tr>
-                <td>Number</td>
-                <td>:</td>
-                <td>{number}</td>
-              </tr>
-              <tr>
-                <td>ZIP Code</td>
-                <td>:</td>
-                <td>{zipcode}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>City</td>
+                  <td>:</td>
+                  <td>{city}</td>
+                </tr>
+                <tr>
+                  <td>Street</td>
+                  <td>:</td>
+                  <td>{street}</td>
+                </tr>
+                <tr>
+                  <td>Number</td>
+                  <td>:</td>
+                  <td>{number}</td>
+                </tr>
+                <tr>
+                  <td>ZIP Code</td>
+                  <td>:</td>
+                  <td>{zipcode}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -143,21 +147,23 @@ function User({ users, profileImg, logoutHandler }) {
           </div>
           <div className='user__detail'>
             <table>
-              <tr>
-                <td>Email</td>
-                <td>:</td>
-                <td>{email}</td>
-              </tr>
-              <tr>
-                <td>Username</td>
-                <td>:</td>
-                <td>{username}</td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td>{password}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Email</td>
+                  <td>:</td>
+                  <td>{email}</td>
+                </tr>
+                <tr>
+                  <td>Username</td>
+                  <td>:</td>
+                  <td>{username}</td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>:</td>
+                  <td>{password}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

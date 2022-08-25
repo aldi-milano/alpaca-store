@@ -13,12 +13,13 @@
       @include u.flex(space-between, center);
       width: 100%;
 
-      .icon {
-        @include u.icon;
+      .greeting {
+        font-weight: 500;
+        letter-spacing: 1.2px;
       }
 
-      h3 {
-        font-weight: 600;
+      .icon {
+        @include u.icon;
       }
     }
 
@@ -40,8 +41,8 @@
         @include u.flex(space-between, center);
         cursor: pointer;
 
-        h3 {
-          font-weight: 600;
+        h4 {
+          font-weight: 500;
           letter-spacing: 1.2px;
         }
       }

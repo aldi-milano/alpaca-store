@@ -64,9 +64,9 @@ function User({ users, profileImg, logoutHandler }) {
     }).then(result => {
       if (result.isConfirmed) {
         logoutHandler();
-        navigate('/', { replace: true });
-        console.log(`It's logout.`);
-        // Swal.fire('', 'Item Discarded', 'success');
+        setTimeout(() => {
+          navigate('/', { replace: true });
+        }, 1500);
       }
     });
   }
@@ -75,7 +75,7 @@ function User({ users, profileImg, logoutHandler }) {
     <div className='user'>
       <div ref={ref} className='user__content'>
         <div className='user__greeting'>
-          <h3>Hello, {uppercase(firstname)}</h3>
+          <h3 className='greeting'>Hello, {uppercase(firstname)}</h3>
           <IoLogOutOutline className='icon' onClick={logout} title='Logout' />
         </div>
         <div className='user__img'>
@@ -83,7 +83,7 @@ function User({ users, profileImg, logoutHandler }) {
         </div>
         <div className='user__container' id='1'>
           <div className='user__title'>
-            <h3 className='title'>PERSONAL INFORMATION</h3>
+            <h4 className='title'>PERSONAL INFORMATION</h4>
             <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>
@@ -108,7 +108,7 @@ function User({ users, profileImg, logoutHandler }) {
         </div>
         <div className='user__container' id='2'>
           <div className='user__title'>
-            <h3 className='title'>USER ADDRESS</h3>
+            <h4 className='title'>USER ADDRESS</h4>
             <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>
@@ -138,7 +138,7 @@ function User({ users, profileImg, logoutHandler }) {
         </div>
         <div className='user__container' id='3'>
           <div className='user__title'>
-            <h3 className='title'>ACCOUNT DETAIL</h3>
+            <h4 className='title'>ACCOUNT DETAIL</h4>
             <IoCaretDownSharp className='icon__caret' />
           </div>
           <div className='user__detail'>

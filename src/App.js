@@ -121,7 +121,6 @@ function App() {
         Swal.fire('', 'Item Discarded', 'success');
       }
     });
-    console.log(state.products);
   }
 
   const onHandleClearValue = () => setState({ ...state, keyword: '' });
@@ -130,6 +129,30 @@ function App() {
 
   function logoutHandler() {
     setState({ ...state, isLogin: false });
+  }
+
+  function removeFromCart(id) {
+    const idx = state.cart.findIndex(c => c.id === id);
+    Swal.fire({
+      // title: 'Discard Item?',
+      text: 'Discard this item from cart?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      buttonsStyling: true,
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      },
+    }).then(result => {
+      if (result.isConfirmed) {
+        state.cart.splice(idx, 1);
+        setState({ ...state });
+        Swal.fire('', 'Item Discarded', 'success');
+      }
+    });
   }
 
   return (
@@ -181,7 +204,12 @@ function App() {
                 />
               }
             />
-            <Route path='cart' element={<Cart />} />
+            <Route
+              path='cart'
+              element={
+                <Cart cart={state.cart} removeFromCart={removeFromCart} />
+              }
+            />
             <Route
               path='wishlist'
               element={

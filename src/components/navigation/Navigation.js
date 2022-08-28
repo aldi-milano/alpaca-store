@@ -9,7 +9,14 @@ import Wishlist from './icon/Wishlist';
 
 import './navigation.scss';
 
-function Navigation({ items, products, clearValue, isLogin, profile }) {
+function Navigation({
+  items,
+  products,
+  clearValue,
+  isLogin,
+  profile,
+  profileImg,
+}) {
   return (
     <nav className='nav'>
       <Link to='/'>
@@ -25,7 +32,7 @@ function Navigation({ items, products, clearValue, isLogin, profile }) {
         <Wishlist products={products} />
       </Link>
       <Link to={!isLogin ? `/profile` : `/profile/${profile.id}`}>
-        <Profile />
+        <Profile profile={profile} />
       </Link>
     </nav>
   );

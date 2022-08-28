@@ -8,6 +8,7 @@ function SharedLayout({
   products,
   isLogin,
   profile,
+  profileImg,
 }) {
   return (
     <>

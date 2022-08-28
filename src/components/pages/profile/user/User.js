@@ -11,7 +11,6 @@ import './user.scss';
 
 function User({ users, profileImg, logoutHandler }) {
   const [img] = profileImg;
-  const { url } = img;
   const ref = useRef();
   const navigate = useNavigate();
 
@@ -79,7 +78,7 @@ function User({ users, profileImg, logoutHandler }) {
           <IoLogOutOutline className='icon' onClick={logout} title='Logout' />
         </div>
         <div className='user__img'>
-          <img src={url} alt='profile image' className='img' />
+          <img src={img.url} alt='profile image' className='img' />
         </div>
         <div className='user__container' id='1'>
           <div className='user__title'>

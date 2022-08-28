@@ -10,38 +10,47 @@
   // height: 1000px;
 
   .total__detail {
-    align-self: flex-start;
     position: sticky;
-    bottom: 9%;
-    left: 0;
+    bottom: 10%;
     width: 100%;
-    background-color: #000;
-    color: #fff;
-    padding: u.rem(16);
-    @include u.flex(space-between, center);
-
-    .checkout {
-      background-color: red !important;
-      button {
-        border: 1px solid #fff;
-        background-color: #000;
-        color: #fff;
-        padding: 1rem 0.5rem;
-      }
-    }
+    @include u.flex();
+    flex-direction: column;
+    gap: u.rem(32);
+    background-color: #fff;
+    // background: rgba(255, 255, 255, 0.07);
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    // backdrop-filter: blur(4px);
+    // -webkit-backdrop-filter: blur(4px);
 
     .total {
-      @include u.flex(center, flex-start);
-      flex-direction: column;
+      @include u.flex(space-between, center);
       gap: 1rem;
+      width: 100%;
+      padding: 1rem;
 
       span {
-        font-weight: 600;
+        font-weight: 700;
         font-size: u.rem(20);
       }
 
       &__item {
-        font-size: u.rem(12);
+        font-size: u.rem(14);
+      }
+    }
+
+    .checkout {
+      width: 100%;
+      button {
+        // width: 100%;
+        // border: 1px solid #fff;
+        // background-color: #000;
+        // color: #fff;
+        // padding: 1rem 0.5rem;
+        background-color: #000;
+        color: #fff;
+        font-size: u.rem(16);
+        width: 100%;
+        padding: 12px 0;
       }
     }
   }

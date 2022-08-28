@@ -7,7 +7,20 @@ import './cart.scss';
 import illustration from '../../../assets/illustration/pixeltrue-study-from-books.png';
 
 function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
-  const total = cart.map(item => item.subtotal).reduce((a, b) => a + b);
+  function summary() {
+    if (cart.length >= 1) {
+      return cart.map(item => item.subtotal).reduce((a, b) => a + b);
+    }
+  }
+
+  function totalQty() {
+    if (cart.length >= 1) {
+      return cart.map(item => item.qty).reduce((a, b) => a + b);
+    }
+  }
+
+  const total = Number(summary());
+  const qty = Number(totalQty());
 
   if (cart.length === 0) {
     return (
@@ -53,10 +66,8 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
         );
       })}
       <div className='total__detail'>
-        <div className='checkout'>
-          <button>CHECKOUT</button>
-        </div>
         <div className='total'>
+          <p className='total__item'>Total Item: {qty}</p>
           <p>
             Total :{' '}
             <span>
@@ -67,7 +78,9 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
               })}
             </span>
           </p>
-          <p className='total__item'>Total Item: {cart.length}</p>
+        </div>
+        <div className='checkout'>
+          <button>CHECKOUT</button>
         </div>
       </div>
     </div>

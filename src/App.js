@@ -16,14 +16,17 @@ function App() {
   const [state, setState] = useState({
     products: [],
     users: [],
-    user: {},
     cart: [],
     item: [],
     profile: {},
     isLogin: false,
     keyword: '',
-    profileImg: '',
+    profileImg: null,
   });
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   function getJSON(url, errorMsg = 'Something went wrong') {
     return fetch(url).then(response => {
@@ -111,15 +114,11 @@ function App() {
     });
   }
 
-  useEffect(() => {
-    console.log(state.cart);
-  }, [state.cart]);
-
   function removeFromCart(cartID) {
     const idx = state.cart.findIndex(c => c.cartID === cartID);
     Swal.fire({
       // title: 'Discard Item?',
-      text: 'Discard this item from cart?',
+      text: 'Remove this item from cart?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Yes',
@@ -134,7 +133,7 @@ function App() {
       if (result.isConfirmed) {
         state.cart.splice(idx, 1);
         setState({ ...state });
-        Swal.fire('', 'Item Discarded', 'success');
+        Swal.fire('', 'Item Removed', 'success');
       }
     });
   }
@@ -216,6 +215,7 @@ function App() {
                 products={state.products}
                 isLogin={state.isLogin}
                 profile={state.profile}
+                profileImg={state.profileImg}
               />
             }
           >

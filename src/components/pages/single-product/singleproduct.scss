@@ -89,10 +89,12 @@
     cursor: pointer;
     width: 100%;
     button {
-      border: 1px solid #000;
+      // border: 1px solid #000;
+      background-color: #000;
+      color: #fff;
       font-size: u.rem(16);
       width: 100%;
-      padding: 6px 0;
+      padding: 12px 0;
     }
   }
 }

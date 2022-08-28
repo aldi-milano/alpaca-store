@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
@@ -81,11 +81,78 @@ function App() {
     });
   };
 
+  // CART PAGES HANDLER
+
   function onHandleAddtoCart(id) {
-    const products = state.products.filter(product => product.id === id);
-    setState({ ...state, cart: [...state.cart, ...products] });
-    toast('Item added to cart');
+    setState(prevState => {
+      const cartItem = state.cart.find(item => item.id === id);
+      if (cartItem) {
+        return {
+          ...prevState,
+          cart: state.cart.map(item =>
+            item.id === id
+              ? { ...item, qty: item.qty + 1, subtotal: item.qty * item.price }
+              : item
+          ),
+        };
+      }
+      toast('Item added to cart');
+
+      const product = state.products.find(item => item.id === id);
+      const productToAdd = { ...product };
+      productToAdd.cartID = new Date().toISOString();
+      productToAdd.qty = 1;
+      productToAdd.subtotal = 0;
+      return { ...prevState, cart: [...state.cart, productToAdd] };
+    });
   }
+
+  useEffect(() => {
+    console.log(state.cart);
+  }, [state.cart]);
+
+  function removeFromCart(cartID) {
+    const idx = state.cart.findIndex(c => c.cartID === cartID);
+    Swal.fire({
+      // title: 'Discard Item?',
+      text: 'Discard this item from cart?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      buttonsStyling: true,
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      },
+    }).then(result => {
+      if (result.isConfirmed) {
+        state.cart.splice(idx, 1);
+        setState({ ...state });
+        Swal.fire('', 'Item Discarded', 'success');
+      }
+    });
+  }
+
+  function incrementHandler(cartID) {
+    const cartItem = state.cart.findIndex(item => item.cartID === cartID);
+    const item = state.cart[cartItem];
+    item.qty++;
+    item.subtotal = item.qty * item.price;
+    setState({ ...state, cart: [...state.cart] });
+  }
+
+  function decrementHandler(cartID) {
+    const cartItem = state.cart.findIndex(item => item.cartID === cartID);
+    const item = state.cart[cartItem];
+    item.qty--;
+    if (state.cart[cartItem].qty < 1) state.cart[cartItem].qty = 1;
+    item.subtotal = item.qty * item.price;
+    setState({ ...state, cart: [...state.cart] });
+  }
+
+  /////////////////////////////////////////////
 
   function onHandleAddToWishlist(id) {
     const idx = state.products.findIndex(prod => prod.id === id);
@@ -129,30 +196,6 @@ function App() {
 
   function logoutHandler() {
     setState({ ...state, isLogin: false });
-  }
-
-  function removeFromCart(id) {
-    const idx = state.cart.findIndex(c => c.id === id);
-    Swal.fire({
-      // title: 'Discard Item?',
-      text: 'Discard this item from cart?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      buttonsStyling: true,
-      customClass: {
-        actions: 'my-actions',
-        cancelButton: 'order-1 right-gap',
-        confirmButton: 'order-2',
-        denyButton: 'order-3',
-      },
-    }).then(result => {
-      if (result.isConfirmed) {
-        state.cart.splice(idx, 1);
-        setState({ ...state });
-        Swal.fire('', 'Item Discarded', 'success');
-      }
-    });
   }
 
   return (
@@ -207,7 +250,12 @@ function App() {
             <Route
               path='cart'
               element={
-                <Cart cart={state.cart} removeFromCart={removeFromCart} />
+                <Cart
+                  cart={state.cart}
+                  removeFromCart={removeFromCart}
+                  incrementHandler={incrementHandler}
+                  decrementHandler={decrementHandler}
+                />
               }
             />
             <Route

@@ -6,9 +6,35 @@
   flex-direction: column;
   gap: u.rem(10);
   padding: 0 u.rem(16);
+  // height: 1000px;
+
+  .total__item {
+    display: none;
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    // align-self: flex-start;
+    top: 10%;
+    left: 0;
+    z-index: 2;
+
+    p {
+      font-size: u.rem(14);
+    }
+  }
+
+  .total__detail {
+    display: none;
+    align-self: flex-start;
+    position: sticky;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+  }
 
   .cart__container {
     @include u.flex(center, flex-start);
+    gap: u.rem(16);
     height: u.rem(128);
     width: 100%;
     position: relative;
@@ -24,6 +50,7 @@
         width: u.rem(64);
         object-fit: contain;
         object-position: center;
+        margin-left: 10px;
       }
     }
 
@@ -33,11 +60,12 @@
       flex-direction: column;
       height: 100%;
       width: 100%;
-      padding-left: u.rem(16);
 
       .detail {
         flex: 1;
         @include u.flex(flex-start, center);
+        // padding: 0 u.rem(24) 0 u.rem(16);
+        padding-right: u.rem(24);
         .detail__title {
           font-size: u.rem(12);
           font-weight: 500;

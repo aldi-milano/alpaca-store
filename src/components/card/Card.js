@@ -69,7 +69,7 @@ function Card({
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          <button className='button--cart'>Add to cart</button>
+          <button className='button--cart'>ADD TO CART</button>
         </div>
       </div>
     </div>

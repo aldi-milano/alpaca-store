@@ -91,7 +91,11 @@ function App() {
           ...prevState,
           cart: state.cart.map(item =>
             item.id === id
-              ? { ...item, qty: item.qty + 1, subtotal: item.qty * item.price }
+              ? {
+                  ...item,
+                  qty: item.qty + 1,
+                  subtotal: !item.subtotal ? item.price : item.qty * item.price,
+                }
               : item
           ),
         };
@@ -102,7 +106,7 @@ function App() {
       const productToAdd = { ...product };
       productToAdd.cartID = new Date().toISOString();
       productToAdd.qty = 1;
-      productToAdd.subtotal = 0;
+      productToAdd.subtotal = productToAdd.price * productToAdd.qty;
       return { ...prevState, cart: [...state.cart, productToAdd] };
     });
   }

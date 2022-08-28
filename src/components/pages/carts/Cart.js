@@ -1,4 +1,5 @@
 // import { IoAddOutline, IoRemoveOutline, IoCloseOutline } from 'react-icons/io5';
+import { useRef } from 'react';
 
 import CartCard from './CartCard';
 import './cart.scss';
@@ -6,6 +7,8 @@ import './cart.scss';
 import illustration from '../../../assets/illustration/pixeltrue-study-from-books.png';
 
 function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
+  const total = cart.map(item => item.subtotal).reduce((a, b) => a + b);
+
   if (cart.length === 0) {
     return (
       <div className='announcement'>
@@ -32,9 +35,6 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
 
   return (
     <div className='cart'>
-      <div className='total__item'>
-        <p>Total item : {cart.length}</p>
-      </div>
       {cart.map(({ id, image, title, price, cartID, qty, subtotal }) => {
         return (
           <CartCard
@@ -53,7 +53,22 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
         );
       })}
       <div className='total__detail'>
-        <p>Total : 1234</p>
+        <div className='checkout'>
+          <button>CHECKOUT</button>
+        </div>
+        <div className='total'>
+          <p>
+            Total :{' '}
+            <span>
+              {Math.round(total * 14000).toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+              })}
+            </span>
+          </p>
+          <p className='total__item'>Total Item: {cart.length}</p>
+        </div>
       </div>
     </div>
   );

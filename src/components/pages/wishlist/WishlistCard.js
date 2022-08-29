@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { IoTrashOutline } from 'react-icons/io5';
 
 function WishlistCard({
@@ -32,9 +33,11 @@ function WishlistCard({
       style={{ gridRowEnd: `span ${spans}` }}
       id={id}
     >
-      <div className='card__container-img'>
-        <img src={image} alt='' className='img' />
-      </div>
+      <Link to={`/${id}`}>
+        <div className='card__container-img'>
+          <img src={image} alt='' className='img' />
+        </div>
+      </Link>
       <div className='card__desc'>
         <div className='container'>
           <p className='card__desc-price'>
@@ -58,7 +61,7 @@ function WishlistCard({
           id={id}
           onClick={() => onHandleAddtoCart(id)}
         >
-          <button className='button--cart'>Add to cart</button>
+          <button className='button--cart'>ADD TO CART</button>
         </div>
       </div>
     </div>

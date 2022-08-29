@@ -1,12 +1,19 @@
-// import { IoAddOutline, IoRemoveOutline, IoCloseOutline } from 'react-icons/io5';
-import { useRef } from 'react';
-
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import CartCard from './CartCard';
 import './cart.scss';
 
 import illustration from '../../../assets/illustration/pixeltrue-study-from-books.png';
 
-function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
+function Cart({
+  cart,
+  removeFromCart,
+  incrementHandler,
+  decrementHandler,
+  isLogin,
+}) {
+  const navigate = useNavigate();
+
   function summary() {
     if (cart.length >= 1) {
       return cart.map(item => item.subtotal).reduce((a, b) => a + b);
@@ -21,6 +28,34 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
 
   const total = Number(summary());
   const qty = Number(totalQty());
+
+  const toast = str => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast',
+      },
+      showConfirmButton: false,
+      timer: 2000,
+      // timerProgressBar: true,
+    });
+    Toast.fire({
+      icon: 'info',
+      title: str,
+    });
+  };
+
+  let isLoginTrue;
+  let isLoginfalse;
+
+  function validationHandler() {
+    if (!isLogin) {
+      navigate('/profile');
+      toast('You need to login first');
+    }
+  }
 
   if (cart.length === 0) {
     return (
@@ -67,7 +102,9 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
       })}
       <div className='total__detail'>
         <div className='total'>
-          <p className='total__item'>Total Item: {qty}</p>
+          <p className='total__item'>
+            Total Item: <span className='qty'>{qty}</span>
+          </p>
           <p>
             Total :{' '}
             <span>
@@ -80,7 +117,15 @@ function Cart({ cart, removeFromCart, incrementHandler, decrementHandler }) {
           </p>
         </div>
         <div className='checkout'>
-          <button>CHECKOUT</button>
+          <button onClick={validationHandler}>CHECKOUT</button>
+          {/* {!isLogin
+            ? [
+                <Link to={'/profile'}>
+                  <button>CHECKOUT</button>
+                </Link>,
+                toast('You need to login first.'),
+              ]
+            : console.log('it works')} */}
         </div>
       </div>
     </div>

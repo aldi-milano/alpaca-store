@@ -28,13 +28,18 @@
       width: 100%;
       padding: 1rem;
 
-      span {
-        font-weight: 700;
-        font-size: u.rem(20);
-      }
-
       &__item {
         font-size: u.rem(14);
+
+        .qty {
+          font-weight: 600;
+          font-size: u.rem(16);
+        }
+      }
+
+      span {
+        font-weight: 600;
+        font-size: u.rem(18);
       }
     }
 
@@ -134,4 +139,10 @@
   top: -1%;
   font-size: u.rem(22);
   color: #888;
+}
+
+.colored-toast {
+  background-color: #586fd2 !important;
+  color: #fff;
+  // margin-bottom: u.rem(60);
 }

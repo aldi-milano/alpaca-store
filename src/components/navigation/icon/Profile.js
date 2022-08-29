@@ -1,37 +1,28 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { IoPersonOutline } from 'react-icons/io5';
 
-function Profile({ isLogin }) {
-  const [img, setImg] = useState('');
+function Profile({ isLogin, profile, profileImg }) {
+  let firstname;
+  let img;
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const url = await fetch(
-  //       `https://ui-avatars.com/api/?name=${
-  //         firstname + lastname
-  //       }&background=random`
-  //     );
-  //     setImg(url);
-  //   })();
-  // });
+  if (profile && profileImg) {
+    let n = profile?.name?.firstname;
+    firstname = uppercase(n);
+    let [image] = profileImg;
+    img = image.url;
+  }
 
   function uppercase(str = '') {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  // const nama = uppercase(firstname);
-
   return (
     <div className='flex'>
-      {/* {isLogin ? (
-        <img src={img.url} alt='' className='img__icon' />
+      {isLogin ? (
+        <img src={img} alt='' className='img__icon' />
       ) : (
         <IoPersonOutline className='nav__icon' />
-      )} */}
-      <IoPersonOutline className='nav__icon' />
-      {/* <p className='nav__title'>{isLogin ? nama : 'Profile'}</p> */}
-      <p className='nav__title'>Profile</p>
+      )}
+      <p className='nav__title'>{isLogin ? firstname : 'Profile'}</p>
     </div>
   );
 }

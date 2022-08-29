@@ -18,6 +18,7 @@ function SharedLayout({
         clearValue={clearValue}
         isLogin={isLogin}
         profile={profile}
+        profileImg={profileImg}
       />
       <Header keyword={keyword} clearValue={clearValue} />
       <Outlet />

@@ -24,10 +24,6 @@ function App() {
     profileImg: null,
   });
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   function getJSON(url, errorMsg = 'Something went wrong') {
     return fetch(url).then(response => {
       if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
@@ -259,6 +255,7 @@ function App() {
                   removeFromCart={removeFromCart}
                   incrementHandler={incrementHandler}
                   decrementHandler={decrementHandler}
+                  isLogin={state.isLogin}
                 />
               }
             />

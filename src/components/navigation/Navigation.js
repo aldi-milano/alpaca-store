@@ -32,7 +32,7 @@ function Navigation({
         <Wishlist products={products} />
       </Link>
       <Link to={!isLogin ? `/profile` : `/profile/${profile.id}`}>
-        <Profile profile={profile} />
+        <Profile profile={profile} isLogin={isLogin} profileImg={profileImg} />
       </Link>
     </nav>
   );

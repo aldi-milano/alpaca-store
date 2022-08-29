@@ -79,7 +79,11 @@
 }
 
 .img__icon {
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }

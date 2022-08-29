@@ -54,6 +54,8 @@ function Cart({
     if (!isLogin) {
       navigate('/profile');
       toast('You need to login first');
+    } else {
+      navigate('/confirmation');
     }
   }
 

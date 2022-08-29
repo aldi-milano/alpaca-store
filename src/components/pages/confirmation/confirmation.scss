@@ -1,0 +1,143 @@
+@use '../../../scss/utility' as u;
+
+.confirmation {
+  margin: u.rem(60) 0;
+  padding: 0 u.rem(16);
+
+  &__container {
+    .title {
+      text-align: left;
+      margin-bottom: u.rem(32);
+
+      h2 {
+        font-weight: 600;
+        letter-spacing: 1.2px;
+      }
+    }
+
+    .items__list {
+      width: 100%;
+      margin-bottom: u.rem(48);
+
+      table {
+        border-collapse: collapse;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: rgb(234, 234, 234);
+      }
+
+      thead::after {
+        content: '';
+        display: block;
+        height: u.rem(12);
+      }
+
+      tbody::after {
+        content: '';
+        display: block;
+        height: u.rem(24);
+      }
+
+      .num {
+        text-align: center;
+      }
+
+      .table__title {
+        margin: 8px 0;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-height: 1.2;
+      }
+
+      .table__num,
+      .table__qty {
+        text-align: center;
+      }
+
+      .table__totalQty {
+        font-weight: 600;
+      }
+
+      .table__total--tfoot {
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .table__totalPrice {
+        font-weight: 600;
+      }
+    }
+
+    .shipping__information {
+      margin-bottom: u.rem(48);
+
+      .information {
+        width: 100%;
+        border: 1px solid #888;
+        padding: u.rem(16);
+        line-height: 1.5;
+
+        .fullname {
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .payment__method {
+      .title__credit {
+        font-size: u.rem(12);
+        margin-bottom: u.rem(8);
+      }
+
+      .credit__cards {
+        @include u.flex();
+        gap: 6px;
+        margin-bottom: u.rem(40);
+      }
+      .ccc__container {
+        width: 20px;
+        height: 12px;
+        @include u.flex();
+
+        .card {
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+
+      .input__cc {
+        width: 100%;
+
+        form {
+          @include u.flex(center, flex-start);
+          flex-direction: column;
+
+          label {
+            margin-bottom: u.rem(6);
+          }
+
+          input {
+            padding: u.rem(6);
+            margin-bottom: u.rem(12);
+            border: solid 1px #999;
+
+            &:focus {
+              outline: none;
+            }
+          }
+          button {
+            background-color: #000;
+            color: #fff;
+            font-size: 1rem;
+            width: 100%;
+            padding: 12px 0;
+          }
+        }
+      }
+    }
+  }
+}

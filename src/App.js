@@ -11,6 +11,7 @@ import SingleProduct from './components/pages/single-product/SingleProduct';
 import './scss/style.scss';
 import Visitor from './components/pages/profile/visitor/Visitor';
 import User from './components/pages/profile/user/User';
+import Confirmation from './components/pages/confirmation/Confirmation';
 
 function App() {
   const [state, setState] = useState({
@@ -257,6 +258,12 @@ function App() {
                   decrementHandler={decrementHandler}
                   isLogin={state.isLogin}
                 />
+              }
+            />
+            <Route
+              path='confirmation'
+              element={
+                <Confirmation cart={state.cart} profile={state.profile} />
               }
             />
             <Route

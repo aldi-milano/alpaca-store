@@ -51,7 +51,7 @@ function Card({
             })}
           </p>
           <IoHeartOutline
-            className={`icon__wishlist${wishlist ? '--active' : ''}`}
+            className={`icon icon__wishlist${wishlist ? '--active' : ''}`}
             onClick={() => onHandleAddToWishlist(id)}
             id={id}
           />

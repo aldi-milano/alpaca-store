@@ -5,6 +5,13 @@
   background-color: #2f9e44 !important;
   color: #fff;
   margin-bottom: u.rem(60);
+
+  @include u.breakpoint(tablet) {
+    margin-bottom: u.rem(100);
+    font-size: u.rem(20);
+    width: u.rem(30);
+    padding: u.rem(16);
+  }
 }
 
 // .main {

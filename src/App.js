@@ -33,6 +33,7 @@ function App() {
     });
   }
 
+  // FETCH ALL DATA
   useEffect(() => {
     try {
       (async () => {
@@ -52,6 +53,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //SEARCHING ITEM HANDLER
   useEffect(() => {
     const item = state.products.filter(prod =>
       prod.title.toLowerCase().includes(state.keyword.toLowerCase())
@@ -62,6 +64,8 @@ function App() {
 
   const onHandleKeyword = str =>
     setState({ ...state, keyword: str.target.value });
+
+  //////////////////////////////////////////
 
   const toast = str => {
     const Toast = Swal.mixin({
@@ -82,7 +86,6 @@ function App() {
   };
 
   // CART PAGES HANDLER
-
   function onHandleAddtoCart(id) {
     setState(prevState => {
       const cartItem = state.cart.find(item => item.id === id);
@@ -154,6 +157,7 @@ function App() {
 
   /////////////////////////////////////////////
 
+  //WISHLIST HANDLER
   function onHandleAddToWishlist(id) {
     const idx = state.products.findIndex(prod => prod.id === id);
     let wishlist = state.products[idx].wishlist;
@@ -167,6 +171,8 @@ function App() {
 
   function onHandleRemoveFromWishlist(id) {
     const idx = state.products.findIndex(prod => prod.id === id);
+
+    /////////////////////////////////////////
 
     Swal.fire({
       // title: 'Discard Item?',

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import men from '../../../assets/categories/men.jpg';
+import men from '../../../assets/categories/men-outfit.jpg';
 import women from '../../../assets/categories/women.jpg';
 import jewelry from '../../../assets/categories/jewelry.jpg';
 import electronics from '../../../assets/categories/electronics.jpg';
@@ -17,7 +17,7 @@ function Categories() {
               <img src={men} alt='' className='category__img' />
             </div>
             <div className='container__desc'>
-              <p>Men's</p>
+              <p className='category-title'>Men's</p>
             </div>
           </div>
         </Link>
@@ -27,7 +27,7 @@ function Categories() {
               <img src={women} alt='' className='category__img' />
             </div>
             <div className='container__desc'>
-              <p>Women's</p>
+              <p className='category-title'>Women's</p>
             </div>
           </div>
         </Link>
@@ -37,7 +37,7 @@ function Categories() {
               <img src={electronics} alt='' className='category__img' />
             </div>
             <div className='container__desc'>
-              <p>Electronics</p>
+              <p className='category-title'>Electronics</p>
             </div>
           </div>
         </Link>
@@ -47,7 +47,7 @@ function Categories() {
               <img src={jewelry} alt='' className='category__img' />
             </div>
             <div className='container__desc'>
-              <p>Jewellery</p>
+              <p className='category-title'>Jewellery</p>
             </div>
           </div>
         </Link>

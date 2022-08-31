@@ -5,7 +5,7 @@ import { IoMenuOutline } from 'react-icons/io5';
 function Menu() {
   return (
     <div>
-      <IoMenuOutline className='header__icon' />
+      <IoMenuOutline className='icon-menu' />
     </div>
   );
 }

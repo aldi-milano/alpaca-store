@@ -1,11 +1,5 @@
 @use '../../scss/utility' as u;
 
-.colored-toast.swal2-icon-success {
-  background-color: #2f9e44 !important;
-  color: #fff;
-  margin-bottom: u.rem(50);
-}
-
 .card {
   width: 100%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -76,6 +70,28 @@
 
       .icon--cart {
         font-size: u.rem(16);
+      }
+    }
+    //RESPONSIVENESS TABLET
+    @include u.breakpoint(tablet) {
+      padding: u.rem(32);
+      &-price {
+        font-size: u.rem(28);
+      }
+
+      &-title {
+        font-size: u.rem(24);
+      }
+
+      &-button {
+        padding: u.rem(12) 0;
+        .button--cart {
+          font-size: u.rem(24);
+        }
+      }
+
+      .icon {
+        @include u.icon(tablet);
       }
     }
   }

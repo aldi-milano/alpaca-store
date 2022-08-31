@@ -5,33 +5,31 @@
 }
 
 .hero {
-  height: 85vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: u.rem(50) 0;
+  padding: u.rem(50) 0;
+
+  &__summer,
+  &__best,
+  &__casual,
+  &__wools {
+    @extend .hero;
+  }
 
   &__summer {
-    @extend .hero;
     background: radial-gradient(#fffbcc, #fff9b6);
   }
 
   &__best {
-    @extend .hero;
-    // background: radial-gradient(#f58787, #b22727);
     background: radial-gradient(#c96868, #b22727);
   }
 
   &__casual {
-    @extend .hero;
     background: radial-gradient(#e0e8e7, #d3dedc);
-  }
-
-  &__wools {
-    @extend .hero;
-    // background: radial-gradient(#2da093, #209882);
   }
 
   &__heading {
@@ -44,8 +42,14 @@
     text-align: center;
     padding: u.rem(16) u.rem(8);
 
-    &--summer {
+    &--summer,
+    &--best,
+    &--casual,
+    &--wools {
       @extend .hero__heading;
+    }
+
+    &--summer {
       font-size: u.rem(28);
       line-height: 1;
 
@@ -56,14 +60,10 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        // font-family: u.$heading-font3;
-
-        // font-family: u.$heading-font;
       }
     }
 
     &--best {
-      @extend .hero__heading;
       font-size: u.rem(52);
       font-weight: 500;
       font-family: u.$serif-heading-font;
@@ -79,34 +79,62 @@
     }
 
     &--casual {
-      @extend .hero__heading;
       font-size: u.rem(32);
     }
 
     &--wools {
-      @extend .hero__heading;
       font-size: u.rem(30);
       padding: u.rem(48) u.rem(8);
       letter-spacing: 2px;
     }
+
+    //RESPONSIVENESS FOR TABLET
+    @include u.breakpoint(tablet) {
+      &--summer {
+        font-size: u.rem(48);
+
+        span {
+          font-size: u.rem(128);
+        }
+      }
+
+      &--best {
+        padding: u.rem(32) 0;
+        font-size: u.rem(80);
+        font-weight: 500;
+        font-family: u.$serif-heading-font;
+        letter-spacing: 0px;
+
+        p {
+          font-size: u.rem(36);
+        }
+      }
+
+      &--casual {
+        font-size: u.rem(56);
+        letter-spacing: 5px;
+      }
+
+      &--wools {
+        font-size: u.rem(48);
+        padding: u.rem(48) u.rem(8);
+        letter-spacing: 5px;
+      }
+    }
+    /////////////////////////////////
   }
 
   &__img {
     height: 100%;
 
-    &--summer {
-      @extend .hero__img;
-    }
-
-    &--best {
-      @extend .hero__img;
-    }
-    &--casual {
+    &--summer,
+    &--best,
+    &--casual,
+    &--wools {
       @extend .hero__img;
     }
 
     &--wools {
-      @extend .hero__img;
       object-fit: cover;
       width: 100%;
     }
@@ -121,14 +149,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  &--summer {
+  &--summer,
+  &--best,
+  &--casual,
+  &--wools {
     @extend .overlay;
+  }
+
+  &--summer {
     background-color: rgba(255, 146, 146, 0.3);
     z-index: 2;
   }
 
   &--best {
-    @extend .overlay;
     background-color: rgba(240, 212, 212, 0.3);
     top: 0;
     left: 0;
@@ -136,12 +169,21 @@
   }
 
   &--casual {
-    @extend .overlay;
     background-color: rgba(124, 153, 172, 0.3);
   }
 
   &--wools {
-    @extend .overlay;
     background-color: rgba(43, 138, 62, 0.5);
   }
+
+  //RESPONSIVENESS FOR TABLET
+  @include u.breakpoint(tablet) {
+    &--best {
+      top: 10%;
+      left: 0;
+      transform: translate(0, 50%);
+      // padding: u.rem(32);
+    }
+  }
+  ///////////////////////////
 }

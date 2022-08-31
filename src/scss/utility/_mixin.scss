@@ -6,8 +6,13 @@
   align-items: $alg;
 }
 
-@mixin icon() {
-  font-size: f.rem(22);
+$units: (
+  'mobile': f.rem(22),
+  'tablet': f.rem(36),
+);
+
+@mixin icon($unit) {
+  font-size: map-get($units, $unit);
   cursor: pointer;
   color: #000;
 }

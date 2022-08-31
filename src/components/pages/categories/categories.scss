@@ -15,6 +15,11 @@
 .category {
   // margin: u.rem(60) 0;
   height: 80vh;
+
+  @include u.breakpoint(tablet) {
+    height: 90vh;
+  }
+
   width: 100%;
   @include u.flex(center, center);
   flex-direction: column;
@@ -57,22 +62,12 @@
       p {
         font-size: u.rem(24);
         letter-spacing: 1px;
+
+        @include u.breakpoint(tablet) {
+          font-size: u.rem(40);
+          letter-spacing: 5px;
+        }
       }
     }
   }
-  // &--2 {
-  //   background-color: rgb(248, 109, 162);
-  //   height: 100%;
-  //   width: 100%;
-  // }
-  // &--3 {
-  //   background-color: rgb(237, 206, 167);
-  //   height: 100%;
-  //   width: 100%;
-  // }
-  // &--4 {
-  //   background-color: rgb(117, 117, 238);
-  //   height: 100%;
-  //   width: 100%;
-  // }
 }

@@ -70,7 +70,7 @@ function Cart({
               className='img'
             />
           </div>
-          <p>Cart Is Empty.</p>
+          <p className='wishlist-title'>Cart Is Empty.</p>
           <p className='title__src'>
             Illustration by{' '}
             <a href='https://icons8.com/illustrations/author/ARh4OKrFtdfC'>

@@ -32,6 +32,16 @@
       }
     }
   }
+
+  @include u.breakpoint(tablet) {
+    .wishlist-title {
+      font-size: u.rem(32);
+    }
+
+    .title__src {
+      font-size: u.rem(14);
+    }
+  }
 }
 
 .title {

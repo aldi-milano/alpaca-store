@@ -19,7 +19,7 @@
       }
 
       .icon {
-        @include u.icon;
+        @include u.icon(mobile);
       }
     }
 

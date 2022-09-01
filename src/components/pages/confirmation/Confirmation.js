@@ -127,10 +127,10 @@ function Confirmation({ cart, profile }) {
             <h2>Payment Method</h2>
           </div>
           <p className='title__credit'>
-            We accept following payment method cards
+            We accept following cards for payment method.
           </p>
           <div className='credit__cards'>
-            <div className='cc_container'>
+            <div className='cc__container'>
               <img
                 src={visa}
                 alt='visa card'
@@ -138,7 +138,7 @@ function Confirmation({ cart, profile }) {
                 onClick={getRandomNumber}
               />
             </div>
-            <div className='cc_container'>
+            <div className='cc__container'>
               <img
                 src={visa1}
                 alt='visa card'
@@ -146,7 +146,7 @@ function Confirmation({ cart, profile }) {
                 onClick={getRandomNumber}
               />
             </div>
-            <div className='cc_container'>
+            <div className='cc__container'>
               <img
                 src={mastercard}
                 alt='mastercard'
@@ -154,7 +154,7 @@ function Confirmation({ cart, profile }) {
                 onClick={getRandomNumber}
               />
             </div>
-            <div className='cc_container'>
+            <div className='cc__container'>
               <img
                 src={mastercard2}
                 alt='mastercard'
@@ -162,7 +162,7 @@ function Confirmation({ cart, profile }) {
                 onClick={getRandomNumber}
               />
             </div>
-            <div className='cc_container'>
+            <div className='cc__container'>
               <img
                 src={maestro}
                 alt='maestro card'

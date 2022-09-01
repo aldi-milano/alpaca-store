@@ -4,6 +4,11 @@
   margin: u.rem(60) 0;
   padding: 0 u.rem(16);
 
+  @include u.breakpoint(tablet) {
+    margin: u.rem(90) 0;
+    padding: 0 u.rem(32);
+  }
+
   &__container {
     .title {
       text-align: left;
@@ -75,7 +80,7 @@
       margin-bottom: u.rem(48);
 
       .information {
-        width: 100%;
+        display: inline-block;
         border: 1px solid #888;
         padding: u.rem(16);
         line-height: 1.5;
@@ -94,14 +99,12 @@
       }
 
       .credit__cards {
-        @include u.flex();
+        @include u.flex(flex-start, center);
         gap: 6px;
         margin-bottom: u.rem(40);
       }
-      .ccc__container {
-        width: 20px;
-        height: 12px;
-        @include u.flex();
+      .cc__container {
+        width: u.rem(64);
 
         .card {
           width: 100%;
@@ -135,6 +138,95 @@
             font-size: 1rem;
             width: 100%;
             padding: 12px 0;
+          }
+        }
+      }
+    }
+
+    @include u.breakpoint(tablet) {
+      .title {
+        h2 {
+          font-size: u.rem(32);
+        }
+      }
+
+      .items__list {
+        margin-bottom: u.rem(96);
+
+        .table__title,
+        .table__num,
+        .table__qty,
+        .table__total {
+          font-size: u.rem(18);
+        }
+
+        .table__total--tfoot,
+        .table__totalQty,
+        .table__totalPrice {
+          font-size: u.rem(24);
+        }
+      }
+
+      .shipping__information {
+        margin-bottom: u.rem(96);
+
+        .information {
+          display: inline-block;
+          border: 1px solid #888;
+          padding: u.rem(16);
+          line-height: 1.5;
+
+          p {
+            font-size: u.rem(24);
+          }
+
+          .fullname {
+            font-size: u.rem(28);
+          }
+        }
+      }
+
+      .payment__method {
+        .title__credit {
+          font-size: u.rem(18);
+          margin-bottom: u.rem(12);
+        }
+
+        .credit__cards {
+          @include u.flex(flex-start, center);
+          gap: 6px;
+          margin-bottom: u.rem(56);
+
+          .cc__container {
+            width: u.rem(80);
+          }
+        }
+
+        .input__cc {
+          width: 100%;
+
+          form {
+            @include u.flex(center, flex-start);
+            flex-direction: column;
+
+            label {
+              margin-bottom: u.rem(6);
+            }
+
+            input {
+              padding: u.rem(6);
+              margin-bottom: u.rem(12);
+              border: solid 1px #999;
+              font-size: u.rem(18);
+
+              &:focus {
+                outline: none;
+              }
+            }
+
+            button {
+              font-size: u.rem(22);
+            }
           }
         }
       }

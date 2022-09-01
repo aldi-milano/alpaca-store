@@ -107,7 +107,7 @@ function Cart({
           <p className='total__item'>
             Total Item: <span className='qty'>{qty}</span>
           </p>
-          <p>
+          <p className='total-price'>
             Total :{' '}
             <span>
               {Math.round(total * 14000).toLocaleString('id-ID', {

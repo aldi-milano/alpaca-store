@@ -6,8 +6,6 @@
   flex-direction: column;
   gap: u.rem(10);
   padding: 0 u.rem(16);
-  // height: 100vh;
-  // height: 1000px;
 
   .total__detail {
     position: sticky;
@@ -17,6 +15,7 @@
     flex-direction: column;
     gap: u.rem(32);
     background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
     // background: rgba(255, 255, 255, 0.07);
     // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     // backdrop-filter: blur(4px);
@@ -24,7 +23,6 @@
 
     .total {
       @include u.flex(space-between, center);
-      gap: 1rem;
       width: 100%;
       padding: 1rem;
 
@@ -46,22 +44,51 @@
     .checkout {
       width: 100%;
       button {
-        // width: 100%;
-        // border: 1px solid #fff;
-        // background-color: #000;
-        // color: #fff;
-        // padding: 1rem 0.5rem;
         background-color: #000;
         color: #fff;
         font-size: u.rem(16);
-        width: 100%;
+        @include u.breakpoint(tablet) {
+          font-size: u.rem(22);
+        }
         padding: 12px 0;
+        width: 100%;
+      }
+    }
+
+    @include u.breakpoint(tablet) {
+      bottom: 7%;
+      gap: u.rem(38);
+
+      .total {
+        @include u.flex(space-between, center);
+        width: 100%;
+        padding: 1rem;
+
+        &__item {
+          font-size: u.rem(20);
+
+          .qty {
+            font-weight: 600;
+            font-size: u.rem(20);
+          }
+        }
+
+        span {
+          font-weight: 600;
+          font-size: u.rem(24);
+        }
       }
     }
   }
 
+  @include u.breakpoint(tablet) {
+    margin: u.rem(90) 0;
+    padding: 0 u.rem(32);
+    gap: u.rem(20);
+  }
+
   .cart__container {
-    @include u.flex(center, flex-start);
+    @include u.flex();
     gap: u.rem(16);
     height: u.rem(128);
     width: 100%;
@@ -92,7 +119,6 @@
       .detail {
         flex: 1;
         @include u.flex(flex-start, center);
-        // padding: 0 u.rem(24) 0 u.rem(16);
         padding-right: u.rem(24);
         .detail__title {
           font-size: u.rem(12);
@@ -130,6 +156,62 @@
         }
       }
     }
+
+    @include u.breakpoint(tablet) {
+      height: u.rem(180);
+      gap: u.rem(24);
+
+      .container__img {
+        flex: 2;
+
+        .img {
+          height: u.rem(160);
+          width: u.rem(128);
+          margin-left: u.rem(20);
+        }
+      }
+
+      .container__detail {
+        flex: 3;
+        @include u.flex(center, flex-start);
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        .detail {
+          padding-right: u.rem(24);
+          .detail__title {
+            font-size: u.rem(20);
+          }
+        }
+
+        .container__order {
+          flex: 1;
+          @include u.flex(space-around, center);
+          width: 100%;
+
+          .qty {
+            @include u.flex();
+            gap: u.rem(16);
+
+            p {
+              font-size: u.rem(24);
+              font-weight: 500;
+            }
+
+            .icon--dec,
+            .icon--inc {
+              font-size: u.rem(28);
+            }
+          }
+
+          .detail__price {
+            font-size: u.rem(24);
+            font-weight: 600;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -138,11 +220,15 @@
   right: 0%;
   top: -1%;
   font-size: u.rem(22);
-  color: #888;
+
+  @include u.breakpoint(tablet) {
+    // font-size: u.rem(22);
+    @include u.icon(tablet);
+    color: #888;
+  }
 }
 
 .colored-toast {
   background-color: #339af0 !important;
   color: #fff !important;
-  // margin-bottom: u.rem(60);
 }

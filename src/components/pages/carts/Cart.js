@@ -120,14 +120,6 @@ function Cart({
         </div>
         <div className='checkout'>
           <button onClick={validationHandler}>CHECKOUT</button>
-          {/* {!isLogin
-            ? [
-                <Link to={'/profile'}>
-                  <button>CHECKOUT</button>
-                </Link>,
-                toast('You need to login first.'),
-              ]
-            : console.log('it works')} */}
         </div>
       </div>
     </div>

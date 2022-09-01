@@ -8,7 +8,7 @@
 
   @include u.breakpoint(tablet) {
     margin-bottom: u.rem(100);
-    font-size: u.rem(20);
+    font-size: u.rem(18);
     width: u.rem(30);
     padding: u.rem(16);
   }

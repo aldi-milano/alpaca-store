@@ -86,12 +86,21 @@
   font-size: u.rem(10);
   letter-spacing: 1px;
   color: black;
+
+  @include u.breakpoint(tablet) {
+    font-size: u.rem(16);
+  }
 }
 
 .img__icon {
   height: 22px;
   width: 22px;
   border-radius: 50%;
+
+  @include u.breakpoint(tablet) {
+    height: 34px;
+    width: 34px;
+  }
 
   &:hover {
     transform: scale(1.2);

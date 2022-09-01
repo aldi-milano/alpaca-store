@@ -55,6 +55,52 @@
       }
     }
   }
+
+  @include u.breakpoint(tablet) {
+    margin: u.rem(70) 0;
+
+    .icon__caret {
+      font-size: u.rem(28);
+    }
+
+    .user__content {
+      gap: u.rem(40);
+      padding: u.rem(32);
+
+      .user__greeting {
+        @include u.flex(space-between, center);
+        width: 100%;
+
+        .greeting {
+          font-size: u.rem(32);
+          font-weight: 600;
+        }
+
+        .icon {
+          @include u.icon(tablet);
+        }
+      }
+
+      .user__container {
+        .user__title {
+          .title {
+            font-size: u.rem(28);
+            font-weight: 600;
+          }
+        }
+
+        .user__detail {
+          td:first-child {
+            font-weight: 500;
+          }
+
+          td {
+            font-size: u.rem(24);
+          }
+        }
+      }
+    }
+  }
 }
 
 table {

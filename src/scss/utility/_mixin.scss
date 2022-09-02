@@ -8,7 +8,8 @@
 
 $units: (
   'mobile': f.rem(22),
-  'tablet': f.rem(36),
+  'tablet': f.rem(24),
+  'desktop': f.rem(26),
 );
 
 @mixin icon($unit) {

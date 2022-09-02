@@ -134,7 +134,7 @@ function Confirmation({ cart, profile }) {
               <img
                 src={visa}
                 alt='visa card'
-                className='card'
+                className='card-cc'
                 onClick={getRandomNumber}
               />
             </div>
@@ -142,7 +142,7 @@ function Confirmation({ cart, profile }) {
               <img
                 src={visa1}
                 alt='visa card'
-                className='card'
+                className='card-cc'
                 onClick={getRandomNumber}
               />
             </div>
@@ -150,7 +150,7 @@ function Confirmation({ cart, profile }) {
               <img
                 src={mastercard}
                 alt='mastercard'
-                className='card'
+                className='card-cc'
                 onClick={getRandomNumber}
               />
             </div>
@@ -158,7 +158,7 @@ function Confirmation({ cart, profile }) {
               <img
                 src={mastercard2}
                 alt='mastercard'
-                className='card'
+                className='card-cc'
                 onClick={getRandomNumber}
               />
             </div>
@@ -166,7 +166,7 @@ function Confirmation({ cart, profile }) {
               <img
                 src={maestro}
                 alt='maestro card'
-                className='card'
+                className='card-cc'
                 onClick={getRandomNumber}
               />
             </div>

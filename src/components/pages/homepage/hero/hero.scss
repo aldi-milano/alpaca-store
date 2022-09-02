@@ -1,189 +1,514 @@
 @use '../../../../scss/utility' as u;
 
-.hero.active {
-  display: none;
-}
+// .hero.active {
+//   display: none;
+// }
+
+// .hero {
+//   height: 100vh;
+//   width: 100%;
+//   padding: u.rem(50) 0;
+//   display: none;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   &__summer,
+//   &__best,
+//   &__casual,
+//   &__wools {
+//     @extend .hero;
+//   }
+
+//   &__summer {
+//     background: radial-gradient(#fffbcc, #fff9b6);
+//   }
+
+//   &__best {
+//     background: radial-gradient(#c96868, #b22727);
+//   }
+
+//   &__casual {
+//     background: radial-gradient(#e0e8e7, #d3dedc);
+//   }
+
+//   &__heading {
+//     text-transform: uppercase;
+//     font-size: u.rem(32);
+//     letter-spacing: 3px;
+//     line-height: 1.4;
+//     color: #fff;
+//     font-weight: 400;
+//     text-align: center;
+//     padding: u.rem(16) u.rem(8);
+
+//     &--summer,
+//     &--best,
+//     &--casual,
+//     &--wools {
+//       @extend .hero__heading;
+//     }
+
+//     &--summer {
+//       font-size: u.rem(28);
+//       line-height: 1;
+
+//       span {
+//         font-size: u.rem(86);
+//         font-weight: 900;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         text-align: center;
+//       }
+//     }
+
+//     &--best {
+//       font-size: u.rem(52);
+//       font-weight: 500;
+//       font-family: u.$serif-heading-font;
+//       letter-spacing: -1px;
+
+//       p {
+//         margin-top: u.rem(16);
+//         font-size: u.rem(24);
+//         font-weight: 400;
+//         letter-spacing: 5px;
+//         line-height: 1.2;
+//       }
+//     }
+
+//     &--casual {
+//       font-size: u.rem(32);
+//     }
+
+//     &--wools {
+//       font-size: u.rem(30);
+//       padding: u.rem(48) u.rem(8);
+//       letter-spacing: 2px;
+//     }
+
+//     //RESPONSIVENESS FOR TABLET
+//     @include u.breakpoint(tablet) {
+//       &--summer {
+//         font-size: u.rem(48);
+
+//         span {
+//           font-size: u.rem(128);
+//         }
+//       }
+
+//       &--best {
+//         padding: u.rem(32) 0;
+//         font-size: u.rem(80);
+//         font-weight: 500;
+//         font-family: u.$serif-heading-font;
+//         letter-spacing: 0px;
+
+//         p {
+//           font-size: u.rem(36);
+//         }
+//       }
+
+//       &--casual {
+//         font-size: u.rem(56);
+//         letter-spacing: 5px;
+//       }
+
+//       &--wools {
+//         font-size: u.rem(48);
+//         padding: u.rem(48) u.rem(8);
+//         letter-spacing: 5px;
+//       }
+//     }
+//     //////////////////////////////////////
+//   }
+
+//   &__img {
+//     height: 100%;
+
+//     &--summer,
+//     &--best,
+//     &--casual,
+//     &--wools {
+//       @extend .hero__img;
+//     }
+
+//     &--wools {
+//       object-fit: cover;
+//       width: 100%;
+//     }
+//   }
+// }
+
+// .overlay {
+//   width: 100%;
+//   // display: inline-block;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+
+//   &--summer,
+//   &--best,
+//   &--casual,
+//   &--wools {
+//     @extend .overlay;
+//   }
+
+//   &--summer {
+//     background-color: rgba(255, 146, 146, 0.3);
+//     z-index: 2;
+//   }
+
+//   &--best {
+//     background-color: rgba(240, 212, 212, 0.3);
+//     top: 0;
+//     left: 0;
+//     transform: translate(0, 50%);
+//   }
+
+//   &--casual {
+//     background-color: rgba(124, 153, 172, 0.3);
+//   }
+
+//   &--wools {
+//     background-color: rgba(43, 138, 62, 0.5);
+//   }
+
+//   //RESPONSIVENESS FOR TABLET
+//   @include u.breakpoint(tablet) {
+//     &--best {
+//       top: 10%;
+//       left: 0;
+//       transform: translate(0, 50%);
+//       // padding: u.rem(32);
+//     }
+//   }
+//   ///////////////////////////
+// }
+
+// //RESPONSIVENESS FOR DESKTOP
+// @include u.breakpoint(desktop) {
+//   .hero {
+//     padding: 0;
+//   }
+
+//   .overlay {
+//     position: static;
+//     top: 0;
+//     left: 0;
+//     transform: translate(0, 0);
+
+//     &--summer,
+//     &--best,
+//     &--casual,
+//     &--wools {
+//       @extend .overlay;
+//     }
+//   }
+// }
+// ////////////////////////////
 
 .hero {
+  padding: u.rem(20) 0;
+  margin: auto 0;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: u.rem(50) 0;
-
-  &__summer,
-  &__best,
-  &__casual,
-  &__wools {
-    @extend .hero;
-  }
-
-  &__summer {
-    background: radial-gradient(#fffbcc, #fff9b6);
-  }
-
-  &__best {
-    background: radial-gradient(#c96868, #b22727);
-  }
-
-  &__casual {
-    background: radial-gradient(#e0e8e7, #d3dedc);
-  }
-
-  &__heading {
-    text-transform: uppercase;
-    font-size: u.rem(32);
-    letter-spacing: 3px;
-    line-height: 1.4;
-    color: #fff;
-    font-weight: 400;
-    text-align: center;
-    padding: u.rem(16) u.rem(8);
-
-    &--summer,
-    &--best,
-    &--casual,
-    &--wools {
-      @extend .hero__heading;
-    }
-
-    &--summer {
-      font-size: u.rem(28);
-      line-height: 1;
-
-      span {
-        font-size: u.rem(86);
-        font-weight: 900;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    &--best {
-      font-size: u.rem(52);
-      font-weight: 500;
-      font-family: u.$serif-heading-font;
-      letter-spacing: -1px;
-
-      p {
-        margin-top: u.rem(16);
-        font-size: u.rem(24);
-        font-weight: 400;
-        letter-spacing: 5px;
-        line-height: 1.2;
-      }
-    }
-
-    &--casual {
-      font-size: u.rem(32);
-    }
-
-    &--wools {
-      font-size: u.rem(30);
-      padding: u.rem(48) u.rem(8);
-      letter-spacing: 2px;
-    }
-
-    //RESPONSIVENESS FOR TABLET
-    @include u.breakpoint(tablet) {
-      &--summer {
-        font-size: u.rem(48);
-
-        span {
-          font-size: u.rem(128);
-        }
-      }
-
-      &--best {
-        padding: u.rem(32) 0;
-        font-size: u.rem(80);
-        font-weight: 500;
-        font-family: u.$serif-heading-font;
-        letter-spacing: 0px;
-
-        p {
-          font-size: u.rem(36);
-        }
-      }
-
-      &--casual {
-        font-size: u.rem(56);
-        letter-spacing: 5px;
-      }
-
-      &--wools {
-        font-size: u.rem(48);
-        padding: u.rem(48) u.rem(8);
-        letter-spacing: 5px;
-      }
-    }
-    /////////////////////////////////
-  }
-
-  &__img {
-    height: 100%;
-
-    &--summer,
-    &--best,
-    &--casual,
-    &--wools {
-      @extend .hero__img;
-    }
-
-    &--wools {
-      object-fit: cover;
-      width: 100%;
-    }
-  }
-}
-
-.overlay {
-  width: 100%;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
   &--summer,
   &--best,
   &--casual,
   &--wools {
-    @extend .overlay;
+    @extend .hero;
   }
 
   &--summer {
-    background-color: rgba(255, 146, 146, 0.3);
-    z-index: 2;
+    background: radial-gradient(#fffbcc, #fff9b6);
   }
 
   &--best {
-    background-color: rgba(240, 212, 212, 0.3);
-    top: 0;
-    left: 0;
-    transform: translate(0, 50%);
+    background: radial-gradient(#e96f6f, #e03131);
   }
 
   &--casual {
-    background-color: rgba(124, 153, 172, 0.3);
+    background: radial-gradient(#e0e8e7, #d3dedc);
   }
 
   &--wools {
-    background-color: rgba(43, 138, 62, 0.5);
+    background: rgba(43, 138, 62, 0.6);
   }
 
-  //RESPONSIVENESS FOR TABLET
-  @include u.breakpoint(tablet) {
-    &--best {
-      top: 10%;
-      left: 0;
-      transform: translate(0, 50%);
-      // padding: u.rem(32);
+  &__container {
+    height: 100%;
+    width: 100%;
+    @include u.flex();
+    gap: u.rem(16);
+    padding: u.rem(24);
+    // padding: u.rem(50) 0;
+
+    @include u.breakpoint(desktop) {
+      max-width: u.rem(1440);
+      margin: 0 auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding: u.rem(16) 0;
+      flex: 1;
+
+      @include u.breakpoint(desktop) {
+        position: static;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        width: 70%;
+      }
+
+      .hero__heading {
+        text-transform: uppercase;
+        font-size: u.rem(32);
+        letter-spacing: 3px;
+        line-height: 1.4;
+        color: #fff;
+        font-weight: 400;
+        text-align: center;
+        padding: u.rem(16) u.rem(8);
+
+        &--summer,
+        &--best,
+        &--casual,
+        &--wools {
+          @extend .hero__heading;
+        }
+
+        &--summer {
+          font-size: u.rem(28);
+          line-height: 1;
+
+          span {
+            font-size: u.rem(86);
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: u.rem(8);
+          }
+        }
+
+        &--best {
+          // color: #f3adad;
+          font-size: u.rem(52);
+          font-weight: 500;
+          font-family: u.$serif-heading-font;
+          letter-spacing: -1px;
+
+          p {
+            margin-top: u.rem(18);
+            font-size: u.rem(24);
+            font-weight: 400;
+            letter-spacing: 5px;
+            line-height: 1.2;
+          }
+        }
+
+        @include u.breakpoint(tablet) {
+          &--summer {
+            font-size: u.rem(40);
+
+            span {
+              font-size: u.rem(112);
+              margin-top: u.rem(18);
+            }
+          }
+
+          &--best {
+            font-size: u.rem(80);
+
+            p {
+              font-size: u.rem(32);
+            }
+          }
+
+          &--casual,
+          &--wools {
+            font-size: u.rem(48);
+            letter-spacing: 5px;
+          }
+        }
+      }
+
+      &--summer,
+      &--best,
+      &--casual,
+      &--wools {
+        @extend .overlay;
+      }
+
+      &--best {
+        font-size: u.rem(52);
+        font-weight: 500;
+        font-family: u.$serif-heading-font;
+        letter-spacing: -1px;
+
+        p {
+          margin-top: u.rem(16);
+          font-size: u.rem(24);
+          font-weight: 400;
+          letter-spacing: 5px;
+          line-height: 1.2;
+        }
+      }
+
+      &--summer {
+        background-color: rgba(255, 146, 146, 0.3);
+      }
+
+      &--best {
+        background-color: rgba(112, 25, 25, 0.5);
+      }
+
+      &--casual {
+        background-color: rgba(124, 153, 172, 0.3);
+      }
+
+      &--wools {
+        background-color: rgba(43, 138, 62, 0.6);
+      }
     }
   }
-  ///////////////////////////
+
+  &__imgs-container {
+    height: 100%;
+    width: 100%;
+    @include u.flex();
+    flex: 1;
+
+    .hero__img {
+      // width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      // @include u.flex();
+      margin: auto;
+
+      &--summer,
+      &--best,
+      &--casual,
+      &--wools {
+        @extend .hero__img;
+      }
+
+      &--summer,
+      &--best {
+        padding: u.rem(32) 0;
+      }
+
+      &--casual {
+        padding: u.rem(16) 0;
+      }
+    }
+
+    @include u.breakpoint(desktop) {
+      .background-patern--summer {
+        position: absolute;
+        bottom: 0;
+        right: 2%;
+        // transform: translate(-50%, -50%);
+        height: 100%;
+        width: 45%;
+        // width: 50%;
+        // position: absolute;
+
+        background-color: rgba(230, 230, 247, 0);
+        opacity: 0.6;
+        background-image: linear-gradient(
+            30deg,
+            #277bc0 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #277bc0 87.5%,
+            #277bc0
+          ),
+          linear-gradient(
+            150deg,
+            #277bc0 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #277bc0 87.5%,
+            #277bc0
+          ),
+          linear-gradient(
+            30deg,
+            #277bc0 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #277bc0 87.5%,
+            #277bc0
+          ),
+          linear-gradient(
+            150deg,
+            #277bc0 12%,
+            transparent 12.5%,
+            transparent 87%,
+            #277bc0 87.5%,
+            #277bc0
+          ),
+          linear-gradient(
+            60deg,
+            #277bc077 25%,
+            transparent 25.5%,
+            transparent 75%,
+            #277bc077 75%,
+            #277bc077
+          ),
+          linear-gradient(
+            60deg,
+            #277bc077 25%,
+            transparent 25.5%,
+            transparent 75%,
+            #277bc077 75%,
+            #277bc077
+          );
+        background-size: 80px 140px;
+        background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+      }
+
+      .background-patern--best {
+        position: absolute;
+        top: 0;
+        height: 50%;
+        width: 40%;
+
+        background-color: rgba(230, 230, 247, 0);
+        opacity: 1;
+        background-image: radial-gradient(
+            rgba(255, 255, 255, 0.8) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            rgba(255, 255, 255, 0.4) 2px,
+            rgba(230, 230, 247, 0) 2px
+          );
+        background-size: 15px 15px;
+        background-position: 0 0, 40px 40px;
+      }
+
+      .hero__img--summer,
+      .hero__img--best {
+        transform: scale(1.2);
+        position: absolute;
+        z-index: 2;
+      }
+
+      .hero__img--best {
+        margin-bottom: u.rem(20);
+      }
+    }
+  }
 }

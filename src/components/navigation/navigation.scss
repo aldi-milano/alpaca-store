@@ -9,7 +9,11 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 5px 0px;
 
   @include u.breakpoint(tablet) {
-    padding: 1rem 1rem 0.7rem;
+    // padding: 1rem 1rem 0.7rem;
+  }
+
+  @include u.breakpoint(desktop) {
+    display: none;
   }
 
   &__icon {
@@ -22,7 +26,8 @@
 
   @include u.breakpoint(tablet) {
     &__icon {
-      font-size: u.rem(32);
+      @include u.icon(tablet);
+      // font-size: u.rem(32);
 
       &:hover {
         transform: scale(1.2);

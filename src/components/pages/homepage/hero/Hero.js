@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper';
 import './hero.scss';
@@ -8,10 +8,14 @@ import 'swiper/scss/effect-fade';
 
 import summer from '../../../../assets/images/summer3.png';
 import best from '../../../../assets/images/red-woman.png';
-import casual from '../../../../assets/images/casual.png';
+import casual from '../../../../assets/images/new-release.png';
 import wools from '../../../../assets/images/wools.png';
 
 function Hero({ keyword }) {
+  const ref = useRef();
+  // const width = ref.current.clientWidth;
+  // console.log(width);
+
   return (
     <>
       <article className={keyword?.length > 0 ? `hero active` : ''}>
@@ -21,7 +25,7 @@ function Hero({ keyword }) {
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           effect={'fade'}
         >
-          {/* <SwiperSlide>
+          <SwiperSlide>
             <article>
               <section className='hero--summer'>
                 <div className='hero__container'>
@@ -46,8 +50,8 @@ function Hero({ keyword }) {
                 </div>
               </section>
             </article>
-          </SwiperSlide> */}
-          {/* <SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <article>
               <section className='hero--best'>
                 <div className='hero__container'>
@@ -70,7 +74,7 @@ function Hero({ keyword }) {
                 </div>
               </section>
             </article>
-          </SwiperSlide> */}
+          </SwiperSlide>
           <SwiperSlide>
             <article>
               <section className='hero--casual'>
@@ -79,6 +83,7 @@ function Hero({ keyword }) {
                     <h1 className='hero__heading--casual'>new arrival</h1>
                   </div>
                   <div className='hero__imgs-container'>
+                    <div className='background-patern--casual'></div>
                     <img
                       src={casual}
                       alt='man wearing casual shirt'
@@ -89,7 +94,7 @@ function Hero({ keyword }) {
               </section>
             </article>
           </SwiperSlide>
-          {/* <SwiperSlide>
+          {/* <SwiperSlide ref={ref}>
             <article>
               <section className='hero--wools'>
                 <div className='hero__container'>

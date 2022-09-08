@@ -47,9 +47,6 @@ function Cart({
     });
   };
 
-  let isLoginTrue;
-  let isLoginfalse;
-
   function validationHandler() {
     if (!isLogin) {
       navigate('/profile');
@@ -70,7 +67,7 @@ function Cart({
               className='img'
             />
           </div>
-          <p className='wishlist-title'>Cart Is Empty.</p>
+          <p className='wishlist-title'>Cart Is Empty</p>
           <p className='title__src'>
             Illustration by{' '}
             <a href='https://icons8.com/illustrations/author/ARh4OKrFtdfC'>
@@ -85,7 +82,7 @@ function Cart({
 
   return (
     <div className='cart'>
-      {cart.map(({ id, image, title, price, cartID, qty, subtotal }) => {
+      {cart.map(({ id, image, title, price, cartID, qty, subtotal }, i) => {
         return (
           <CartCard
             id={id}
@@ -99,6 +96,7 @@ function Cart({
             subtotal={subtotal}
             incrementHandler={incrementHandler}
             decrementHandler={decrementHandler}
+            idx={i}
           />
         );
       })}
@@ -108,7 +106,7 @@ function Cart({
             Total Item: <span className='qty'>{qty}</span>
           </p>
           <p className='total-price'>
-            Total :{' '}
+            Sub Total :{' '}
             <span>
               {Math.round(total * 14000).toLocaleString('id-ID', {
                 style: 'currency',

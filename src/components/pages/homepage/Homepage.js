@@ -4,12 +4,12 @@ function Homepage({ item, keyword, onHandleAddtoCart, onHandleAddToWishlist }) {
   return (
     <>
       <Hero keyword={keyword} />
-      <SearchResult
+      {/* <SearchResult
         item={item}
         keyword={keyword}
         onHandleAddtoCart={onHandleAddtoCart}
         onHandleAddToWishlist={onHandleAddToWishlist}
-      />
+      /> */}
     </>
   );
 }

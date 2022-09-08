@@ -56,7 +56,7 @@ function Card({
             id={id}
           />
           <IoHeart
-            className={`icon__wishlist${!wishlist ? '--active' : ''}`}
+            className={`icon icon__wishlist${!wishlist ? '--active' : ''}`}
             onClick={() => onHandleAddToWishlist(id)}
             style={{ color: 'red' }}
           />

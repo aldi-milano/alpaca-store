@@ -75,95 +75,103 @@ function User({ users, profileImg, logoutHandler }) {
       <div ref={ref} className='user__content'>
         <div className='user__greeting'>
           <h3 className='greeting'>Hello, {uppercase(firstname)}</h3>
-          <IoLogOutOutline className='icon' onClick={logout} title='Logout' />
+          <IoLogOutOutline
+            className='nav__icon logout'
+            onClick={logout}
+            title='Logout'
+          />
         </div>
-        <div className='user__img'>
-          <img src={img.url} alt='profile image' className='img' />
-        </div>
-        <div className='user__container' id='1'>
-          <div className='user__title'>
-            <h4 className='title'>PERSONAL INFORMATION</h4>
-            <IoCaretDownSharp className='icon__caret' />
+        <div className='container-user'>
+          <div className='user__img'>
+            <img src={img.url} alt='profile image' className='img' />
           </div>
-          <div className='user__detail'>
-            <table>
-              <tbody>
-                <tr>
-                  <td>First Name</td>
-                  <td>:</td>
-                  <td>{firstname}</td>
-                </tr>
-                <tr>
-                  <td>Last Name</td>
-                  <td>:</td>
-                  <td>{lastname}</td>
-                </tr>
-                <tr>
-                  <td>Phone Number</td>
-                  <td>:</td>
-                  <td>{phone}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className='user__container' id='2'>
-          <div className='user__title'>
-            <h4 className='title'>USER ADDRESS</h4>
-            <IoCaretDownSharp className='icon__caret' />
-          </div>
-          <div className='user__detail'>
-            <table>
-              <tbody>
-                <tr>
-                  <td>City</td>
-                  <td>:</td>
-                  <td>{city}</td>
-                </tr>
-                <tr>
-                  <td>Street</td>
-                  <td>:</td>
-                  <td>{street}</td>
-                </tr>
-                <tr>
-                  <td>Number</td>
-                  <td>:</td>
-                  <td>{number}</td>
-                </tr>
-                <tr>
-                  <td>ZIP Code</td>
-                  <td>:</td>
-                  <td>{zipcode}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className='user__container' id='3'>
-          <div className='user__title'>
-            <h4 className='title'>ACCOUNT DETAIL</h4>
-            <IoCaretDownSharp className='icon__caret' />
-          </div>
-          <div className='user__detail'>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Email</td>
-                  <td>:</td>
-                  <td>{email}</td>
-                </tr>
-                <tr>
-                  <td>Username</td>
-                  <td>:</td>
-                  <td>{username}</td>
-                </tr>
-                <tr>
-                  <td>Password</td>
-                  <td>:</td>
-                  <td>{password}</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className='container-data'>
+            <div className='user__container' id='1'>
+              <div className='user__title'>
+                <h4 className='title'>PERSONAL INFORMATION</h4>
+                <IoCaretDownSharp className='icon__caret' />
+              </div>
+              <div className='user__detail'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>First Name</td>
+                      <td>:</td>
+                      <td>{firstname}</td>
+                    </tr>
+                    <tr>
+                      <td>Last Name</td>
+                      <td>:</td>
+                      <td>{lastname}</td>
+                    </tr>
+                    <tr>
+                      <td>Phone Number</td>
+                      <td>:</td>
+                      <td>{phone}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className='user__container' id='2'>
+              <div className='user__title'>
+                <h4 className='title'>USER ADDRESS</h4>
+                <IoCaretDownSharp className='icon__caret' />
+              </div>
+              <div className='user__detail'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>City</td>
+                      <td>:</td>
+                      <td>{city}</td>
+                    </tr>
+                    <tr>
+                      <td>Street</td>
+                      <td>:</td>
+                      <td>{street}</td>
+                    </tr>
+                    <tr>
+                      <td>Number</td>
+                      <td>:</td>
+                      <td>{number}</td>
+                    </tr>
+                    <tr>
+                      <td>ZIP Code</td>
+                      <td>:</td>
+                      <td>{zipcode}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className='user__container' id='3'>
+              <div className='user__title'>
+                <h4 className='title'>ACCOUNT DETAIL</h4>
+                <IoCaretDownSharp className='icon__caret' />
+              </div>
+              <div className='user__detail'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Email</td>
+                      <td>:</td>
+                      <td>{email}</td>
+                    </tr>
+                    <tr>
+                      <td>Username</td>
+                      <td>:</td>
+                      <td>{username}</td>
+                    </tr>
+                    <tr>
+                      <td>Password</td>
+                      <td>:</td>
+                      <td>{password}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

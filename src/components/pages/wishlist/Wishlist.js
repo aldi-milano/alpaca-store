@@ -1,5 +1,6 @@
-import './wishlist.scss';
 import WishlistCard from './WishlistCard';
+
+import './wishlist.scss';
 
 import illustration from '../../../assets/illustration/pixeltrue-sleeping.png';
 
@@ -15,7 +16,7 @@ function Wishlist({ products, onHandleAddtoCart, onHandleRemoveFromWishlist }) {
               className='img'
             />
           </div>
-          <p className='wishlist-title'>Wishlist Is Empty.</p>
+          <p className='wishlist-title'>Wishlist Is Empty</p>
           <p className='title__src'>
             Illustration by{' '}
             <a href='https://icons8.com/illustrations/author/ARh4OKrFtdfC'>

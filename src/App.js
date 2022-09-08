@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Swal from 'sweetalert2';
+
+//COMPONENT
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Homepage from './components/pages/homepage/Homepage';
 import Categories from './components/pages/categories/Categories';
@@ -8,10 +10,13 @@ import Category from './components/pages/categories/category/category';
 import Cart from './components/pages/carts/Cart';
 import Wishlist from './components/pages/wishlist/Wishlist';
 import SingleProduct from './components/pages/single-product/SingleProduct';
-import './scss/style.scss';
 import Visitor from './components/pages/profile/visitor/Visitor';
 import User from './components/pages/profile/user/User';
 import Confirmation from './components/pages/confirmation/Confirmation';
+import SearchResult from './components/pages/search-result/SearchResult';
+import Header from './components/header/Header';
+
+import './scss/style.scss';
 
 function App() {
   const [state, setState] = useState({
@@ -204,9 +209,23 @@ function App() {
     setState({ ...state, isLogin: false });
   }
 
+  function clearCartHander() {
+    state.cart = [];
+    setState({ ...state });
+  }
+
   return (
     <main className='main'>
       <BrowserRouter>
+        <Header
+          keyword={onHandleKeyword}
+          clearValue={onHandleClearValue}
+          items={state.cart}
+          products={state.products}
+          isLogin={state.isLogin}
+          profile={state.profile}
+          profileImg={state.profileImg}
+        />
         <Routes>
           <Route
             path='/'
@@ -269,7 +288,11 @@ function App() {
             <Route
               path='confirmation'
               element={
-                <Confirmation cart={state.cart} profile={state.profile} />
+                <Confirmation
+                  cart={state.cart}
+                  profile={state.profile}
+                  clearCartHander={clearCartHander}
+                />
               }
             />
             <Route
@@ -286,6 +309,17 @@ function App() {
               path='profile'
               element={
                 <Visitor users={state.users} isLoginHandler={isLoginHandler} />
+              }
+            />
+            <Route
+              path='search'
+              element={
+                <SearchResult
+                  item={state.item}
+                  keyword={state.keyword}
+                  onHandleAddtoCart={onHandleAddtoCart}
+                  onHandleAddToWishlist={onHandleAddToWishlist}
+                />
               }
             />
             <Route

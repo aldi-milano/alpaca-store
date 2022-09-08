@@ -7,6 +7,10 @@
   gap: u.rem(16);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px 0px;
   background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
 
   &__icon-container {
     @include u.flex(flex-start);
@@ -35,86 +39,169 @@
     }
   }
 
-  // @include u.breakpoint(desktop) {
-  //   display: none;
-  // }
+  @include u.breakpoint(desktop) {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
 }
 
-.search-bar {
-  height: 25px;
-  border: transparent;
-  border-bottom: 1px solid black;
-  flex: 0 0 8rem;
-  display: flex;
-  position: relative;
-  // opacity: 0;
+.header-navigation {
+  flex: 1;
+  width: 100%;
+  @include u.flex(flex-end, center);
+  gap: u.rem(12);
 
-  &__input {
-    flex-grow: 1;
-    width: 100%;
-    padding: 0 0.3rem;
-    border: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 1;
-    width: calc(100% - 25px);
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
-      color: rgba(153, 153, 153, 0.5);
+  .icon-navigation {
+    display: none;
+    @include u.breakpoint(desktop) {
+      @include u.flex();
+      gap: u.rem(12);
     }
   }
 
-  &__submit {
-    color: black;
-    cursor: pointer;
-    font-size: u.rem(22);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    transition: opacity 0.1s ease-in-out;
-  }
-
-  &__close {
-    opacity: 0;
-    color: black;
-    cursor: pointer;
-    font-size: u.rem(22);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-  }
-
-  &:focus-within {
-    .search-bar__submit {
-      opacity: 0;
-      z-index: -12;
-    }
-
-    .search-bar__close {
-      opacity: 1;
-      z-index: 1;
-    }
-  }
-
-  @include u.breakpoint(tablet) {
-    flex: 0 0 u.rem(208);
-    height: 30px;
+  .search-bar {
+    height: 25px;
+    border: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    flex: 0 0 8rem;
+    display: flex;
+    position: relative;
+    transition: opacity 0.3s ease-in-out;
+    // opacity: 0;
 
     &__input {
-      font-size: u.rem(16);
+      flex-grow: 1;
+      width: 100%;
+      padding: 0 0.3rem;
+      border: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+      width: calc(100% - 25px);
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(153, 153, 153, 0.5);
+      }
     }
 
-    &__submit,
+    &__submit {
+      color: rgba(0, 0, 0, 0.3) !important;
+      // stroke: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font-size: u.rem(22);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: opacity 0.1s ease-in-out;
+    }
+
     &__close {
-      @include u.icon(tablet);
+      opacity: 0;
+      color: black;
+      cursor: pointer;
+      font-size: u.rem(22);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    &:focus-within {
+      border-bottom: 1px solid rgba(0, 0, 0);
+      .search-bar__submit {
+        opacity: 0;
+        z-index: -12;
+      }
+
+      .search-bar__close {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+
+    @include u.breakpoint(tablet) {
+      flex: 0 0 u.rem(208);
+      height: 30px;
+
+      &__input {
+        font-size: u.rem(16);
+      }
+
+      &__submit,
+      &__close {
+        @include u.icon(tablet);
+      }
+    }
+  }
+}
+
+@include u.breakpoint(desktop) {
+  .notification {
+    position: relative;
+
+    .nav__icon--cart {
+      @include u.icon(mobile);
+    }
+
+    .indicator {
+      display: none;
+
+      &__wishlist {
+        display: none;
+      }
+    }
+
+    .indicator--active {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      position: absolute;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+      font-size: 10px;
+      @include u.flex();
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+
+  .indicator__wishlist--active {
+    @extend .indicator--active;
+    transform: translate(10%, -10%);
+  }
+
+  .flex {
+    .nav__title {
+      display: none;
+    }
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
+  .img__icon {
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+
+    @include u.breakpoint(tablet) {
+      height: 34px;
+      width: 34px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }

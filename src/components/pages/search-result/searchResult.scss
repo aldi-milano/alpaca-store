@@ -15,6 +15,14 @@
     margin: u.rem(80) 0;
     padding: u.rem(32);
   }
+
+  @include u.breakpoint(desktop) {
+    max-width: u.rem(1440);
+    margin: 0 auto;
+    @include u.flex(flex-start, center);
+    gap: u.rem(16);
+    flex-wrap: wrap;
+  }
 }
 
 .result--error {

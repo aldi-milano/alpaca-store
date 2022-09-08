@@ -51,10 +51,10 @@ html {
         }
 
         @include u.breakpoint(tablet) {
-          font-size: u.rem(18);
+          font-size: u.rem(16);
 
           &::placeholder {
-            font-size: u.rem(16);
+            font-size: u.rem(14);
           }
         }
       }
@@ -67,7 +67,7 @@ html {
           color: #888;
 
           @include u.breakpoint(tablet) {
-            font-size: u.rem(14);
+            font-size: u.rem(12);
           }
         }
       }
@@ -80,7 +80,7 @@ html {
         width: 100%;
 
         @include u.breakpoint(tablet) {
-          font-size: u.rem(18);
+          font-size: u.rem(12);
         }
       }
     }
@@ -116,20 +116,24 @@ html {
 
           p {
             font-size: u.rem(14);
-            font-weight: 600;
+            font-weight: 500;
           }
           @include u.breakpoint(tablet) {
             img {
-              height: u.rem(32);
+              height: u.rem(24);
             }
 
             p {
-              font-size: u.rem(18);
+              font-size: u.rem(16);
             }
           }
         }
         @include u.breakpoint(tablet) {
           width: 50%;
+        }
+
+        @include u.breakpoint(desktop) {
+          width: 25%;
         }
       }
     }
@@ -144,7 +148,7 @@ html {
       width: 100%;
 
       .popup__message {
-        font-size: u.rem(12);
+        font-size: u.rem(10);
         color: #888;
         cursor: pointer;
         margin-bottom: u.rem(8);
@@ -155,6 +159,10 @@ html {
         }
         @include u.breakpoint(tablet) {
           font-size: u.rem(14);
+        }
+
+        @include u.breakpoint(desktop) {
+          font-size: u.rem(12);
         }
       }
 

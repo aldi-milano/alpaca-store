@@ -16,7 +16,7 @@ function Profile({ isLogin, profile, profileImg }) {
   }
 
   return (
-    <div className='flex'>
+    <div className='flex' title='Profile'>
       {isLogin ? (
         <img src={img} alt='' className='img__icon' />
       ) : (

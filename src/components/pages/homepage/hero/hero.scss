@@ -344,7 +344,7 @@
 
           &--casual,
           &--wools {
-            font-size: u.rem(48);
+            font-size: u.rem(44);
             letter-spacing: 5px;
           }
         }
@@ -352,8 +352,9 @@
         @include u.breakpoint(desktop) {
           &--casual {
             width: 100%;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 600;
+            font-size: u.rem(48);
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 700;
             // display: block;
             position: absolute;
             z-index: 2;
@@ -363,13 +364,13 @@
 
             &::before {
               content: 'new arrival';
-              font-size: u.rem(44);
+              font-size: u.rem(48);
               display: block;
-              font-weight: 400;
-              color: rgba(255, 255, 255, 0.3);
+              font-weight: 700;
+              color: rgba(255, 255, 255, 0.2);
               position: absolute;
               z-index: 1;
-              top: 75%;
+              top: 90%;
               left: 50%;
               transform: translate(-50%, -50%);
               width: 100%;
@@ -377,13 +378,13 @@
 
             &::after {
               content: 'new arrival';
-              font-size: u.rem(56);
+              font-size: u.rem(48);
               display: block;
               font-weight: 700;
               color: #fff;
               position: absolute;
               z-index: 3;
-              top: 25%;
+              top: 10%;
               left: 50%;
               transform: translate(-50%, -50%);
               width: 100%;
@@ -529,8 +530,9 @@
       .background-patern--casual {
         position: absolute;
         top: 0;
-        height: 100%;
-        width: 35%;
+        right: 0;
+        height: 60%;
+        width: 45%;
 
         background-color: rgba(230, 230, 247, 0);
         opacity: 0.1;

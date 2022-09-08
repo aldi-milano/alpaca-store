@@ -4,7 +4,7 @@ import { IoHeartOutline } from 'react-icons/io5';
 function Wishlist({ products }) {
   const wishlist = products?.filter(prod => prod.wishlist === true);
   return (
-    <div className='notification flex'>
+    <div className='notification flex' title='Wishlist'>
       <IoHeartOutline className='nav__icon' />
       <div
         className={`indicator__wishlist${

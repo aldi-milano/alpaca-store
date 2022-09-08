@@ -24,13 +24,20 @@
     }
 
     .user__img {
-      width: 100%;
+      @include u.flex();
 
       .img {
-        display: block;
+        display: inline-block;
         width: 40%;
         border-radius: 50%;
-        margin: 0 auto;
+      }
+
+      @include u.breakpoint(desktop) {
+        justify-content: flex-start;
+
+        .img {
+          width: 80%;
+        }
       }
     }
 
@@ -60,7 +67,7 @@
     margin: u.rem(70) 0;
 
     .icon__caret {
-      font-size: u.rem(28);
+      font-size: u.rem(24);
     }
 
     .user__content {
@@ -98,6 +105,25 @@
             font-size: u.rem(24);
           }
         }
+
+        @include u.breakpoint(desktop) {
+          .user__title {
+            .title {
+              font-size: u.rem(24);
+              font-weight: 500;
+            }
+          }
+
+          .user__detail {
+            td:first-child {
+              font-weight: 400;
+            }
+
+            td {
+              font-size: u.rem(20);
+            }
+          }
+        }
       }
     }
   }
@@ -106,6 +132,44 @@
 table {
   border-collapse: separate;
   border-spacing: u.rem(10);
+}
+
+.container-user {
+  @include u.flex(center, flex-start);
+  flex-direction: column;
+  gap: u.rem(44);
+
+  .user__img {
+    flex: 1;
+  }
+
+  .container-data {
+    flex: 1;
+    @include u.flex(space-around, flex-start);
+    flex-direction: column;
+    gap: u.rem(16);
+    height: 100%;
+  }
+
+  @include u.breakpoint(desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .user__img {
+      align-self: flex-start;
+    }
+
+    .container-data {
+      flex: 3;
+      justify-content: flex-start;
+      gap: u.rem(32);
+    }
+  }
+}
+
+.logout {
+  font-size: u.rem(28);
 }
 
 // useEffect(() => {

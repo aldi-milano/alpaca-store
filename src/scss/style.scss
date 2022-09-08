@@ -12,21 +12,23 @@
     width: u.rem(30);
     padding: u.rem(16);
   }
+
+  @include u.breakpoint(desktop) {
+    margin-bottom: u.rem(10);
+  }
 }
 
-// .main {
-//   position: relative;
+@include u.breakpoint(desktop) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+  }
+}
+
+// .nav {
+//   position: fixed;
+//   bottom: 0;
+//   z-index: 99;
 // }
-
-.header {
-  position: fixed;
-  top: 0;
-  z-index: 99;
-  width: 100%;
-}
-
-.nav {
-  position: fixed;
-  bottom: 0;
-  z-index: 99;
-}

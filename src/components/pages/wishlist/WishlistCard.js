@@ -48,7 +48,7 @@ function WishlistCard({
             })}
           </p>
           <IoTrashOutline
-            style={{ fontSize: '1.375rem', cursor: 'pointer' }}
+            className='nav__icon'
             title='Discard from wishlist'
             onClick={() => onHandleRemoveFromWishlist(id)}
           />

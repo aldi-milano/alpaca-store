@@ -13,9 +13,11 @@ function CartCard({
   removeFromCart,
   incrementHandler,
   decrementHandler,
+  idx,
 }) {
   return (
     <div className='cart__container' id={id}>
+      <p className='number'>{idx + 1}</p>
       <IoCloseOutline
         className='close'
         onClick={() => removeFromCart(cartID)}

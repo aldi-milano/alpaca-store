@@ -3,7 +3,7 @@
 .card {
   width: 100%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  @include u.flex;
+  @include u.flex();
   flex-direction: column;
   gap: 1rem;
 
@@ -17,8 +17,24 @@
     .img {
       height: 100%;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
       padding: 10px 0;
+    }
+
+    @include u.breakpoint(desktop) {
+      // height: u.rem(352);
+      // width: u.rem(240);
+      // width: u.rem(224);
+      width: u.rem(192);
+      height: u.rem(208);
+      margin: 0 auto;
+
+      .img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        @include u.flex();
+      }
     }
   }
 
@@ -46,6 +62,11 @@
     .container {
       @include u.flex(space-between);
       margin-bottom: u.rem(10);
+
+      @include u.breakpoint(desktop) {
+        @include u.flex(space-between, center);
+        width: 100%;
+      }
     }
 
     &-button {
@@ -62,16 +83,8 @@
       .button--cart {
         font-size: u.rem(12);
       }
-
-      // &:hover {
-      //   background-color: #000;
-      //   color: #fff;
-      // }
-
-      .icon--cart {
-        font-size: u.rem(16);
-      }
     }
+
     //RESPONSIVENESS TABLET
     @include u.breakpoint(tablet) {
       padding: u.rem(32);
@@ -94,6 +107,46 @@
         @include u.icon(tablet);
       }
     }
+
+    @include u.breakpoint(desktop) {
+      padding: u.rem(10);
+      @include u.flex(center, flex-start);
+      flex-direction: column;
+      &-title {
+        font-size: u.rem(12);
+      }
+
+      &-price {
+        font-size: u.rem(18);
+        font-weight: 700;
+      }
+
+      &-button {
+        margin-top: auto;
+        @include u.flex();
+        cursor: pointer;
+        background-color: #000;
+        color: #fff !important;
+        width: 100%;
+        padding: 6px 0;
+        // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border: solid 1px #000;
+
+        .button--cart {
+          margin-top: auto;
+          font-size: u.rem(12);
+        }
+      }
+    }
+  }
+
+  @include u.breakpoint(desktop) {
+    // height: u.rem(352);
+    // width: u.rem(240);
+    height: u.rem(352);
+    width: u.rem(208);
+    box-shadow: none;
+    border: 1px solid rgba(85, 85, 85, 0.6);
   }
 }
 

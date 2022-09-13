@@ -26,7 +26,6 @@ function Header({
       <header>
         <nav className='header'>
           <div className='header__icon-container'>
-            <Menu />
             <Link to='/'>
               <img src={logo} alt='logo alpaca' className='header__logo' />
             </Link>

@@ -16,9 +16,23 @@
   }
 
   &__icon {
+    @include u.breakpoint(desktop) {
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:active {
+        transform: scale(1.2);
+      }
+    }
+
     @include u.icon(mobile);
 
     &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
       transform: scale(1.2);
     }
   }
@@ -29,6 +43,10 @@
       // font-size: u.rem(32);
 
       &:hover {
+        transform: scale(1.2);
+      }
+
+      &:active {
         transform: scale(1.2);
       }
     }
@@ -87,6 +105,10 @@
 
   &:hover {
     border-bottom: 1px solid #000;
+  }
+
+  &:active {
+    transform: scale(1.2);
   }
 }
 

@@ -30,44 +30,46 @@ function SingleProduct({ products, onHandleAddToWishlist, onHandleAddtoCart }) {
         <div className='container__img'>
           <img src={image} alt={title} className='img' />
         </div>
-        <div className='container__desc'>
-          <div className='container'>
-            <h2 className='desc__price'>
-              {' '}
-              {Math.round(price * 14000).toLocaleString('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0,
-              })}
-            </h2>
-            <IoHeartOutline
-              className={`icon__wishlist${wishlist ? '--active' : ''}`}
-              onClick={() => onHandleAddToWishlist(id)}
-              id={id}
-            />
-            <IoHeart
-              className={`icon__wishlist${!wishlist ? '--active' : ''}`}
-              onClick={() => onHandleAddToWishlist(id)}
-              style={{ color: 'red' }}
-            />
-          </div>
-          <h3 className='desc__title'>{title}</h3>
-          <div className='desc__rating'>
-            <IoStarOutline />
-            <p className='rating__detail'>
-              {rate} | {count}
+        <div className='box'>
+          <div className='container__desc'>
+            <div className='container'>
+              <h2 className='desc__price'>
+                {' '}
+                {Math.round(price * 14000).toLocaleString('id-ID', {
+                  style: 'currency',
+                  currency: 'IDR',
+                  minimumFractionDigits: 0,
+                })}
+              </h2>
+              <IoHeartOutline
+                className={`icon__wishlist${wishlist ? '--active' : ''}`}
+                onClick={() => onHandleAddToWishlist(id)}
+                id={id}
+              />
+              <IoHeart
+                className={`icon__wishlist${!wishlist ? '--active' : ''}`}
+                onClick={() => onHandleAddToWishlist(id)}
+                style={{ color: 'red' }}
+              />
+            </div>
+            <h3 className='desc__title'>{title}</h3>
+            <div className='desc__rating'>
+              <IoStarOutline />
+              <p className='rating__detail'>
+                {rate} | {count}
+              </p>
+            </div>
+            <p className='desc__detail__title'>Description :</p>
+            <p className={`desc__detail${active ? '--active' : ''}`}>
+              {description}
             </p>
+            <button onClick={setState}>
+              {active ? 'See more...' : 'See less...'}
+            </button>
           </div>
-          <p className='desc__detail__title'>Description :</p>
-          <p className={`desc__detail${active ? '--active' : ''}`}>
-            {description}
-          </p>
-          <button onClick={setState}>
-            {active ? 'See more...' : 'See less...'}
-          </button>
-        </div>
-        <div className='container__act' onClick={() => onHandleAddtoCart(id)}>
-          <button>ADD TO CART</button>
+          <div className='container__act' onClick={() => onHandleAddtoCart(id)}>
+            <button>ADD TO CART</button>
+          </div>
         </div>
       </div>
     </div>

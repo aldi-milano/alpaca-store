@@ -4,7 +4,6 @@ import Cart from '../navigation/icon/Cart';
 
 import { Link } from 'react-router-dom';
 
-import Menu from './icon/Menu';
 import Search from './icon/Search';
 
 import logo from '../../assets/logo/alpaca-black.png';

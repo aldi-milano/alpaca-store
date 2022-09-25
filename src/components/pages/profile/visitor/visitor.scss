@@ -6,7 +6,7 @@ html {
 
 .visitor {
   margin: u.rem(60) 0 u.rem(65);
-  height: 100vh - 30;
+  height: 100vh - 20;
   @include u.flex();
   flex-direction: column;
   width: 100%;
@@ -141,10 +141,10 @@ html {
     .popup__data {
       @include u.flex();
       flex-direction: column;
-      position: absolute;
-      bottom: 5%;
-      left: 50%;
-      transform: translate(-50%, 0);
+      // position: absolute;
+      // bottom: 5%;
+      // left: 50%;
+      // transform: translate(-50%, 0);
       width: 100%;
 
       .popup__message {

@@ -27,7 +27,7 @@ function Visitor({ users, isLoginHandler }) {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Incorect Username or Password.',
+          text: 'Try click blue link below button to login.',
         });
       }
     })();
@@ -75,6 +75,15 @@ function Visitor({ users, isLoginHandler }) {
             </button>
           </form>
         </div>
+        <div className='popup__data'>
+          <p className='popup__message'>
+            Try one of these{' '}
+            <span className='span' onClick={getIdPass}>
+              Id's and Password's
+            </span>{' '}
+            to login.
+          </p>
+        </div>
         <div className='visitor__otherLogin'>
           <p className='otherLogin__title'>Or login with</p>
           <div className='otherLogin__container'>
@@ -87,15 +96,6 @@ function Visitor({ users, isLoginHandler }) {
               <p>Facebook</p>
             </div>
           </div>
-        </div>
-        <div className='popup__data'>
-          <p className='popup__message'>
-            Try one of these{' '}
-            <span className='span' onClick={getIdPass}>
-              Id's and Password's
-            </span>{' '}
-            to login.
-          </p>
         </div>
       </div>
     </div>
